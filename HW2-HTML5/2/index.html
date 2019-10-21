@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Feedback</h2>
+    <form action="post">
+      <fieldset>
+        <legend>
+          Feedback
+        </legend>
+        <label for="firstName">First name</label>
+        <input
+          type="text"
+          name="firstName"
+          id="firstName"
+          required="required"
+        /><br />
+        <label for="Email">Email</label>
+        <input
+          type="email"
+          placeholder="user@user.com"
+          name="Email"
+          id="Email"
+          required="required"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+        /><br />
+        <label for="pros">Pros</label>
+        <input
+          type="text"
+          placeholder="Main pros"
+          name="pros"
+          id="pros"
+          required="required"
+        /><br />
+        <label for="cons">Cons</label>
+        <input
+          type="text"
+          placeholder="Main cons"
+          name="cons"
+          id="cons"
+          required="required"
+        /><br />
+        <label for="overview">Overview</label>
+        <textarea
+          name="overview"
+          id="overview"
+          cols="30"
+          rows="10"
+          required="required"
+        ></textarea
+        ><br />
+        <label for="raiting">Raiting</label>
+        <input
+          type="text"
+          value="5"
+          name="raiting"
+          id="raiting"
+          required="required"
+        /><br />
+        <label>
+          <input type="checkbox" name="subscribe"/> Subscribe me to the
+          newsletter<br
+        /></label>
+
+        <input type="submit" name="send" value="Send" />
+      </fieldset>
+    </form>
+
+    <h3>Login</h3>
+
+    <form action="post">
+      <fieldset>
+        <legend>
+          Authorization
+        </legend>
+        <label
+          >Login
+          <input
+            type="text"
+            name="login"
+            id="login"
+            placeholder="user@user.com"
+            required="required"
+          /> </label
+        ><br />
+
+        <label
+          >Password
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="password"
+            required="required"
+          /> </label
+        ><br />
+        <input type="submit" name="submit" value="Submit" />
+      </fieldset>
+    </form>
+
+    <h3>Registration</h3>
+
+    <form action="post">
+      <fieldset>
+        <legend>
+          Registration
+        </legend>
+        <h4>Common:</h4>
+        <label>
+          Name
+          <input
+            type="text"
+            name="name"
+            placeholder="John"
+            required="required"
+          />
+          * Field is required </label
+        ><br />
+        <label>
+          Surname
+          <input
+            type="text"
+            name="surname"
+            placeholder="Doe"
+            required="required"
+          />
+          * Field is required </label
+        ><br />
+        <label>
+          Gender
+          <input type="radio" name="gender" value="Male" />Male </label
+        ><label>
+          <input type="radio" name="gender" value="Female" />Female </label
+        ><br />
+        <label>
+          Date of birth
+          <input type="date" name="date" />
+          * 01/01/1990 </label
+        ><br />
+        <hr />
+        <h4>Adress:</h4>
+        <label>
+          Country
+          <select name="country" required="required">
+            <option value="" disabled="disabled" selected="selected"
+              >Select</option
+            >
+            <option value="russia">Russia</option>
+            <option value="poland">Poland</option>
+            <option value="ukraine">Ukraine</option>
+          </select> </label
+        ><br />
+
+        <hr />
+
+        <h4>Other:</h4>
+        <label> Favourite color <input type="color" name="color" /> </label>
+        <br />
+        <label> Upload avatar <input type="file" name="avatar"/></label>
+        <hr />
+        <h4>Security:</h4>
+        <label
+          >Password
+          <input
+            type="password"
+            name="password"
+            id="password2"
+            placeholder="Your password"
+            required="required"
+          />
+          * Field is required</label
+        >
+        <br />
+        <label
+          >Repeat password
+          <input
+            type="password"
+            name="confirmPassword"
+            id="confirmPassword"
+            required="required"
+          /> </label
+        ><br />
+        <label
+          >Email
+          <input
+            type="email"
+            name="email"
+            placeholder="john_doe@gmail.com"
+            required="required"
+          />* Field is required
+        </label>
+        <hr />
+        <label>
+          <input type="checkbox" name="register" /> I agree the Terms and
+          conditions
+        </label>
+        <input type="submit" name="register" value="Register" />
+      </fieldset>
+    </form>
+  </body>
+</html>
