@@ -1,0 +1,11 @@
+1. Quotation marks  changed to double
+2. Doctype added
+3. Metadata and lang="en" attribute added
+4. title added
+5. attribute alt added to img tags
+6. obsolete align attribute from the legend tags deleted
+7. p tags replaced with span to avoid errors
+8. main tag added after body
+9. individual blocks of information  wrapped in a semantic tag article
+10. "what we do"   wrapped in a semantic tag section
+11. semantic tag footer added
