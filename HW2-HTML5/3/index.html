@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="main.css" />
+    <title>HW2</title>
+  </head>
+  <body>
+    <table class="table1">
+      <colgroup>
+        <col class="col1" />
+        <col class="col2" />
+        <col class="col3" />
+      </colgroup>
+
+      <tbody>
+        <tr class="row--small-height">
+          <td>Title A </td>
+          <td>Title B</td>
+          <td>Title C</td>
+        </tr>
+        <tr>
+          <td rowspan="4">
+            <table class="table2">
+              <tr>
+                <td> </td>
+              </tr>
+              <tr>
+                <td class="row--small-height"> Title D</td>
+              </tr>
+              <tr>
+                <td class="row--large-height"> </td>
+              </tr>
+            </table>
+          </td>
+          <td></td>
+          <td rowspan="3">
+            <table class="table4">
+              <thead>
+                <tr>
+                  <th>Item / Desc.</th>
+                  <th>Qty.</th>
+                  <th>@</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Paperclips (Box)</td>
+                  <td>100</td>
+                  <td>1.15</td>
+                  <td>115.00</td>
+                </tr>
+                <tr>
+                  <td>Paper (Case)</td>
+                  <td>10</td>
+                  <td>45.99</td>
+                  <td>459.90</td>
+                </tr>
+                <tr>
+                  <td>Wastepaper Baskets</td>
+                  <td>2</td>
+                  <td>17.99</td>
+                  <td>35.98</td>
+                </tr>
+                <tr>
+                  <td class="bgcolor--light-grey" colspan="3">Subtotal</td>
+
+                  <td>610.88</td>
+                </tr>
+                <tr>
+                  <td class="bgcolor--light-grey" colspan="2">Tax</td>
+                  <td>7%</td>
+                  <td>42.76</td>
+                </tr>
+                <tr>
+                  <td class="bgcolor--light-grey" colspan="3">Total</td>
+                  <td>653.64</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr class="row--small-height">
+          <td>Title E</td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table class="table3">
+              <colgroup>
+                <col />
+                <col class="col5" />
+                <col />
+              </colgroup>
+              <tr>
+                <td class="row--small-height"> Title F</td>
+                <td> Title G</td>
+                <td> Title H</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
