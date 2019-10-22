@@ -4,202 +4,323 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>HW2</title>
   </head>
   <body>
-    <h2>Feedback</h2>
     <form action="post">
+      <h2>Feedback</h2>
       <fieldset>
         <legend>
           Feedback
         </legend>
-        <label for="firstName">First name</label>
-        <input
-          type="text"
-          name="firstName"
-          id="firstName"
-          required="required"
-        /><br />
-        <label for="Email">Email</label>
-        <input
-          type="email"
-          placeholder="user@user.com"
-          name="Email"
-          id="Email"
-          required="required"
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-        /><br />
-        <label for="pros">Pros</label>
-        <input
-          type="text"
-          placeholder="Main pros"
-          name="pros"
-          id="pros"
-          required="required"
-        /><br />
-        <label for="cons">Cons</label>
-        <input
-          type="text"
-          placeholder="Main cons"
-          name="cons"
-          id="cons"
-          required="required"
-        /><br />
-        <label for="overview">Overview</label>
-        <textarea
-          name="overview"
-          id="overview"
-          cols="30"
-          rows="10"
-          required="required"
-        ></textarea
-        ><br />
-        <label for="raiting">Raiting</label>
-        <input
-          type="text"
-          value="5"
-          name="raiting"
-          id="raiting"
-          required="required"
-        /><br />
-        <label>
-          <input type="checkbox" name="subscribe"/> Subscribe me to the
-          newsletter<br
-        /></label>
-
-        <input type="submit" name="send" value="Send" />
+        <table>
+          <tbody>
+            <tr>
+              <td> <label for="firstName">First name</label> </td>
+              <td>
+                <input
+                  type="text"
+                  name="firstName"
+                  id="firstName"
+                  required="required"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="Email">Email</label>
+              </td>
+              <td>
+                <input
+                  type="email"
+                  placeholder="user@user.com"
+                  name="Email"
+                  id="Email"
+                  required="required"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="pros">Pros</label>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  placeholder="Main pros"
+                  name="pros"
+                  id="pros"
+                  required="required"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="cons">Cons</label>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  placeholder="Main cons"
+                  name="cons"
+                  id="cons"
+                  required="required"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="overview">Overview</label>
+              </td>
+              <td>
+                <textarea
+                  name="overview"
+                  id="overview"
+                  cols="30"
+                  rows="10"
+                  required="required"
+                ></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="raiting">Raiting</label>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  value="5"
+                  name="raiting"
+                  id="raiting"
+                  required="required"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>
+                <label>
+                  <input type="checkbox" name="subscribe" />
+                  Subscribe me to the newsletter</label
+                >
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <input type="submit" name="send" value="Send" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </fieldset>
     </form>
 
-    <h3>Login</h3>
-
     <form action="post">
+      <h2>Login</h2>
       <fieldset>
         <legend>
           Authorization
         </legend>
-        <label
-          >Login
-          <input
-            type="text"
-            name="login"
-            id="login"
-            placeholder="user@user.com"
-            required="required"
-          /> </label
-        ><br />
-
-        <label
-          >Password
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="password"
-            required="required"
-          /> </label
-        ><br />
-        <input type="submit" name="submit" value="Submit" />
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <label for="login">Login </label>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  name="login"
+                  id="login"
+                  placeholder="user@user.com"
+                  required="required"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td> <label for="password">Password </label></td>
+              <td>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="password"
+                  required="required"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><input type="submit" name="submit" value="Submit"/></td>
+            </tr>
+          </tbody>
+        </table>
       </fieldset>
     </form>
 
-    <h3>Registration</h3>
-
     <form action="post">
+      <h2>Registration</h2>
       <fieldset>
         <legend>
           Registration
         </legend>
-        <h4>Common:</h4>
-        <label>
-          Name
-          <input
-            type="text"
-            name="name"
-            placeholder="John"
-            required="required"
-          />
-          * Field is required </label
-        ><br />
-        <label>
-          Surname
-          <input
-            type="text"
-            name="surname"
-            placeholder="Doe"
-            required="required"
-          />
-          * Field is required </label
-        ><br />
-        <label>
-          Gender
-          <input type="radio" name="gender" value="Male" />Male </label
-        ><label>
-          <input type="radio" name="gender" value="Female" />Female </label
-        ><br />
-        <label>
-          Date of birth
-          <input type="date" name="date" />
-          * 01/01/1990 </label
-        ><br />
-        <hr />
-        <h4>Adress:</h4>
-        <label>
-          Country
-          <select name="country" required="required">
-            <option value="" disabled="disabled" selected="selected"
-              >Select</option
-            >
-            <option value="russia">Russia</option>
-            <option value="poland">Poland</option>
-            <option value="ukraine">Ukraine</option>
-          </select> </label
-        ><br />
+        <table>
+          <tbody>
+            <tr>
+              <td><h3>Common:</h3></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><label for="name2"> Name </label></td>
+              <td>
+                <input
+                  type="text"
+                  name="name2"
+                  id="name2"
+                  placeholder="John"
+                  required="required"
+              /></td>
+              <td> * Field is required</td>
+            </tr>
+            <tr>
+              <td>
+                <label for="surname2">
+                  Surname
+                </label></td
+              >
+              <td
+                ><input
+                  type="text"
+                  name="surname"
+                  id="surname2"
+                  placeholder="Doe"
+                  required="required"
+              /></td>
+              <td> * Field is required</td>
+            </tr>
+            <tr>
+              <td> Gender</td>
+              <td>
+                <label
+                  ><input type="radio" name="gender" value="Male" />Male</label
+                >
+                <label
+                  ><input type="radio" name="gender" value="Female" />Female
+                </label></td
+              >
+              <td></td>
+            </tr>
+            <tr>
+              <td> <label for="date"> Date of birth</label></td>
+              <td><input type="date" id="date" name="date"/></td>
+              <td> * 01/01/1990 </td>
+            </tr>
+            <tr>
+              <td colspan="3"><hr /></td>
+            </tr>
+            <tr>
+              <td> <h3>Adress:</h3></td>
+              <td></td>
+              <td></td>
+            </tr>
 
-        <hr />
-
-        <h4>Other:</h4>
-        <label> Favourite color <input type="color" name="color" /> </label>
-        <br />
-        <label> Upload avatar <input type="file" name="avatar"/></label>
-        <hr />
-        <h4>Security:</h4>
-        <label
-          >Password
-          <input
-            type="password"
-            name="password"
-            id="password2"
-            placeholder="Your password"
-            required="required"
-          />
-          * Field is required</label
-        >
-        <br />
-        <label
-          >Repeat password
-          <input
-            type="password"
-            name="confirmPassword"
-            id="confirmPassword"
-            required="required"
-          /> </label
-        ><br />
-        <label
-          >Email
-          <input
-            type="email"
-            name="email"
-            placeholder="john_doe@gmail.com"
-            required="required"
-          />* Field is required
-        </label>
-        <hr />
-        <label>
-          <input type="checkbox" name="register" /> I agree the Terms and
-          conditions
-        </label>
-        <input type="submit" name="register" value="Register" />
+            <tr>
+              <td>
+                <label for="country">
+                  Country
+                </label></td
+              >
+              <td>
+                <select name="country" id="country" required="required">
+                  <option value="" disabled="disabled" selected="selected"
+                    >Select</option
+                  >
+                  <option value="russia">Russia</option>
+                  <option value="poland">Poland</option>
+                  <option value="ukraine">Ukraine</option>
+                </select>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="3"><hr /></td>
+            </tr>
+            <tr>
+              <td> <h3>Other:</h3></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><label for="color"> Favourite color</label></td>
+              <td> <input type="color" id="color" name="color" /> </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td> <label for="file"> Upload avatar </label></td>
+              <td> <input type="file" id="file" name="avatar"/></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="3"><hr /></td>
+            </tr>
+            <tr>
+              <td><h3>Security:</h3></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td> <label for="password2">Password </label></td>
+              <td>
+                <input
+                  type="password"
+                  name="password2"
+                  id="password2"
+                  placeholder="Your password"
+                  required="required"
+              /></td>
+              <td>* Field is required</td>
+            </tr>
+            <tr>
+              <td><label for="confirmPassword"> Repeat password</label></td>
+              <td
+                ><input
+                  type="password"
+                  name="confirmPassword"
+                  id="confirmPassword"
+                  required="required"
+              /></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td> <label for="email2">Email </label></td>
+              <td>
+                <input
+                  type="email"
+                  name="email2"
+                  id="email2"
+                  placeholder="john_doe@gmail.com"
+                  required="required"
+              /></td>
+              <td> * Field is required</td>
+            </tr>
+            <tr>
+              <td colspan="3"><hr /></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td
+                ><label>
+                  <input type="checkbox" name="register" /> I agree the Terms
+                  and conditions
+                </label></td
+              >
+              <td> <input type="submit" name="register" value="Register"/></td>
+            </tr>
+          </tbody>
+        </table>
       </fieldset>
     </form>
   </body>
