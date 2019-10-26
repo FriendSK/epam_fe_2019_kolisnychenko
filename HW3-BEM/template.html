@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/template.css" />
+    <title>HW3</title>
+  </head>
+
+  <body>
+    <div class="feedback-form">
+      <form action="post">
+        <h2 class="feedback-form__title">Feedback</h2>
+        <fieldset>
+          <legend>
+            Feedback
+          </legend>
+          <div class="feedback-form__field">
+            <label for="firstName">First name</label>
+            <input
+              type="text"
+              name="firstName"
+              id="firstName"
+              required="required"
+            />
+          </div>
+          <div class="feedback-form__field">
+            <label for="Email">Email</label>
+            <input
+              type="email"
+              placeholder="user@user.com"
+              name="Email"
+              id="Email"
+              required="required"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          /></div>
+          <div class="feedback-form__field">
+            <label for="pros">Pros</label>
+            <input
+              type="text"
+              placeholder="Main pros"
+              name="pros"
+              id="pros"
+              required="required"
+          /></div>
+          <div class="feedback-form__field">
+            <label for="cons">Cons</label>
+            <input
+              type="text"
+              placeholder="Main cons"
+              name="cons"
+              id="cons"
+              required="required"
+          /></div>
+          <div class="feedback-form__field">
+            <label for="overview">Overview</label>
+            <textarea
+              name="overview"
+              id="overview"
+              cols="30"
+              rows="10"
+              required="required"
+            ></textarea>
+          </div>
+          <div class="feedback-form__field feedback-form__field--size-sm">
+            <label for="raiting">Raiting</label>
+            <input
+              type="text"
+              value="5"
+              name="raiting"
+              id="raiting"
+              required="required"
+          /></div>
+          <div class="feedback-form__ckeckbox">
+            <label>
+              <input type="checkbox" name="subscribe" /> Subscribe me to the
+              newsletter</label
+            >
+          </div>
+          <div class="feedback-form__button">
+            <input type="submit" name="send" value="Send"
+          /></div>
+        </fieldset>
+      </form>
+    </div>
+
+    <div class="authorization-form">
+      <form action="post">
+        <h2 class="authorization-form__title">Login</h2>
+
+        <fieldset>
+          <legend>
+            Authorization
+          </legend>
+          <div class="authorization-form__field">
+            <label for="login">Login </label>
+            <input
+              type="text"
+              name="login"
+              id="login"
+              placeholder="user@user.com"
+              required="required"
+            />
+          </div>
+          <div class="authorization-form__field">
+            <label for="password">Password </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="password"
+              required="required"
+            />
+          </div>
+          <div class="authorization-form__button">
+            <input type="submit" name="submit" value="Submit" />
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <div class="registration-form">
+      <h2 class="registration-form__title">Registration</h2>
+
+      <form action="post">
+        <fieldset>
+          <legend>
+            Registration
+          </legend>
+          <h4>Common:</h4>
+          <div class="registration-form__name-field">
+            <label for="name">
+              Name
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="John"
+                required="required"
+              />
+              * Field is required</label
+            >
+          </div>
+          <div class="registration-form__surname-field">
+            <label for="surname">
+              Surname
+              <input
+                type="text"
+                name="surname"
+                id="surname"
+                placeholder="Doe"
+                required="required"
+              />
+              * Field is required</label
+            >
+          </div>
+          <div class="registration-form__radio-button">
+            Gender
+
+            <label for="male">
+              <input type="radio" name="gender" id="male" value="Male" />Male
+            </label>
+
+            <label for="female">
+              <input
+                type="radio"
+                name="gender"
+                id="female"
+                value="Female"
+              />Female
+            </label>
+          </div>
+          <div class="registration-form__birth-field">
+            <label>
+              Date of birth
+              <input type="date" name="date" />
+              * 01/01/1990
+            </label></div
+          >
+          <hr />
+          <h4>Adress:</h4>
+          <div class="registration-form__option">
+            <label>
+              Country
+              <select name="country" required="required">
+                <option value="" disabled="disabled" selected="selected"
+                  >Select</option
+                >
+                <option value="russia">Russia</option>
+                <option value="poland">Poland</option>
+                <option value="ukraine">Ukraine</option>
+              </select>
+            </label></div
+          >
+
+          <hr />
+
+          <h4>Other:</h4>
+          <div class="registration-form__color-picker">
+            <label> Favourite color <input type="color" name="color" /> </label>
+          </div>
+          <div class="registration-form__file-upload">
+            <label> Upload avatar <input type="file" name="avatar"/></label>
+          </div>
+          <hr />
+          <h4>Security:</h4>
+          <div class="registration-form__pass-field">
+            <label for="password2"
+              >Password
+              <input
+                type="password"
+                name="password"
+                id="password2"
+                placeholder="Your password"
+                required="required"
+              />
+              * Field is required</label
+            >
+          </div>
+          <div class="registration-form__confirm-pass">
+            <label for="confirmPassword"
+              >Repeat password
+              <input
+                type="password"
+                name="confirmPassword"
+                id="confirmPassword"
+                required="required"/>
+                </label>
+              </div>
+          <div class="registration-form__mail-field">
+            <label
+              >Email
+              <input
+                type="email"
+                name="email"
+                placeholder="john_doe@gmail.com"
+                required="required"
+              />* Field is required
+            </label>
+          </div>
+          <hr />
+          <div class="registration-form__checkbox">
+            <label>
+              <input type="checkbox" name="register" /> I agree the Terms and
+              conditions
+            </label></div
+          >
+          <div class="registration-form__button">
+            <input type="submit" name="register" value="Register" />
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>

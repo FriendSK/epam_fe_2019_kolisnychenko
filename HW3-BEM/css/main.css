@@ -1,0 +1,170 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a,
+a:active {
+  padding: 12px;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: black;
+}
+
+.wrapper {
+  width: 600px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  background-color: #dfe6e9;
+}
+
+.calendar {
+  margin: auto;
+  width: 340px;
+  height: 352px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.calendar__month {
+  background-color: #2ecc71;
+  color: #fff;
+  padding-top: 15px;
+}
+
+.calendar .calendar__month h2 {
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: 200;
+}
+
+.calendar__weekends {
+  font-size: 20px;
+  display: flex;
+  background-color: #2ecc71;
+  color: #fff;
+  padding-top: 10px;
+}
+
+.calendar__days {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.calendar__days div {
+  font-weight: 550;
+  transition: all 0.4s;
+}
+
+.calendar__weekends div,
+.calendar__days div {
+  text-align: center;
+  width: 14.28%;
+  height: 40px;
+  align-items: center;
+}
+
+.calendar__days div:visited {
+  background-color: rgb(10, 110, 63);
+}
+
+.calendar__days div:hover:not(.calendar__days--gray-day):not(.calendar__days--today) {
+  background-color: rgb(172, 81, 233);
+  cursor: pointer;
+}
+
+.calendar__days--today a {
+  background-color: #ec136e;
+  color: #fff;
+}
+
+.calendar__days--today a:hover {
+  background-color: #9b0c47;
+}
+
+.calendar__days--gray-day {
+  padding: 12px;
+  color: rgb(141, 140, 140);
+  background-color: rgb(245, 245, 245);
+}
+
+.onclick--bgcolor-changed:target a {
+  background-color: rgb(57, 15, 157);
+  color: #fff;
+}
+
+.onclick--bgcolor-changed-today:target a {
+  background-color: #9b0c47;
+  color: #fff;
+}
+
+.sprite,
+.sprite--transition {
+  margin-top: 150px;
+}
+
+ul li {
+  background: url("../img/sprites.png") no-repeat;
+  height: 83px;
+  width: 83px;
+}
+
+.sprite li,
+.sprite--transition ul {
+  list-style-type: none;
+}
+
+.sprite li,
+.sprite--transition li {
+  display: inline-block;
+}
+
+.sprite--transition ul li {
+  transition: all 1s;
+}
+
+ul li:first-child {
+  background-position: 0 -167px;
+}
+
+ul li:nth-child(2) {
+  background-position: -84px -168px;
+}
+
+ul li:last-child {
+  background-position: -168px -168px;
+}
+
+ul li:first-child:hover {
+  background-position: 0 -83px;
+}
+
+ul li:first-child:active {
+  background-position: 0 0;
+}
+
+ul li:nth-child(2):hover {
+  background-position: -84px -84px;
+}
+
+ul li:nth-child(2):active {
+  background-position: -84px 0;
+}
+
+ul li:last-child:hover {
+  background-position: -168px -84px;
+}
+
+ul li:last-child:active {
+  background-position: -168px 0;
+}

@@ -1,0 +1,185 @@
+.feedback-form,
+.registration-form {
+  width: 600px;
+  margin: auto;
+  font-size: 16px;
+}
+
+h4 {
+  margin: 20px 0 0 20px;
+}
+
+.feedback-form__title,
+.authorization-form__title,
+.registration-form__title {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+fieldset {
+  border: 2px solid blue;
+  margin-bottom: 50px;
+}
+
+.feedback-form__field,
+.authorization-form__field {
+  display: flex;
+  justify-content: space-between;
+}
+
+.feedback-form__field label,
+.authorization-form__field label,
+.registration-form__field label {
+  margin: 20px 0 0 20px;
+}
+
+.feedback-form__field input,
+textarea {
+  width: 350px;
+  margin: 20px 55px 0 15px;
+}
+
+.registration-form__field input {
+  width: 200px;
+  margin: 20px 55px 0 15px;
+}
+
+.feedback-form__field--size-sm {
+  display: inline;
+}
+
+.feedback-form__field--size-sm label {
+  margin-right: 71px;
+}
+
+.feedback-form__field--size-sm input {
+  width: 65px;
+}
+
+.feedback-form__ckeckbox,
+.registration-form__checkbox {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-left: 0;
+}
+
+.registration-form__name-field {
+  margin: 35px 0 0 20px;
+}
+
+.registration-form__name-field input {
+  margin-left: 85px;
+  width: 250px;
+}
+
+.registration-form__surname-field {
+  margin: 35px 0 0 20px;
+}
+
+.registration-form__surname-field input {
+  margin-left: 67px;
+  width: 250px;
+}
+
+.registration-form__birth-field {
+  margin: 35px 0 0 20px;
+}
+
+.registration-form__birth-field input {
+  margin-left: 46px;
+  width: 250px;
+}
+
+.registration-form__radio-button {
+  margin: 35px 0 0 20px;
+}
+
+.registration-form__radio-button input {
+  margin-left: 79px;
+}
+
+.registration-form__option {
+  margin: 35px 0 0 20px;
+}
+
+.registration-form__option select {
+  margin-left: 75px;
+  width: 200px;
+}
+
+.registration-form__color-picker {
+  margin: 35px 0 0 20px;
+}
+
+.registration-form__color-picker input {
+  margin-left: 30px;
+  width: 350px;
+}
+
+.registration-form__file-upload {
+  margin: 35px 0 0 20px;
+}
+
+.registration-form__file-upload input {
+  margin-left: 40px;
+}
+
+.registration-form__pass-field {
+  margin: 35px 0 0 20px;
+}
+
+.registration-form__pass-field input {
+  margin-left: 70px;
+  width: 200px;
+}
+
+.registration-form__confirm-pass {
+  margin: 35px 0 0 20px;
+}
+
+.registration-form__confirm-pass input {
+  margin-left: 23px;
+  width: 200px;
+}
+
+.registration-form__mail-field {
+  margin: 35px 0 0 20px;
+}
+
+.registration-form__mail-field input {
+  margin-left: 95px;
+  width: 200px;
+}
+
+.feedback-form__button input,
+.registration-form__button input {
+  width: 90px;
+}
+
+.feedback-form__button,
+.authorization-form__button,
+.registration-form__button {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 10px 70px;
+}
+
+.authorization-form {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  font-size: 16px;
+}
+
+.authorization-form input {
+  width: 180px;
+  margin: 20px 55px 0 15px;
+}
+
+.authorization-form__button input,
+.registration-form__button input {
+  width: 65px;
+  margin: 0 0 0 -30px;
+}
