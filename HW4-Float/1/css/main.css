@@ -1,42 +1,6 @@
 @font-face {
   font-family: "Lato";
   src:
-    local("../fonts/lato/Lato-HairlineItalic"),
-    local("../fonts/lato/Lato Hairline Italic"),
-    url("../fonts/lato/Latohairlineitalic.woff2") format("woff2"),
-    url("../fonts/lato/Latohairlineitalic.woff") format("woff"),
-    url("../fonts/lato/Latohairlineitalic.ttf") format("truetype");
-  font-weight: 100;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: ".Lato";
-  src:
-    local("../fonts/lato/Lato Thin"),
-    local("../fonts/lato/Lato-Thin"),
-    url("../fonts/lato/Latothin.woff2") format("woff2"),
-    url("../fonts/lato/Latothin.woff") format("woff"),
-    url("../fonts/lato/Latothin.ttf") format("truetype");
-  font-weight: 200;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Lato";
-  src:
-    local("../fonts/lato/Lato Thin Italic"),
-    local("../fonts/lato/Lato-ThinItalic"),
-    url("../fonts/lato/Latothinitalic.woff2") format("woff2"),
-    url("../fonts/lato/Latothinitalic.woff") format("woff"),
-    url("../fonts/lato/Latothinitalic.ttf") format("truetype");
-  font-weight: 200;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Lato";
-  src:
     local("../fonts/lato/Lato Light"),
     local("../fonts/lato/Lato-Light"),
     url("../fonts/lato/Latolight.woff2") format("woff2"),
@@ -67,42 +31,6 @@
     url("../fonts/lato/Latoregular.woff") format("woff"),
     url("../fonts/lato/Latoregular.ttf") format("truetype");
   font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Lato";
-  src:
-    local("../fonts/lato/Lato Italic"),
-    local("../fonts/lato/Lato-Italic"),
-    url("../fonts/lato/Latoitalic.woff2") format("woff2"),
-    url("../fonts/lato/Latoitalic.woff") format("woff"),
-    url("../fonts/lato/Latoitalic.ttf") format("truetype");
-  font-weight: 400;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Lato";
-  src:
-    local("../fonts/lato/Lato Medium"),
-    local("../fonts/lato/Lato-Medium"),
-    url("../fonts/lato/Latomedium.woff2") format("woff2"),
-    url("../fonts/lato/Latomedium.woff") format("woff"),
-    url("../fonts/lato/Latomedium.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Lato";
-  src:
-    local("../fonts/lato/Lato Semibold"),
-    local("../fonts/lato/Lato-Semibold"),
-    url("../fonts/lato/Latosemibold.woff2") format("woff2"),
-    url("../fonts/lato/Latosemibold.woff") format("woff"),
-    url("../fonts/lato/Latosemibold.ttf") format("truetype");
-  font-weight: 600;
   font-style: normal;
 }
 
@@ -601,24 +529,64 @@ body {
 .contacts-form__option {
   margin-top: 25px;
   margin-left: 2px;
+  margin-bottom: -6px;
 }
 
-.contacts-form__option-select {
-  width: 120px;
-  height: 24px;
-  margin-top: -26px;
-  margin-left: 39px;
+.contacts-form__option input[type="radio"] {
+  display: none;
 }
 
-.contacts-form__option input {
-  margin-top: 18px;
-  margin-left: -2px;
-  height: 24px;
+.contacts-form__option label {
+  padding-left: 20px;
+}
+
+.contacts-form__option label::before {
+  content: "";
+  display: inline-block;
+  box-sizing: border-box;
   width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid #a6a6a6;
+  vertical-align: -7px;
+  margin: 21px 15px 2px -22px;
+}
+
+.contacts-form__option label::after {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #474747;
+  margin-left: 1px;
+  margin-top: -23px;
+  margin-right: 15px;
+  margin-bottom: 2px;
+  opacity: 0;
+}
+
+.contacts-form__terms label::after {
+  content: "";
+  float: left;
+  width: 18px;
+  height: 18px;
+  background-color: #474747;
+  opacity: 0;
+  margin: 24px 2px 2px -37px;
+}
+
+.contacts-form__option input:hover + label::after {
+  opacity: 0.5;
+}
+
+.contacts-form__option input:checked + label::after {
+  opacity: 1;
 }
 
 .contacts-form__message {
-  margin-top: 26px;
+  margin-top: 27px;
+  margin-left: -3px;
 }
 
 .contacts-form__message textarea::placeholder {
@@ -627,15 +595,29 @@ body {
 }
 
 .contacts-form__terms {
-  margin-top: 5px;
+  margin-top: 8px;
+  margin-left: 2px;
+}
+
+.contacts-form__terms input[type="checkbox"] {
+  float: left;
+  margin: 21px 16px 4px -2px;
+  width: 24px;
+  height: 24px;
+}
+
+input[type="checkbox"]:hover {
+  opacity: 0.5;
 }
 
 .contacts-form__terms-text {
-  margin: -27px 0 0 34px;
+  margin-top: 23px;
+  margin-left: -5px;
+  float: left;
 }
 
 .contacts-form input[type="submit"] {
-  margin-top: 31px;
+  margin-top: 26px;
   width: 220px;
   height: 48px;
   background: #ec6767;
@@ -646,6 +628,7 @@ body {
 
 .contacts-form input[type="submit"]:hover {
   background: #cf5858;
+  cursor: pointer;
 }
 
 .contacts-form input[type="submit"]:active {

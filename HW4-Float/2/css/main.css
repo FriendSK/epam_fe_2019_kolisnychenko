@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+.wrapper {
+  width: auto;
+  position: relative;
+}
+
+.house__wrapper {
+  position: relative;
+  margin: auto;
+  width: 560px;
+  height: 500px;
+}
+
+.house {
+  position: absolute;
+  left: 8%;
+  top: 45%;
+  width: 400px;
+  height: 350px;
+  background-color: rgb(148, 64, 148);
+}
+
+.roof {
+  position: absolute;
+  z-index: 100;
+  left: 0%;
+  top: 18%;
+  border-left: 146px solid transparent;
+  border-right: 452px solid transparent;
+  border-bottom: 169px solid rgb(26, 83, 207);
+}
+
+.earth {
+  height: 452px;
+  background-color: darkgreen;
+}
+
+.chimney {
+  position: absolute;
+  top: -120px;
+  right: 45px;
+  width: 50px;
+  height: 120px;
+  background-color: rgb(105, 43, 105);
+}
+
+.door {
+  position: absolute;
+  top: 190px;
+  left: 320px;
+  width: 80px;
+  height: 160px;
+  background-color: rgb(105, 43, 105);
+}
+
+.window {
+  top: 140px;
+  left: 65px;
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background-color: rgb(85, 94, 71);
+  border: 8px rgb(19, 43, 20) solid;
+}
+
+.window::before {
+  position: absolute;
+  content: "";
+  top: -8px;
+  right: 40px;
+  height: 90px;
+  border: 5px rgb(19, 43, 20) solid;
+}
+
+.window::after {
+  position: absolute;
+  content: "";
+  top: 41px;
+  width: 80px;
+  border: 5px rgb(19, 43, 20) solid;
+}
+
+.knob {
+  top: 64px;
+  right: 10px;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgb(190, 221, 12);
+}
