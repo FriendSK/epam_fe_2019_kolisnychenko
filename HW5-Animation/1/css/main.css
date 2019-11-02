@@ -84,11 +84,11 @@ body {
   width: 45px;
 }
 
-.cards-stock__arrow svg {
-  padding-top: 7px;
+.cards-stock__arrow img {
+  padding-top: 6px;
 }
 
-.icon-pause svg:hover {
+.icon-pause img:hover {
   cursor: pointer;
   transform: scale(1.1, 1.1);
 }
@@ -611,8 +611,13 @@ body {
   transition: all ease-in 0.5;
 }
 
-.cards-stock__arrow img {
-  padding-top: 12px;
+.stock--two .cards-stock__arrow img {
+  margin-top: 5px;
+  transform: rotate(180deg);
+}
+
+.stock--three .cards-stock__arrow img {
+  padding-top: 11px;
 }
 
 .bgc--green:hover {
