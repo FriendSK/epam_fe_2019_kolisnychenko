@@ -84,6 +84,10 @@ body {
   width: 45px;
 }
 
+.cards-stock__arrow svg {
+  padding-top: 7px;
+}
+
 .icon-pause svg:hover {
   cursor: pointer;
   transform: scale(1.1, 1.1);
@@ -605,6 +609,10 @@ body {
       rgba(117, 203, 181, 1) 100%
     );
   transition: all ease-in 0.5;
+}
+
+.cards-stock__arrow img {
+  padding-top: 12px;
 }
 
 .bgc--green:hover {

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/main.css">
+    <title>HW5</title>
+</head>
+
+<body>
+    <div class="menu">
+        <input type="checkbox" name="check-menu" id="check-menu" />
+        <label class="hamburger__menu" for="check-menu">
+        </label>
+        <div class="hamburger__menu-line  first"></div>
+        <div class="hamburger__menu-line  second"></div>
+        <div class="hamburger__menu-line  third"></div>
+        <div class="hamburger__menu-line  fourth"></div>
+        <div class="main-menu">
+            <input type="radio" name="checkbox" id="checkbox" hidden="hidden">
+            <label for="checkbox" class="top-menu"> Checkbox</label>
+            <div class="checkboxes">
+                <div class="custom-checkbox">
+                    <p>Custom checkbox</p>
+                    <input type="checkbox" name="custom-checkbox" id="custom-checkbox1" hidden="hidden">
+                    <label for="custom-checkbox1" class="custom-checkbox__toggle">
+                        <span class="custom-checkbox__circle">
+                        </span>
+                    </label>
+                </div>
+                <div class="custom-checkbox">
+                    <p>Custom checkbox (disabled)</p>
+                    <input type="checkbox" name="custom-checkbox" id="custom-checkbox2" hidden="hidden">
+                    <label for="custom-checkbox2" class="custom-checkbox__toggle ">
+                        <span class="custom-checkbox__circle disabled">
+
+                        </span>
+                    </label>
+                </div>
+                <div class="custom-checkbox">
+                    <p>Custom checkbox (disabled and checked)</p>
+                    <input type="checkbox" name="custom-checkbox" id="custom-checkbox3" hidden="hidden">
+                    <label for="custom-checkbox3" class="custom-checkbox__toggle toggle-checked">
+                        <span class="custom-checkbox__circle disabled checked">
+
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <input type="radio" name="checkbox" id="accordion" hidden="hidden">
+            <label for="accordion" class="top-menu">Accordion</label>
+            <div class="accordion">
+                <div class="accordion__block">
+                    <h4>Accordion</h4>
+                    <ul>
+                        <li> <input type="checkbox" name="checkbox" id="accordion1" hidden="hidden">
+                            <label for="accordion1" class="accordion__btn">Acc 1 </label>
+                            <div class="accordion__content1">
+                                Acc1 content
+                            </div>
+                        </li>
+                        <li> <input type="checkbox" name="accordion" id="accordion2" hidden="hidden">
+                            <label for="accordion2" class="accordion__btn">Acc 2</label>
+                            <div class="accordion__content2">
+                                Acc2 content
+                            </div>
+                        </li>
+                        <li> <input type="checkbox" name="accordion" id="accordion3" hidden="hidden">
+                            <label for="accordion3" class="accordion__btn">Acc 3 </label>
+                            <div class="accordion__content3">
+                                Acc3 content
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="accordion__block">
+                    <h4>Accordion (collapsible)</h4>
+                    <ul>
+                        <li> <input type="radio" name="accordion" id="accordion4" hidden="hidden" checked="checked">
+                            <label for="accordion4" class="accordion__btn">Acc 4 </label>
+                            <div class="accordion__content4" id="accord4">
+                                Acc4 content<br />
+                                <br />
+                                <br />
+                            </div>
+                        </li>
+                        <li> <input type="radio" name="accordion" id="accordion5" hidden="hidden">
+                            <label for="accordion5" class="accordion__btn">Acc 5</label>
+                            <div class="accordion__content5">
+                                Acc5 content
+                            </div>
+                        </li>
+                        <li> <input type="radio" name="accordion" id="accordion6" hidden="hidden">
+                            <label for="accordion6" class="accordion__btn">Acc 6 </label>
+                            <div class="accordion__content6">
+                                Acc6 content
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <input type="radio" name="checkbox" id="drop-down" hidden="hidden">
+            <label for="drop-down" class="top-menu">Drop-Down</label>
+            <input type="radio" name="checkbox" id="drop-down-menu" hidden="hidden">
+
+            <div class="drop-down__menu">
+                    <div class="drop-down__wrapper">
+                    <label for="drop-down-menu">
+                        <span>Checkbox</span>
+                        <span>Accordion</span>
+                        <span>Menu</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
