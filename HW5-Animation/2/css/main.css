@@ -248,7 +248,7 @@ body {
 
 #accordion:checked ~ .accordion {
   display: block;
-  animation: accordion-swing 1.4s forwards;
+  animation: accordion-swing 1.2s forwards;
 }
 
 .accordion h4 {
