@@ -111,19 +111,19 @@ body {
 
 @keyframes checkbox-swing {
   55% {
-    transform: translateX(20%);
+    transform: translateX(40%);
   }
 
   70% {
-    transform: translateX(0%);
+    transform: translateX(-8%);
   }
 
   85% {
-    transform: translateX(12%);
+    transform: translateX(8%);
   }
 
   100% {
-    transform: translateX(8%);
+    transform: translateX(5%);
   }
 }
 
