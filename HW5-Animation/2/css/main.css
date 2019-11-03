@@ -93,19 +93,19 @@ body {
 
 @keyframes menu-swing {
   55% {
-    transform: translateX(212%);
+    transform: translateX(43vw);
   }
 
   70% {
-    transform: translateX(176%);
+    transform: translateX(35vw);
   }
 
   85% {
-    transform: translateX(190%);
+    transform: translateX(39vw);
   }
 
   100% {
-    transform: translateX(180%);
+    transform: translateX(37vw);
   }
 }
 
