@@ -173,7 +173,7 @@
 
 @mixin menu-active {
   &:checked ~ .page-menu__container {
-    border-bottom: 2px solid $border-bottom-hover-green-color;
+    border-bottom: 2px solid $border-bottom-hover-color;
     color: $text-color-Grey;
   }
 }
