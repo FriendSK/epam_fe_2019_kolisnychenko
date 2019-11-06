@@ -1,0 +1,113 @@
+@mixin button {
+  background: $default-color;
+
+  &:hover {
+    background: $hover-color;
+  }
+
+  &:active {
+    background: $active-color;
+  }
+}
+
+@mixin header-H1 {
+  font-weight: bold;
+  font-size: $Header-H1;
+}
+
+@mixin header-H2 {
+  font-weight: 200;
+  font-size: $Header-H2;
+}
+
+@mixin header-H3 {
+  font-weight: bold;
+  font-size: $Header-H3;
+}
+
+@mixin header-H4 {
+  font-size: $Header-H4;
+}
+
+@mixin header-H5 {
+  font-size: $Header-H5;
+}
+
+@mixin green-checkbox {
+  @extend .hide-checkbox;
+
+  &:checked ~ .checkboxes__container {
+    background: $green-color;
+    border: 0;
+
+    &::after {
+      display: block;
+    }
+  }
+}
+
+@mixin orange-checkbox {
+  @extend .hide-checkbox;
+
+  &:checked ~ .checkboxes__container {
+    background-color: $orange-color;
+    border: 0;
+
+    &::after {
+      display: block;
+    }
+  }
+}
+
+@mixin blue-checkbox {
+  @extend .hide-checkbox;
+
+  &:checked ~ .checkboxes__container {
+    background-color: $blue-color;
+    border: 0;
+
+    &::after {
+      display: block;
+    }
+  }
+}
+
+@mixin red-checkbox {
+  @extend .hide-checkbox;
+
+  &:checked ~ .checkboxes__container {
+    background-color: $red-color;
+    border: 0;
+
+    &::after {
+      display: block;
+    }
+  }
+}
+
+@mixin black-checkbox {
+  @extend .hide-checkbox;
+
+  &:checked ~ .checkboxes__container {
+    background-color: $black-color;
+    border: 0;
+
+    &::after {
+      display: block;
+    }
+  }
+}
+
+@mixin pagination {
+  &:checked ~ .pagination__page-container {
+    background-color: $pagination-color;
+    color: $white;
+  }
+}
+
+@mixin menu-active {
+  &:checked ~ .page-menu__container {
+    border-bottom: 2px solid $border-bottom-hover-color;
+    color: $text-color-Grey;
+  }
+}

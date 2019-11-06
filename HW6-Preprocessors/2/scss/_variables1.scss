@@ -1,0 +1,45 @@
+@import "typography";
+@import "color-matrix1";
+
+$font-family: $fontFamily;
+$font-size: $fontSize;
+$Header-H1: $H1;
+$Header-H2: $H2;
+$Header-H3: $H3;
+$Header-H4: $H4;
+$Header-H5: $H5;
+
+$background-image: url("../img/Banner_img.png");
+
+$white: $white;
+$light-black: $lightBlack;
+
+$text-color-white: $textColorWhite;
+$text-color-lightGrey: $textColorLightGrey;
+$text-color-Grey: $textColorGrey;
+
+$checkbox-bgColor-darkWhite: $checkboxBgColorDarkWhite;
+$checkbox-borderColor-lightGrey: $checkboxBorderColorlightGrey;
+
+$border-color-lightGrey: $borderColorLightGrey;
+$border-bottom-hover-color: $borderBottomHoverGreenColor;
+
+$default-color: $lightBlue;
+$hover-color: $pureBlue;
+$active-color: $darkBlue;
+
+$background-color1: $backgroundColorDarkWhite;
+$background-color2: $backgroundColorWhite;
+
+$pagination-color: $paginationColor;
+$pagination-box-bgColor: $paginationBgColor;
+$pagination-hover-bgColor: $paginationHoverBgColor;
+
+$disabled-arrow-color: $disabledArrowColor;
+$active-arrow-color: $activeArrowColor;
+
+$green-color: $greenColor;
+$red-color: $redColor;
+$black-color: $blackColor;
+$blue-color: $blueColor;
+$orange-color: $orangeColor;

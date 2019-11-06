@@ -1,0 +1,398 @@
+.list-item, .header__menu ul li, .page-menu ul li {
+  list-style-type: none;
+  display: inline-block;
+  text-align: center; }
+
+.description, .main-content__reviews p, .main-content__reviews .main-content__reviews__container .reviews__container__age, .main-content__reviews .main-content__reviews__container .reviews__container__date {
+  font-size: 20px;
+  line-height: 28px; }
+
+.checkbox-mark, .main-content__reviews .main-content__reviews__checkboxes .black, .main-content__reviews .main-content__reviews__checkboxes .red, .main-content__reviews .main-content__reviews__checkboxes .blue, .main-content__reviews .main-content__reviews__checkboxes .orange, .main-content__reviews .main-content__reviews__checkboxes .green {
+  margin-left: 8px;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px; }
+
+.hide-checkbox, .main-content__reviews .main-content__reviews__checkboxes label .black-checkbox, .main-content__reviews .main-content__reviews__checkboxes label .red-checkbox, .main-content__reviews .main-content__reviews__checkboxes label .blue-checkbox, .main-content__reviews .main-content__reviews__checkboxes label .orange-checkbox, .main-content__reviews .main-content__reviews__checkboxes label .green-checkbox {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0; }
+
+.pagination-box, .pagination .pagination__arrow-left, .pagination .pagination__arrow-right, .pagination .pagination__page-container {
+  display: block;
+  float: left;
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+  background-color: #f6f6f6;
+  line-height: 50px;
+  font-size: 25px;
+  margin-right: 20px;
+  text-align: center;
+  position: relative;
+  cursor: pointer; }
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0; }
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  color: #5d5d5d; }
+
+.clear-fix {
+  content: "";
+  clear: both;
+  display: block; }
+
+.header {
+  background-image: url("../img/Banner_img2.png");
+  height: 600px;
+  width: 1920px; }
+  .header__title {
+    height: 35px;
+    width: 167px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 35px;
+    float: left;
+    margin-left: 250px;
+    margin-top: 30px; }
+  .header__main-title {
+    margin-top: 408px;
+    margin-left: 250px;
+    float: left;
+    height: 54px;
+    width: 702px; }
+    .header__main-title h1 {
+      margin-top: -3px;
+      color: #fff;
+      font-weight: bold;
+      font-size: 46px;
+      text-transform: uppercase; }
+  .header__hostel-adress {
+    height: 21px;
+    width: 306px;
+    color: #fff;
+    font-size: 18px;
+    line-height: 21px;
+    margin-left: 252px;
+    margin-top: 20px; }
+  .header__menu {
+    float: right;
+    margin-top: 40px;
+    margin-right: 259px; }
+    .header__menu ul li a {
+      color: #fff;
+      font-weight: bold;
+      line-height: 21px;
+      text-decoration: none; }
+      .header__menu ul li a:hover {
+        text-decoration: none; }
+    .header__menu-item {
+      text-align: center;
+      height: 27px;
+      margin-left: 35px; }
+      .header__menu-item:hover {
+        transition: border-bottom 0.2s;
+        border-bottom: 2px solid #fff; }
+
+.page-menu {
+  height: 100px;
+  width: 1920px;
+  background-color: #ffffff; }
+  .page-menu__wrapper {
+    float: left;
+    margin-top: 31px;
+    margin-left: 251px;
+    height: 38px;
+    width: 462px;
+    border-bottom: 1px solid #d8d8d8;
+    box-sizing: border-box; }
+  .page-menu ul li .page-menu__container {
+    display: block;
+    height: 37px;
+    width: 112px;
+    transition: all ease 0.2s;
+    cursor: pointer;
+    color: #aca8a8;
+    font-size: 20px;
+    line-height: 21px; }
+    .page-menu ul li .page-menu__container:hover {
+      color: #5d5d5d; }
+  .page-menu input:checked ~ .page-menu__container {
+    border-bottom: 2px solid #e74c3c;
+    color: #5d5d5d; }
+
+.main-content {
+  padding-left: 250px;
+  padding-top: 45px;
+  background-color: #fbfbfb; }
+  .main-content h2 {
+    font-weight: 200;
+    font-size: 36px; }
+  .main-content__main-info {
+    width: 940px;
+    margin-bottom: 36px; }
+    .main-content__main-info h2 {
+      margin-bottom: 13px; }
+    .main-content__main-info p {
+      line-height: 30px; }
+
+.main-content__available-rooms {
+  width: 1445px; }
+  .main-content__available-rooms h2 {
+    margin-bottom: 3px; }
+  .main-content__available-rooms .available-rooms__family-room {
+    float: left;
+    margin-top: 24px;
+    margin-bottom: 47px; }
+    .main-content__available-rooms .available-rooms__family-room .family-room__box {
+      float: left;
+      margin-right: 19px;
+      height: 400px;
+      width: 460px;
+      border-radius: 8px;
+      box-shadow: 0 1px 8px 0 rgba(206, 206, 206, 0.5); }
+      .main-content__available-rooms .available-rooms__family-room .family-room__box:hover {
+        box-shadow: 0 1px 20px 0 rgba(78, 78, 78, 0.5);
+        cursor: pointer; }
+      .main-content__available-rooms .available-rooms__family-room .family-room__box .family-room__description {
+        float: left;
+        margin-top: 15px;
+        margin-left: 20px;
+        font-size: 20px; }
+      .main-content__available-rooms .available-rooms__family-room .family-room__box .family-room__price {
+        float: left;
+        margin-top: 45px;
+        margin-left: 20px;
+        font-size: 30px;
+        font-weight: bold;
+        line-height: 35px; }
+      .main-content__available-rooms .available-rooms__family-room .family-room__box button {
+        font-size: 18px;
+        text-align: center;
+        line-height: 21px;
+        font-weight: 500;
+        float: right;
+        color: #fff;
+        margin-right: 20px;
+        margin-top: 40px;
+        height: 49px;
+        width: 180px;
+        border-radius: 5px;
+        background: #f89052;
+        box-shadow: 0 2px 2px 0 rgba(155, 155, 155, 0.5);
+        cursor: pointer;
+        background: #f89052; }
+        .main-content__available-rooms .available-rooms__family-room .family-room__box button:hover {
+          background: #dc7f47; }
+        .main-content__available-rooms .available-rooms__family-room .family-room__box button:active {
+          background: #bd6937; }
+
+.main-content__reviews {
+  margin-top: 10px; }
+  .main-content__reviews h2 {
+    margin-bottom: 27px; }
+  .main-content__reviews .main-content__reviews__checkboxes {
+    margin-top: 26px; }
+    .main-content__reviews .main-content__reviews__checkboxes .black {
+      color: #3c3b3b; }
+    .main-content__reviews .main-content__reviews__checkboxes .red {
+      color: #f05b5b; }
+    .main-content__reviews .main-content__reviews__checkboxes .blue {
+      color: #4e92ff; }
+    .main-content__reviews .main-content__reviews__checkboxes .orange {
+      color: #f89052; }
+    .main-content__reviews .main-content__reviews__checkboxes .green {
+      color: #52be80; }
+    .main-content__reviews .main-content__reviews__checkboxes .checkboxes__container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      box-sizing: border-box;
+      height: 30px;
+      width: 30px;
+      border: 1px solid #aeaeae;
+      background-color: #f2f2f2;
+      border-radius: 5px; }
+      .main-content__reviews .main-content__reviews__checkboxes .checkboxes__container:after {
+        content: "";
+        position: absolute;
+        display: none; }
+    .main-content__reviews .main-content__reviews__checkboxes label {
+      position: relative;
+      padding-left: 35px;
+      margin-right: 47px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 22px;
+      user-select: none; }
+      .main-content__reviews .main-content__reviews__checkboxes label:hover input ~ .checkboxes__container {
+        opacity: 0.5; }
+      .main-content__reviews .main-content__reviews__checkboxes label .black-checkbox:checked ~ .checkboxes__container {
+        background-color: #3c3b3b;
+        border: 0; }
+        .main-content__reviews .main-content__reviews__checkboxes label .black-checkbox:checked ~ .checkboxes__container:after {
+          display: block; }
+      .main-content__reviews .main-content__reviews__checkboxes label .black-checkbox:checked ~ .checkboxes__container {
+        background-color: #3c3b3b;
+        border: 0; }
+        .main-content__reviews .main-content__reviews__checkboxes label .black-checkbox:checked ~ .checkboxes__container:after {
+          display: block; }
+      .main-content__reviews .main-content__reviews__checkboxes label .red-checkbox:checked ~ .checkboxes__container {
+        background-color: #f05b5b;
+        border: 0; }
+        .main-content__reviews .main-content__reviews__checkboxes label .red-checkbox:checked ~ .checkboxes__container:after {
+          display: block; }
+      .main-content__reviews .main-content__reviews__checkboxes label .blue-checkbox:checked ~ .checkboxes__container {
+        background-color: #4e92ff;
+        border: 0; }
+        .main-content__reviews .main-content__reviews__checkboxes label .blue-checkbox:checked ~ .checkboxes__container:after {
+          display: block; }
+      .main-content__reviews .main-content__reviews__checkboxes label .orange-checkbox:checked ~ .checkboxes__container {
+        background-color: #f89052;
+        border: 0; }
+        .main-content__reviews .main-content__reviews__checkboxes label .orange-checkbox:checked ~ .checkboxes__container:after {
+          display: block; }
+      .main-content__reviews .main-content__reviews__checkboxes label .green-checkbox:checked ~ .checkboxes__container {
+        background: #52be80;
+        border: 0; }
+        .main-content__reviews .main-content__reviews__checkboxes label .green-checkbox:checked ~ .checkboxes__container:after {
+          display: block; }
+      .main-content__reviews .main-content__reviews__checkboxes label .checkboxes__container:after {
+        left: 10px;
+        top: 6px;
+        width: 7px;
+        height: 11px;
+        border: solid #fff;
+        border-width: 0 3px 3px 0;
+        transform: rotate(45deg); }
+  .main-content__reviews .main-content__reviews__container {
+    margin-top: 42px;
+    width: 940px;
+    border-radius: 8px;
+    background-color: #ffffff; }
+    .main-content__reviews .main-content__reviews__container .reviews__container__name {
+      float: left;
+      margin-top: 31px;
+      margin-left: 30px;
+      font-size: 20px;
+      font-weight: bold; }
+    .main-content__reviews .main-content__reviews__container .reviews__container__age {
+      display: inline-block;
+      margin-top: 29px;
+      margin-left: 29px;
+      font-weight: 200; }
+      .main-content__reviews .main-content__reviews__container .reviews__container__age:after {
+        content: "";
+        margin-left: 28px;
+        box-sizing: border-box;
+        border: 1px solid #d8d8d8; }
+    .main-content__reviews .main-content__reviews__container .reviews__container__rate {
+      margin-top: 28px;
+      margin-left: 25px;
+      display: inline-block;
+      font-size: 20px;
+      font-weight: bold;
+      color: #f89052; }
+    .main-content__reviews .main-content__reviews__container .reviews__container__date {
+      float: right;
+      margin-top: 30px;
+      margin-right: 31px; }
+    .main-content__reviews .main-content__reviews__container .reviews__container__description {
+      margin-top: 24px;
+      margin-left: 30px;
+      display: inline-block;
+      font-size: 20px;
+      line-height: 30px;
+      padding-bottom: 20px; }
+    .main-content__reviews .main-content__reviews__container.low-top {
+      margin-top: 23px; }
+
+.pagination {
+  width: 600px;
+  height: 50px;
+  padding-left: 234px;
+  padding-top: 71px;
+  padding-bottom: 118px; }
+  .pagination .pagination__arrow-left {
+    cursor: default; }
+    .pagination .pagination__arrow-left:before {
+      content: "";
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      width: 23px;
+      height: 11px;
+      border: 3px solid #dadada;
+      border-width: 0 0 3px 0; }
+    .pagination .pagination__arrow-left:after {
+      content: "";
+      position: absolute;
+      left: 14px;
+      top: 19px;
+      width: 11px;
+      height: 11px;
+      border: solid #dadada;
+      border-width: 0 3px 3px 0;
+      transform: rotate(135deg); }
+  .pagination .pagination__arrow-right:hover {
+    background-color: #E0E0E0; }
+  .pagination .pagination__arrow-right:before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 14px;
+    width: 23px;
+    height: 11px;
+    border: 3px solid #5D5D5D;
+    border-width: 0 0 3px 0; }
+  .pagination .pagination__arrow-right:after {
+    content: "";
+    position: absolute;
+    left: 21px;
+    top: 19px;
+    width: 11px;
+    height: 11px;
+    border: solid #5D5D5D;
+    border-width: 0 3px 3px 0;
+    transform: rotate(-43deg); }
+  .pagination .pagination__number:checked ~ .pagination__page-container {
+    background-color: #f89052;
+    color: #fff; }
+  .pagination .pagination__page-container:hover {
+    background-color: #E0E0E0; }
+
+.footer {
+  display: block;
+  height: 338px;
+  width: 1920px;
+  background-color: #ffffff; }
+  .footer .footer__wrapper {
+    padding-left: 250px; }
+    .footer .footer__wrapper .footer__container {
+      float: left;
+      width: 220px;
+      margin-right: 140px;
+      font-size: 20px; }
+      .footer .footer__wrapper .footer__container h4 {
+        padding-top: 52px; }
+      .footer .footer__wrapper .footer__container ul {
+        list-style-type: none;
+        margin-top: 26px; }
+        .footer .footer__wrapper .footer__container ul li {
+          margin-bottom: 5px; }
+        .footer .footer__wrapper .footer__container ul a {
+          font-size: 18px;
+          line-height: 21px;
+          color: #5d5d5d;
+          text-decoration: none; }
+          .footer .footer__wrapper .footer__container ul a:hover {
+            text-decoration: underline; }
+
+/*# sourceMappingURL=style2.css.map */

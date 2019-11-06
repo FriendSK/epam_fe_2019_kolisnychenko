@@ -1,0 +1,179 @@
+@import "vars";
+
+@mixin primary-button {
+  background: $primary-default-color;
+
+  &:hover {
+    background: $primary-hover-color;
+  }
+
+  &:active {
+    background: $primary-active-color;
+  }
+}
+
+@mixin secondary-button {
+  background: $secondary-default-color;
+
+  &:hover {
+    background: $secondary-hover-color;
+  }
+
+  &:active {
+    background: $secondary-active-color;
+  }
+}
+
+@mixin success-button {
+  background: $success-default-color;
+
+  &:hover {
+    background: $success-hover-color;
+  }
+
+  &:active {
+    background: $success-active-color;
+  }
+}
+
+@mixin danger-button {
+  background: $danger-default-color;
+
+  &:hover {
+    background: $danger-hover-color;
+  }
+
+  &:active {
+    background: $danger-active-color;
+  }
+}
+
+@mixin warning-button {
+  background: $warning-default-color;
+
+  &:hover {
+    background: $warning-hover-color;
+  }
+
+  &:active {
+    background: $warning-active-color;
+  }
+}
+
+@mixin info-button {
+  background: $info-default-color;
+
+  &:hover {
+    background: $info-hover-color;
+  }
+
+  &:active {
+    background: $info-active-color;
+  }
+}
+
+@mixin background-color {
+  background-color: $background-color-darkWhite;
+}
+
+@mixin header-H1 {
+  font-weight: bold;
+  font-size: $Header-H1;
+}
+
+@mixin header-H2 {
+  font-weight: 200;
+  font-size: $Header-H2;
+}
+
+@mixin header-H3 {
+  font-weight: bold;
+  font-size: $Header-H3;
+}
+
+@mixin header-H4 {
+  font-size: $Header-H4;
+}
+
+@mixin header-H5 {
+  font-size: $Header-H5;
+}
+
+@mixin green-checkbox {
+  @extend .hide-checkbox;
+
+  &:checked ~ .checkboxes__container {
+    background: $green-color;
+    border: 0;
+
+    &::after {
+      display: block;
+    }
+  }
+}
+
+@mixin orange-checkbox {
+  @extend .hide-checkbox;
+
+  &:checked ~ .checkboxes__container {
+    background-color: $orange-color;
+    border: 0;
+
+    &::after {
+      display: block;
+    }
+  }
+}
+
+@mixin blue-checkbox {
+  @extend .hide-checkbox;
+
+  &:checked ~ .checkboxes__container {
+    background-color: $blue-color;
+    border: 0;
+
+    &::after {
+      display: block;
+    }
+  }
+}
+
+@mixin red-checkbox {
+  @extend .hide-checkbox;
+
+  &:checked ~ .checkboxes__container {
+    background-color: $red-color;
+    border: 0;
+
+    &::after {
+      display: block;
+    }
+  }
+}
+
+@mixin black-checkbox {
+  @extend .hide-checkbox;
+
+  &:checked ~ .checkboxes__container {
+    background-color: $black-color;
+    border: 0;
+
+    &::after {
+      display: block;
+    }
+  }
+}
+
+@mixin blue-pagination {
+  &:checked ~ .pagination__page-container {
+    background-color: $blue-color;
+    color: $white;
+  }
+}
+
+@mixin menu-active {
+  &:checked ~ .page-menu__container {
+    border-bottom: 2px solid $border-bottom-hover-green-color;
+    color: $text-color-Grey;
+  }
+}

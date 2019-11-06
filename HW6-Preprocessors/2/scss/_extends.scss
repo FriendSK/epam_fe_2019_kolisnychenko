@@ -1,0 +1,39 @@
+.list-item {
+  list-style-type: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.description {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.checkbox-mark {
+  margin-left: 8px;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.hide-checkbox {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.pagination-box {
+  display: block;
+  float: left;
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+  background-color: $pagination-box-bgColor;
+  line-height: 50px;
+  font-size: 25px;
+  margin-right: 20px;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+}

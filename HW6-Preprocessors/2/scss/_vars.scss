@@ -1,0 +1,69 @@
+@import "typography";
+@import "color-matrix1";
+@import "color-matrix2";
+@import "color-matrix3";
+
+$font-family: $fontFamily;
+$font-size: $fontSize;
+$Header-H1: $H1;
+$Header-H2: $H2;
+$Header-H3: $H3;
+$Header-H4: $H4;
+$Header-H5: $H5;
+
+$background-image1: url("../img/Banner_img.png");
+$background-image2: url("../img/Banner_img2.png");
+$background-image3: url("../img/Banner_img3.png");
+
+$white: $white;
+$light-black: $lightBlack;
+
+$text-color-white: $textColorWhite;
+$text-color-lightGrey: $textColorLightGrey;
+$text-color-Grey: $textColorGrey;
+
+$checkbox-bgColor-darkWhite: $checkboxBgColorDarkWhite;
+$checkbox-borderColor-lightGrey: $checkboxBorderColorlightGrey;
+
+$border-color-lightGrey: $borderColorLightGrey;
+$border-bottom-hover-green-color: $borderBottomHoverGreenColor;
+$border-bottom-hover-red-color: $borderBottomHoverRedColor;
+
+$primary-default-color: $lightBlue;
+$primary-hover-color: $pureBlue;
+$primary-active-color: $darkBlue;
+
+$secondary-default-color: $LightOrange;
+$secondary-hover-color: $pureOrange;
+$secondary-active-color: $darkOrange;
+
+$success-default-color: $lightGreen;
+$success-hover-color: $pureGreen;
+$success-active-color: $darkGreen;
+
+$danger-default-color: $lightRed;
+$danger-hover-color: $pureRed;
+$danger-active-color: $darkRed;
+
+$warning-default-color: $lightYellow;
+$warning-hover-color: $pureYellow;
+$warning-active-color: $darkYellow;
+
+$info-default-color: $lightTurquoise;
+$info-hover-color: $pureTurquoise;
+$info-active-color: $darkTurquoise;
+
+$background-color-darkWhite: $backgroundColorDarkWhite;
+$background-color-white: $backgroundColorWhite;
+
+$pagination-box-bgColor: $paginationBgColor;
+$pagination-hover-bgColor: $paginationHoverBgColor;
+
+$disabled-arrow-color: $disabledArrowColor;
+$active-arrow-color: $activeArrowColor;
+
+$green-color: $greenColor;
+$red-color: $redColor;
+$black-color: $blackColor;
+$blue-color: $blueColor;
+$orange-color: $orangeColor;
