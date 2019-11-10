@@ -1,0 +1,88 @@
+.H1-light {
+  color: $grey;
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 53px;
+}
+
+.H2-bold {
+  color: $grey;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 36px;
+}
+
+.H2-light {
+  color: $grey;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 36px;
+}
+
+.H3 {
+  color: $turquoise;
+  font-size: 24px;
+  line-height: 31px;
+}
+
+.H4-bold {
+  color: $turquoise;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 23px;
+  text-transform: uppercase;
+}
+
+.H5 {
+  color: $dove-grey;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.H5-bold {
+  color: $turquoise;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 18px;
+}
+
+.collection-link {
+  &:active {
+    transform: scale(1.1);
+  }
+
+  & a {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-decoration: none;
+    align-items: center;
+  }
+}
+
+.profile-img-link {
+  & a {
+    text-decoration: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+    transform: rotate(360deg);
+  }
+}
+
+.product-link {
+  & a {
+    text-decoration: none;
+    color: $grey;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    &:active {
+      text-decoration: none;
+    }
+  }
+}
