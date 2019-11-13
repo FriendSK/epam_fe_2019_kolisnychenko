@@ -1,5 +1,6 @@
 {
   "extends": "stylelint-config-standard",
+  "ignoreFiles": [ "HW8-Layouts/*/*.css", "HW8-Layouts/*/*.map", "HW8-Layouts/fonts/*.*"],
   "rules": {
     "at-rule-no-unknown": [ true, {
       "ignoreAtRules": ["extend", "at-root", "debug", "warn", "error", "if", "else", "for", "each", "while", "mixin", "include", "content", "return", "function"]
