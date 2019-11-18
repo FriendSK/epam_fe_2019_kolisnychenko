@@ -1,0 +1,62 @@
+.header-h1 {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 45px;
+}
+
+.header-h2 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 39px;
+}
+
+.header-h3 {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+.header-h4 {
+  font-size: 17px;
+  line-height: 28px;
+}
+
+.header-h5 {
+  font-size: 15px;
+  line-height: 25px;
+}
+
+.bottom-line {
+  position: relative;
+  z-index: 10;
+  margin: 0 auto 14px;
+  width: 96px;
+  height: 8px;
+  border: solid $light-gray;
+  border-width: 0 2px 2px 2px;
+  border-radius: 0 0 10% 10%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -4px;
+    top: -1px;
+    width: 4px;
+    height: 7px;
+    border-radius: 0 10% 0 0;
+    border: solid $light-gray;
+    border-width: 1px 2px 0 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: -4px;
+    top: -1px;
+    width: 4px;
+    height: 7px;
+    border-radius: 10% 0 0 0;
+    border: solid $light-gray;
+    border-width: 1px 0 0 2px;
+  }
+}
