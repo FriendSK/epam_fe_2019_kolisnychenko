@@ -67,3 +67,14 @@
   font-weight: bold;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "Lucida Grande";
+  src: url("../fonts/878812403fc38d24102f0458bf6e4744.eot");
+  src:
+    url("../fonts/878812403fc38d24102f0458bf6e4744.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/878812403fc38d24102f0458bf6e4744.woff2") format("woff2"),
+    url("../fonts/878812403fc38d24102f0458bf6e4744.woff") format("woff"),
+    url("../fonts/878812403fc38d24102f0458bf6e4744.ttf") format("truetype"),
+    url("../fonts/878812403fc38d24102f0458bf6e4744.svg#Lucida_Grande") format("svg");
+}

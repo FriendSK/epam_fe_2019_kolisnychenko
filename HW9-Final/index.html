@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="//db.onlinewebfonts.com/c/878812403fc38d24102f0458bf6e4744?family=Lucida+Grande" rel="stylesheet"
-        type="text/css" />
     <link rel="stylesheet" href="css/main.css">
     <title>HW9_final</title>
 </head>
@@ -26,9 +24,9 @@
                             <li> <label for="portf"> <input type="radio" name="menu" id="portf" hidden="hidden"><a
                                         href="#portfolio"><span>Portfolio</span></a></label></li>
                             <li> <label for="blg"> <input type="radio" name="menu" id="blg" hidden="hidden"><a
-                                        href="#blog"><span> Blog</span></a></label></li>
+                                        href="index2.html"><span> Blog</span></a></label></li>
                             <li> <label for="page"> <input type="radio" name="menu" id="page" hidden="hidden"><a
-                                        href="#pages"><span>Pages</span> </a></label></li>
+                                        href="index3.html"><span>Pages</span> </a></label></li>
                             <li><label for="abt"> <input type="radio" name="menu" id="abt" hidden="hidden"> <a
                                         href="#about"><span> About</span></a></label></li>
                             <li> <label for="contacts"> <input type="radio" name="menu" id="contacts" hidden="hidden">
@@ -189,7 +187,6 @@
                     <h2>Testimonials</h2>
                 </div>
                 <div class="bottom-line"> </div>
-
                 <div class="row">
                     <div class="testimonials__wrapper">
                         <div class="testimonials__block">
@@ -219,11 +216,16 @@
                 </div>
                 <div class="row">
                     <div class="contacts__soc-icons">
-                        <a href="#"> <img src="img/a-icon-facebook.svg" alt="facebook" /></a>
-                        <a href="#"> <img src="img/a-icon-instagram.svg" alt="instagram" /></a>
-                        <a href="#"> <img src="img/a-icon-dribbble.svg" alt="dribble" /></a>
+                        <svg class="soc-icon">
+                            <use href="img/sprite.svg#facebook"></use>
+                        </svg>
+                        <svg class="soc-icon">
+                            <use href="img/sprite.svg#instagram"></use>
+                        </svg>
+                        <svg class="soc-icon">
+                            <use href="img/sprite.svg#dribble"></use>
+                        </svg>
                     </div>
-
                 </div>
             </div>
             <div class="contacts__block">
@@ -252,7 +254,7 @@
                         </div>
 
                         <div class="contacts__block-right">
-                                <div class="clearfix"></div>
+                            <div class="clearfix"></div>
                             <div class="block-right__form">
                                 <div class="block-right__form-title"><img src="img/a-icon-mail.svg" alt="mail" />
                                     <p> Write us a few words about your project and we will prepare proposal for
@@ -261,7 +263,6 @@
                                         24 hours</p>
                                 </div>
                                 <div class="block-right__wrapper">
-
                                     <div class="row">
                                         <form action="#" method="GET">
                                             <label for="name">
@@ -272,12 +273,11 @@
                                                 <span class="input-name">Email</span>
                                                 <input type="email" name="email" id="email">
                                             </label>
-
                                             <div class="password__wrapper"><label for="password">
-                                                    <span class="input-name">Password</span>
-                                                    <img src="img/a-icon-showpass.svg" alt="eye" /><span
-                                                        class="show-eye">
-                                                        show</span></label>
+                                                    <span class="input-name">Password</span></label>
+                                                <span>
+                                                    <img src="img/a-icon-showpass.svg" alt="eye" />
+                                                    <span class="show-eye"> show</span></span>
                                             </div>
                                             <input type="password" name="password" id="password">
 
@@ -299,14 +299,22 @@
         <footer class="footer">
             <div class="container">
                 <div class="row">
-                    <div class="footer__soc-icons">
-                        <a href="#"> <img src="img/a-icon-facebook.svg" alt="facebook" /></a>
-                        <a href="#"> <img src="img/a-icon-instagram.svg" alt="instagram" /></a>
-                        <a href="#"> <img src="img/a-icon-dribbble.svg" alt="dribble" /> </a>
+                    <div class="footer__wrapper">
+                        <div class="footer__soc-icons">
+                            <a href="#"> <svg class="soc-icon">
+                                    <use xlink:href="img/sprite.svg#facebook"></use>
+                                </svg></a>
+                            <a href="#"> <svg class="soc-icon">
+                                    <use href="img/sprite.svg#instagram"></use>
+                                </svg></a>
+                            <a href="#"> <svg class="soc-icon">
+                                    <use xlink:href="img/sprite.svg#dribble"></use>
+                                </svg></a>
+                        </div>
+                        <div class="footer__title">BlogWorld</div>
+                        <div class="footer__copyright"> &copy;2019 All Rights Reserved.</div>
+                        <div class="footer__to-top"> <a href="#header"> <span class="circle"></span></a> </div>
                     </div>
-                    <div class="footer__title">BlogWorld</div>
-                    <div class="footer__copyright"> &copy;2019 All Rights Reserved.</div>
-                    <div class="footer__to-top"> <a href="#header"> <span class="circle"></span></a> </div>
                 </div>
             </div>
         </footer>
@@ -315,4 +323,3 @@
 </body>
 
 </html>
-

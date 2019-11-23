@@ -116,37 +116,17 @@ body {
     margin-top: 22px;
 
     & .button--black {
-      height: 45px;
       width: 100px;
-      border-radius: 5px;
-      background-color: $gray;
-      border: 1px solid $gray;
-      color: $white;
-      font-size: 15px;
-      line-height: 25px;
       margin-right: 21px;
 
-      &:hover {
-        cursor: pointer;
-        background-color: $dark-gray;
-      }
+      @extend .black-button;
     }
 
     & .button--transparent {
-      background: transparent;
+      @extend .transparent-button;
+
       height: 45px;
       width: 125px;
-      border: 1px solid $gray;
-      border-radius: 5px;
-      color: $gray;
-      font-size: 15px;
-      line-height: 25px;
-
-      &:hover {
-        cursor: pointer;
-        background-color: $dark-gray;
-        color: $white;
-      }
     }
   }
 }
@@ -576,17 +556,8 @@ body {
     & button {
       height: 45px;
       width: 136px;
-      border: 1px solid $light-gray;
-      border-radius: 5px;
-      background-color: transparent;
-      font-size: 15px;
-      line-height: 25px;
 
-      &:hover {
-        cursor: pointer;
-        background-color: $dark-gray;
-        color: $white;
-      }
+      @extend .transparent-button;
     }
   }
 }
@@ -731,9 +702,21 @@ body {
   }
 
   &__soc-icons {
-    @include make-md-column(4);
+    margin: 23px 0 0 15px;
+    width: 115px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    margin-top: 22px;
+    & .soc-icon {
+      width: 23px;
+      height: 23px;
+
+      &:hover {
+        cursor: pointer;
+        fill: $pink;
+      }
+    }
 
     & a {
       margin-right: 22px;
@@ -743,7 +726,7 @@ body {
   &__block {
     max-width: 1440px;
     height: 100%;
-    margin: 17px auto 0;
+    margin: 18px auto 0;
     background-color: $light-white;
 
     &-left {
@@ -828,7 +811,6 @@ body {
 
         &-title {
           position: relative;
-          max-height: 84px;
           background-color: $light-white;
 
           & img {
@@ -899,35 +881,26 @@ body {
           & .password__wrapper {
             box-sizing: border-box;
             margin-left: 31px;
+            width: 89%;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
 
             & .input-name {
               margin-left: 0;
             }
 
-            & img {
-              margin-left: 145px;
-            }
-
             & .show-eye {
               font-size: 15px;
+              margin-right: 8px;
             }
           }
 
           & button {
             margin: 30px 0 0 30px;
-            height: 45px;
             width: 144px;
-            border-radius: 5px;
-            border: 1px solid $gray;
-            background-color: $light-gray;
-            color: $white;
-            font-size: 15px;
-            line-height: 25px;
 
-            &:hover {
-              cursor: pointer;
-              background-color: $dark-gray;
-            }
+            @extend .black-button;
           }
 
           & p {
@@ -960,15 +933,26 @@ body {
   height: 71px;
   background-color: $light-white;
   position: relative;
+  padding-top: 10px;
 
   &__soc-icons {
     @include make-md-column(4);
     @include make-xs-column(4);
 
-    margin-top: 11px;
+    margin-top: 12px;
+
+    & .soc-icon {
+      width: 23px;
+      height: 23px;
+
+      &:hover {
+        cursor: pointer;
+        fill: $pink;
+      }
+    }
 
     & a {
-      margin-right: 22px;
+      margin-right: 18px;
     }
   }
 
@@ -979,7 +963,7 @@ body {
     @extend .header-h4;
 
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 12px;
     text-align: center;
   }
 
@@ -989,7 +973,7 @@ body {
 
     @extend .header-h5;
 
-    margin-top: 10px;
+    margin-top: 14px;
     text-align: right;
   }
 
@@ -1018,26 +1002,24 @@ body {
   }
 }
 
-@media all and (max-width: 1200px) {
+@media all and (max-width: $medium-width) {
   .portfolio__image1 {
     @include make-md-column(4, 0);
   }
-
-  .contacts__block-right .block-right__form form .password__wrapper img {
-    margin-left: 97px;
-  }
 }
 
-@media all and (max-width: 630px) {
-  .contacts__block-right .block-right__form form .password__wrapper img {
-    margin-left: 40px;
-  }
-
-  .contacts__block-right .block-right__form-title {
-    max-height: 125px;
+@media all and (max-width: $medium2-width) {
+  .contacts__block-right .block-right__form {
+    transform: translate(19px, -30px);
   }
 
   .contacts__block-right .block-right__form form input {
-    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+@media all and (max-width: $small-width) {
+  .contacts__block-right .block-right__form-title {
+    max-height: 125px;
   }
 }
