@@ -21,6 +21,8 @@ if (login === 'Maks') {
   message = '';
 }
 
+message = login === 'Maks' ? 'Hi, Maks' : 'Serg' ? 'Hi, Serg' : ' ' ? 'Hi undefined' : ' ';
+
 switch (login) {
   case 'Maks':
     message = 'Hi, Maks';
