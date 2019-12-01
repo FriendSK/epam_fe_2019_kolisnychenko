@@ -112,15 +112,15 @@ const listOfPosts2 = [
   },
 ];
 
-function getQuntityPostsByAuthor(listOfPosts) {
+function getQuntityPostsByAuthor(listOfPosts, name) {
   let post = 0;
   let comments = 0;
   listOfPosts.forEach((el) => {
-    if (el.author === 'Rimus') {
+    if (el.author === name) {
       return post++;
     } else if (el.comments) {
       el.comments.forEach((el) => {
-        if (el.author === 'Rimus') {
+        if (el.author === name) {
           comments++;
         }
       });
@@ -130,4 +130,4 @@ function getQuntityPostsByAuthor(listOfPosts) {
   return `post: ${post}, comments: ${comments}`;
 }
 
-getQuntityPostsByAuthor(listOfPosts2);
+getQuntityPostsByAuthor(listOfPosts2, 'Rimus');
