@@ -2,7 +2,7 @@
 
 function hasNumbersAndRequiredLength(value) {
   if (
-    value.charAt(0) === value.charAt(0).toUpperCase() &&
+    value.charCodeAt(0) !== value.charAt(0).toUpperCase().charCodeAt(0) &&
     value.length > 2 &&
     value.length < 20
   ) {
@@ -30,15 +30,13 @@ function validateTitle(value) {
   return 'invalid';
 }
 
-validateTitle('1Dff$');
+validateTitle('/Title');
 
 // second task
 
 function isNumberAndIsDivisible(value) {
   return (
     typeof value === 'number' &&
-    value % 3 === 0 &&
-    value % 5 === 0 &&
     value % 15 === 0
   );
 }
@@ -54,4 +52,4 @@ function sum() {
   return +arguments[0] + +arguments[1];
 }
 
-sum('3', 45);
+sum('5', 3);
