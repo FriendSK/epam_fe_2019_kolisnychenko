@@ -1,0 +1,7 @@
+@mixin gradient1($color1, $color2, $percent) {
+  background: linear-gradient(108.56deg, $color1 0%, $color2 $percent);
+}
+
+@mixin gradient2($color1, $color2, $percent) {
+  background: linear-gradient(236.77deg, $color1 0%, $color2 $percent);
+}
