@@ -1665,10 +1665,12 @@ body {
       display: inline-block;
       position: relative;
       height: 243px;
-      width: 100%;
       text-decoration: none;
       color: #fff; }
-      .portfolio__image a .hover-block {
+      .portfolio__image a img {
+        width: 100%;
+        height: 100%; }
+      .portfolio__image a .controls-block {
         opacity: 0;
         position: absolute;
         display: flex;
@@ -1680,14 +1682,14 @@ body {
         width: 101px;
         border-radius: 5px;
         background-color: rgba(0, 0, 0, 0.5); }
-        .portfolio__image a .hover-block svg {
+        .portfolio__image a .controls-block svg {
           height: 17px;
           width: 17px;
           fill: #fff; }
       .portfolio__image a:hover {
         cursor: pointer;
-        box-shadow: 0 10px 10px 0 rgba(78, 78, 78, 0.5); }
-        .portfolio__image a:hover > .hover-block {
+        box-shadow: 3px 5px 15px 0 rgba(78, 78, 78, 0.5); }
+        .portfolio__image a:hover > .controls-block {
           opacity: 1; }
     .portfolio__image .image-title {
       position: absolute;
