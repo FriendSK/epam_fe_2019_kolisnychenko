@@ -464,11 +464,15 @@ body {
       display: inline-block;
       position: relative;
       height: 243px;
-      width: 100%;
       text-decoration: none;
       color: $white;
 
-      & .hover-block {
+      & img {
+          width: 100%;
+          height: 100%;
+      }
+
+      & .controls-block {
         opacity: 0;
         position: absolute;
         display: flex;
@@ -490,9 +494,9 @@ body {
 
       &:hover {
         cursor: pointer;
-        box-shadow: 0 10px 10px 0 rgba(78, 78, 78, 0.5);
+        box-shadow: 3px 5px 15px 0 rgba(78, 78, 78, 0.5);
 
-        & > .hover-block {
+        & > .controls-block {
           opacity: 1;
         }
       }

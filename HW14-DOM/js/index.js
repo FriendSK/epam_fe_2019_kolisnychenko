@@ -135,11 +135,11 @@ function renderTitleAndDescr(section) {
                       <a href='#'> <img src='${el.img}' />
                       <span class='image-title'>${el.title}</span>
                       <span class='image-descr'>${el.descr}</span>
-                      <span class='hover-block'>
-                      <svg class='hover-icon'>
+                      <span class='controls-block'>
+                      <svg class='controls-icon'>
                       <use href='img/sprite.svg#attach'></use>
                       </svg>
-                      <svg class='hover-icon'>
+                      <svg class='controls-icon'>
                       <use href='img/sprite.svg#magnifying-glass'></use>
                       </svg></span></a>
                    </div>`;
