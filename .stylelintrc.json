@@ -1,5 +1,6 @@
 {
   "extends": "stylelint-config-standard",
+  "ignoreFiles": ["HW16-Ajax/*/*.css", "HW16-Ajax/*/*.map", "HW16-Ajax/fonts/*.*", "HW16-Ajax/server/*.*"],
   "rules": {
     "at-rule-no-unknown": [ true, {
       "ignoreAtRules": ["extend", "at-root", "debug", "warn", "error", "if", "else", "for", "each", "while", "mixin", "include", "content", "return", "function"]
