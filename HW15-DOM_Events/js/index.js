@@ -126,42 +126,159 @@ function renderTitleAndDescr(section) {
   const row = doc.createElement('div');
   row.className = 'row';
   container.appendChild(row);
-  row.innerHTML = renderPortfolio(mockData.portfolio);
+  const sliderContainer = doc.createElement('div');
+  sliderContainer.className = 'portfolio__container';
+  const sliderWrapper = doc.createElement('div');
+  sliderWrapper.className = 'portfolio__wrapper';
+  const slider = doc.createElement('div');
+  slider.className = 'portfolio__slider';
+  row.appendChild(sliderContainer);
+  sliderContainer.appendChild(sliderWrapper);
+  sliderWrapper.appendChild(slider);
+  slider.innerHTML = renderPortfolio(mockData.portfolio);
 
   function renderPortfolio(portfolio) {
     let resHTML = '';
     portfolio.slider.forEach((el) => {
       resHTML += ` <div class='portfolio__image'>
-                      <a href='#'> <img src='${el.img}' />
-                      <span class='image-title'>${el.title}</span>
-                      <span class='image-descr'>${el.descr}</span>
-                      <span class='controls-block'>
-                      <svg class='controls-icon'>
-                      <use href='img/sprite.svg#attach'></use>
-                      </svg>
-                      <svg class='controls-icon'>
-                      <use href='img/sprite.svg#magnifying-glass'></use>
-                      </svg></span></a>
-                   </div>`;
+                            <a> <img src='${el.img}' />
+                            <span class='image-title'>${el.title}</span>
+                            <span class='image-descr'>${el.descr}</span>
+                            <span class='controls-block'>
+                            <svg class='controls-icon'>
+                            <use href='img/sprite.svg#attach'></use>
+                            </svg>
+                            <svg class='controls-icon'>
+                            <use href='img/sprite.svg#magnifying-glass'></use>
+                            </svg></span></a>
+                        </div>`;
     });
     return resHTML;
   }
 
   const row2 = doc.createElement('div');
   row2.className = 'row';
-  container.appendChild(row2);
+  row.appendChild(row2);
   const arrowsWrapper = doc.createElement('div');
   arrowsWrapper.className = 'portfolio__slider-arrows';
   row2.appendChild(arrowsWrapper);
-  arrowsWrapper.innerHTML = `<a href='#' class='portfolio__slider-arrows--left'></a>
-    <a href='#' class='portfolio__slider-arrows--right'></a> `;
+  arrowsWrapper.innerHTML = `<span  class='portfolio__slider-arrows--left'></span>
+                                <span class='portfolio__slider-arrows--right'></span>`;
 
   const row3 = doc.createElement('div');
   row3.className = 'row';
   container.appendChild(row3);
   row3.innerHTML = `<div class='portfolio__button'>
-    <button type='button'>See all works</button>
-    </div>`;
+                        <button type='button'>See all works</button>
+                     </div>`;
+
+  const leftArrow = doc.querySelector('.portfolio__slider-arrows--left');
+  const rightArrow = doc.querySelector('.portfolio__slider-arrows--right');
+  const slidesContainer = doc.querySelector('.portfolio__container');
+  const slidesBox = doc.querySelector('.portfolio__slider');
+  const slides = doc.querySelectorAll('.portfolio__image');
+  let index;
+
+  leftArrow.addEventListener('click', moveSlidesToLeft);
+  rightArrow.addEventListener('click', moveSlidesToRight);
+  slidesBox.addEventListener('transitionend', changeSlides);
+
+  function changeSlides() {
+    if (index === -1) {
+      slidesBox.appendChild(slidesBox.firstElementChild);
+    } else if (index === 1) {
+      slidesBox.prepend(slidesBox.lastElementChild);
+    }
+
+    slidesBox.style.transition = 'none';
+    slidesBox.style.transform = 'translateX(0)';
+    setTimeout(() => {
+      slidesBox.style.transition = 'all .5s';
+    });
+  }
+
+  const size = slidesBox.clientWidth;
+
+  function moveSlidesToLeft() {
+    index = 1;
+    slidesBox.style.transform = `translateX(${size / slides.length}px)`;
+  }
+
+  function moveSlidesToRight() {
+    index = -1;
+    slidesBox.style.transform = `translateX(${-size / slides.length}px)`;
+  }
+
+  let timerId;
+  timerId = setInterval(() => {
+    moveSlidesToRight();
+  }, 2500);
+
+  row.onmouseleave = () => {
+    timerId = setInterval(() => {
+      moveSlidesToRight();
+    }, 2500);
+  };
+
+  row.onmouseenter = () => {
+    clearInterval(timerId);
+  };
+
+  const swipe = function (el) {
+    let direction = 'none';
+    let swipeType = 'none';
+    let startX = 0;
+    let distX = 0;
+    let dist = 0;
+    const minDist = 100;
+
+    const checkStart = function (e) {
+      startX = e.pageX;
+      e.preventDefault;
+    };
+
+    const checkMove = function (e) {
+      distX = e.pageX - startX;
+      direction = distX < 0 ? 'right' : 'left';
+      e.preventDefault;
+    };
+
+    const checkEnd = function (e) {
+      if (Math.abs(distX) >= minDist) {
+        swipeType = direction;
+      }
+
+      dist = Math.abs(distX);
+
+      if (swipeType !== 'none' && dist >= minDist) {
+        const swipeEvent = new CustomEvent('swipe', {
+          bubbles: true,
+          cancelable: true,
+          detail: {
+            full: e,
+            dir: swipeType,
+            dist,
+          },
+        });
+        el.dispatchEvent(swipeEvent);
+      }
+      e.preventDefault();
+    };
+
+    el.addEventListener('mousedown', checkStart);
+    el.addEventListener('mousemove', checkMove);
+    el.addEventListener('mouseup', checkEnd);
+  };
+
+  swipe(slidesContainer);
+
+  slidesContainer.addEventListener('swipe', (e) => {
+    if (e.detail.dir === 'left') {
+      moveSlidesToLeft();
+    } else if (e.detail.dir === 'right') {
+      moveSlidesToRight();
+    } else { return; }
+  });
 })();
 
 (function () {

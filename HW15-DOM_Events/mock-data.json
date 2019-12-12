@@ -78,6 +78,16 @@
                 "img": "img/bg_img3.png",
                 "title": "Mountains",
                 "descr": "Art, hiking"
+            },
+            {
+                "img": "img/bg_img4.png",
+                "title": "Ocean",
+                "descr": "Photography, art, nature"
+            },
+            {
+                "img": "img/bg_img5.png",
+                "title": "Ocean",
+                "descr": "Photography, art, nature"
             }
         ]
     },

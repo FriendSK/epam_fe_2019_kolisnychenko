@@ -1,6 +1,6 @@
 {
   "extends": "stylelint-config-standard",
-  "ignoreFiles": ["HW9-Final/*/*.css", "HW9-Final/*/*.map", "HW9-Final/fonts/*.*", "HW14-DOM/*/*.css", "HW14-DOM/*/*.map", "HW14-DOM/fonts/*.*" ],
+  "ignoreFiles": ["HW15-DOM_Events/*/*.css", "HW15-DOM_Events/*/*.map", "HW15-DOM_Events/fonts/*.*", "HW15-DOM_Events/*/*.css", "HW15-DOM_Events/*/*.map", "HW15-DOM_Events/fonts/*.*" ],
   "rules": {
     "at-rule-no-unknown": [ true, {
       "ignoreAtRules": ["extend", "at-root", "debug", "warn", "error", "if", "else", "for", "each", "while", "mixin", "include", "content", "return", "function"]
