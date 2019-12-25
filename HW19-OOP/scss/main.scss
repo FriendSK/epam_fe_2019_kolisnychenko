@@ -696,6 +696,10 @@ body {
         cursor: pointer;
         box-shadow: 0 0 10px 0 $medium-gray;
       }
+
+      &:active {
+        background-color: $dark-gray;
+      }
     }
 
     &--right {

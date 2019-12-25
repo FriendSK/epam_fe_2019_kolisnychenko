@@ -1815,6 +1815,8 @@ body {
       .portfolio__slider-arrows--center:hover {
         cursor: pointer;
         box-shadow: 0 0 10px 0 #6d6d6d; }
+      .portfolio__slider-arrows--center:active {
+        background-color: #393737; }
     .portfolio__slider-arrows--right, .testimonials__arrow-right {
       transform: rotate(-90deg); }
       .portfolio__slider-arrows--right:hover, .testimonials__arrow-right:hover {

@@ -274,6 +274,22 @@ function Slider(row, slidesContainer, slidesBox, slides, leftArrow, rightArrow) 
     infinifiSwipe();
   };
 
+  this.removeEventListeners = () => {
+    this.leftArrow.removeEventListener('click', this._moveSlidesToLeft);
+    this.rightArrow.removeEventListener('click', this._moveSlidesToRight);
+    this.slidesBox.removeEventListener('transitionend', changeSlides);
+  };
+}
+
+const slidesContainer = doc.querySelector('.portfolio__container');
+const slidesBox = doc.querySelector('.portfolio__slider');
+const slides = doc.querySelectorAll('.portfolio__image');
+const leftArrow = doc.querySelector('.portfolio__slider-arrows--left');
+const rightArrow = doc.querySelector('.portfolio__slider-arrows--right');
+
+function Slider1() {
+  Slider.apply(this, arguments);
+
   const swipe = (container) => {
     let direction = 'none';
     let swipeType = 'none';
@@ -334,22 +350,6 @@ function Slider(row, slidesContainer, slidesBox, slides, leftArrow, rightArrow) 
 
   this.row.addEventListener('swipe', swipeSlide);
 
-  this.removeEventListeners = () => {
-    this.leftArrow.removeEventListener('click', this._moveSlidesToLeft);
-    this.rightArrow.removeEventListener('click', this._moveSlidesToRight);
-    this.slidesBox.removeEventListener('transitionend', changeSlides);
-  };
-}
-
-const slidesContainer = doc.querySelector('.portfolio__container');
-const slidesBox = doc.querySelector('.portfolio__slider');
-const slides = doc.querySelectorAll('.portfolio__image');
-const leftArrow = doc.querySelector('.portfolio__slider-arrows--left');
-const rightArrow = doc.querySelector('.portfolio__slider-arrows--right');
-
-function Slider1() {
-  Slider.apply(this, arguments);
-
   this.changeSwipeDirection = () => {
     this.toRight = !this.toRight;
   };
@@ -361,6 +361,7 @@ function Slider1() {
   this.removeEventListeners = () => {
     removeEventListeners.call(this);
     changeSlideDirectionBtn.removeEventListener('click', this.changeSwipeDirection);
+    this.row.removeEventListener('swipe', swipeSlide);
   };
 }
 
@@ -452,7 +453,6 @@ function Slider2() {
 
 const slider2 = new Slider2(row4, slidesContainer2, slidesBox2, slides2, leftArrow2, rightArrow2);
 slider2.startInfinitiSwiping();
-slider2.initSwiper();
 slider2.changeSlidesByKeyboard();
 
 (function () {

@@ -98,7 +98,7 @@ const fetchArticles = () => {
 const fetchArticle = () => {
   let id = localStorage.getItem('id');
   if (!id)
-    {id = 0}
+  {id = 0}
   const URL = `http://127.0.0.1:3000/api/list/${id}`;
 
   fetch(URL, {
