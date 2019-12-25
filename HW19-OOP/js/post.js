@@ -2,21 +2,9 @@ const doc = document;
 const main = doc.querySelector('main');
 let postsQuantity;
 
-const xhr = new XMLHttpRequest();
-xhr.open('GET', 'mock-data.json', false);
-xhr.send();
-const response = xhr.responseText;
-const mockData = JSON.parse(response);
-
 function hasNumbersAndRequiredLength(value) {
   if (
-    value.charCodeAt(0) ===
-      value
-        .charAt(0)
-        .toUpperCase()
-        .charCodeAt(0) &&
-    value.length > 2 &&
-    value.length < 20
+    value.charCodeAt(0) === value.charAt(0).toUpperCase().charCodeAt(0) && value.length > 2 && value.length < 20
   ) {
     return true;
   }
@@ -85,87 +73,32 @@ addBtn.onclick = function () {
   formWrapper.style.display = 'block';
 };
 
-const sendFormData = (data) => {
-  const URL = 'http://127.0.0.1:3000/api/create-article';
-
-  fetch(URL, {
-    method: 'post',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    mode: 'cors',
-    body: JSON.stringify(data),
-  })
-    .then((response) => {
-      if (response.ok) {
-        localStorage.setItem('id', data.id);
-        window.location.href = './post.html';
-        return;
-      }
-    })
-    .catch((error) => {
-      alert(`error while fetching ${error}`);
-    });
-};
-
-function onSubmit(e) {
-  e.preventDefault();
-
-  const titleField = doc.querySelector('.post-form__title input');
-  const title = e.target.title.value;
-
-  if (!validateTitle(title)) {
-    titleField.className = 'error';
-    return;
-  }
-
-  const options = {
-    year: 'numeric',
-    day: 'numeric',
-    weekday: 'short',
-    timezone: 'UTC',
-  };
-
-  const dateUTC = new Date();
-
-  const typeOfPost = doc.querySelector('input[name="typeOfPost"]:checked').id;
-  const userImg = e.target.img.value;
-  const author = e.target.author.value;
-  const descr = e.target.description.value;
-  const quote = e.target.quote.value;
-  const date = dateUTC.toLocaleString('en-US', options);
-  const id = postsQuantity++;
-
-  sendFormData({typeOfPost, userImg, title, author, descr, quote, date, id});
-}
-
 const form = doc.querySelector('.header__post-form form');
 form.addEventListener('submit', onSubmit);
 
-(function () {
-  const postSection = doc.createElement('section');
-  postSection.className = 'posts';
-  main.appendChild(postSection);
+const postSection = doc.createElement('section');
+postSection.className = 'posts';
+main.appendChild(postSection);
 
-  const container = doc.createElement('div');
-  container.className = 'container';
-  postSection.appendChild(container);
+const container = doc.createElement('div');
+container.className = 'container';
+postSection.appendChild(container);
 
-  const row = doc.createElement('div');
-  row.className = 'row';
-  container.appendChild(row);
+const row = doc.createElement('div');
+row.className = 'row';
+container.appendChild(row);
 
-  const postsWrapper = doc.createElement('div');
-  postsWrapper.className = 'posts__wrapper';
-  row.appendChild(postsWrapper);
+const postsWrapper = doc.createElement('div');
+postsWrapper.className = 'posts__wrapper';
+row.appendChild(postsWrapper);
 
-  const renderContent = (post) => {
-    postsWrapper.innerHTML = renderPost(post);
-  };
+const renderContent = (post) => {
+  postsWrapper.innerHTML = renderPost(post);
+};
 
-  function renderPost(post) {
-    const stars = calcRaitStars(post.rating);
-    return ` <article>
+function renderPost(post) {
+  const stars = calcRaitStars(post.rating);
+  return ` <article>
                     <div class='posts__user-info'>
                         <img src='${post.userImg}' alt='user' />
                         <div class='user-info__block'>
@@ -190,7 +123,7 @@ form.addEventListener('submit', onSubmit);
                         </div>
                     </div>
                     <div class='posts__image'>
-                    ${post.typeOfPost === 'video' ? `<video src='#' poster='${post.videoPoster}'></video><img class='play-btn' src='img/a-icon-play.svg' alt='play' />` : ''}
+                    ${post.typeOfPost === 'video' ? `<video src='#' poster='${post.videoPoster ? post.videoPoster : 'img/Imgage_post1.png'}'></video><img class='play-btn' src='img/a-icon-play.svg' alt='play' />` : ''}
                     ${post.typeOfPost === 'text' ? '<img class="post-img" src="img/Imgage_post3.png" alt="img" />' : ''}
                     ${post.typeOfPost === 'etc' ? '' : ''}
                     </div>
@@ -209,23 +142,23 @@ form.addEventListener('submit', onSubmit);
                     ${post.part3 ? post.part3 : ''}
                     </p>
                </article>`;
-  }
+}
 
-  const rightSide = doc.createElement('div');
-  rightSide.className = 'right-side';
-  row.appendChild(rightSide);
+const rightSide = doc.createElement('div');
+rightSide.className = 'right-side';
+row.appendChild(rightSide);
 
-  const rightSidePosts = doc.createElement('div');
-  rightSidePosts.className = 'right-side__latest-posts';
-  rightSide.appendChild(rightSidePosts);
+const rightSidePosts = doc.createElement('div');
+rightSidePosts.className = 'right-side__latest-posts';
+rightSide.appendChild(rightSidePosts);
 
-  rightSidePosts.innerHTML = '<h2>Latest posts</h2>';
-  rightSidePosts.innerHTML += renderLatestPosts(mockData.latestPosts);
+rightSidePosts.innerHTML = '<h2>Latest posts</h2>';
+rightSidePosts.innerHTML += renderLatestPosts(mockData.latestPosts);
 
-  function renderLatestPosts(latestPosts) {
-    let resHTML = '';
-    latestPosts.forEach((el) => {
-      resHTML += `<div class='latest-posts__wrapper'>
+function renderLatestPosts(latestPosts) {
+  let resHTML = '';
+  latestPosts.forEach((el) => {
+    resHTML += `<div class='latest-posts__wrapper'>
                     <img src='${el.postImg}' alt='post' />
                     <p>
                         <a href='#'> ${el.title}</a>
@@ -236,79 +169,48 @@ form.addEventListener('submit', onSubmit);
                     </div>
                  </div>
                  <div class='clearfix'></div>`;
-    });
-    return resHTML;
-  }
+  });
+  return resHTML;
+}
 
-  const lastPost = doc.querySelectorAll('.latest-posts__wrapper');
-  lastPost[lastPost.length - 1].classList.add('no-border');
-  const lastPostBtn = doc.createElement('button');
-  lastPostBtn.innerText = 'More posts';
-  lastPost[lastPost.length - 1].appendChild(lastPostBtn);
+const lastPost = doc.querySelectorAll('.latest-posts__wrapper');
+lastPost[lastPost.length - 1].classList.add('no-border');
+const lastPostBtn = doc.createElement('button');
+lastPostBtn.innerText = 'More posts';
+lastPost[lastPost.length - 1].appendChild(lastPostBtn);
 
-  const aside = doc.createElement('aside');
-  rightSide.appendChild(aside);
+const aside = doc.createElement('aside');
+rightSide.appendChild(aside);
 
-  const categories = doc.createElement('div');
-  categories.className = 'right-side__categories';
-  aside.appendChild(categories);
-  const categoriesTitle = doc.createElement('h2');
-  categoriesTitle.innerHTML = 'Categories';
-  categories.appendChild(categoriesTitle);
-  const categoriesWrapper = doc.createElement('div');
-  categoriesWrapper.className = 'categories__wrapper';
-  categories.appendChild(categoriesWrapper);
+const categories = doc.createElement('div');
+categories.className = 'right-side__categories';
+aside.appendChild(categories);
+const categoriesTitle = doc.createElement('h2');
+categoriesTitle.innerHTML = 'Categories';
+categories.appendChild(categoriesTitle);
+const categoriesWrapper = doc.createElement('div');
+categoriesWrapper.className = 'categories__wrapper';
+categories.appendChild(categoriesWrapper);
 
-  categoriesWrapper.innerHTML = renderCategories(mockData.categories);
+categoriesWrapper.innerHTML = renderCategories(mockData.categories);
 
-  function renderCategories(categories) {
-    let resHTML = '';
-    categories.forEach((el) => {
-      resHTML += `<div class='categories__section'>
+function renderCategories(categories) {
+  let resHTML = '';
+  categories.forEach((el) => {
+    resHTML += `<div class='categories__section'>
                         <input type='checkbox' name='categories' id='${el.id}' hidden='hidden'>
                         <label for='${el.id}'>
                             <span>${el.title} (${el.list.length})</span> <img src='img/a-icon-arrow.svg' alt='arrow' />
                         </label>
                         <div class='clearfix'></div>`;
 
-      if (el.list) {
-        el.list.forEach((item) => (resHTML += `<p><a href='#'>${item}</a></p>`));
-      }
-      resHTML += '</div>';
-    });
-    return resHTML;
-  }
-
-  const fetchArticles = () => {
-    const id = localStorage.getItem('id');
-    const URL = `http://127.0.0.1:3000/api/list/${id}`;
-
-    fetch(URL, {
-      method: 'get',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then(async (response) => {
-        const parsedResponse = await response.json();
-
-        if (response.ok) {
-          return parsedResponse;
-        }
-
-        throw new Error(parsedResponse.message);
-      })
-      .then((parsedResponse) => {
-        renderTitle(parsedResponse);
-        renderContent(parsedResponse);
-      })
-      .catch((error) => {
-        alert(error);
-      });
-  };
-
-  fetchArticles();
-})();
+    if (el.list) {
+      el.list.forEach((item) => (resHTML += `<p><a href='#'>${item}</a></p>`));
+    }
+    resHTML += '</div>';
+  });
+  return resHTML;
+}
 
 (function () {
   const trendsSection = doc.createElement('section');
@@ -465,32 +367,4 @@ form.addEventListener('submit', onSubmit);
   reviewsWrapper.appendChild(bottomBtn);
 })();
 
-const fetchArticles = () => {
-  const URL = 'http://127.0.0.1:3000/api/list';
-
-  fetch(URL, {
-    method: 'get',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-    .then(async (response) => {
-      const parsedResponse = await response.json();
-
-      if (response.ok) {
-        return parsedResponse;
-      }
-
-      throw new Error(parsedResponse.message);
-    })
-
-    .then((parsedResponse) => {
-      postsQuantity = parsedResponse.length;
-    })
-    .catch((error) => {
-      alert(error);
-      window.location.href = './index.html';
-    });
-};
-
-fetchArticles();
+fetchArticle();

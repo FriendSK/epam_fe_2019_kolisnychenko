@@ -116,10 +116,14 @@ body {
     background-color: $white;
 
     &-close {
-      position: absolute;
-      top: 25px;
-      right: 25px;
-      cursor: pointer;
+      & svg {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+      }
     }
 
     & form {

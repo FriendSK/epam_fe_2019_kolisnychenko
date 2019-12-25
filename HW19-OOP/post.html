@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/main2.css">
+    <link rel="stylesheet" href="css/main3.css">
     <title>HW9</title>
 </head>
 
 <body>
+
     <header class="header" id="header">
         <div class="container">
             <div class="row">
@@ -24,9 +25,9 @@
                             <li> <label for="portf"> <input type="radio" name="menu" id="portf" hidden="hidden"><a
                                         href="#portfolio"><span>Portfolio</span></a></label></li>
                             <li> <label for="blg"> <input type="radio" name="menu" id="blg" hidden="hidden"><a
-                                        href="#blog"><span> Blog</span></a></label></li>
+                                        href="blog.html"><span> Blog</span></a></label></li>
                             <li> <label for="page"> <input type="radio" name="menu" id="page" hidden="hidden"><a
-                                        href="post.html"><span>Pages</span> </a></label></li>
+                                        href="#pages"><span>Pages</span> </a></label></li>
                             <li><label for="abt"> <input type="radio" name="menu" id="abt" hidden="hidden"> <a
                                         href="#about"><span> About</span></a></label></li>
                             <li> <label for="contacts"> <input type="radio" name="menu" id="contacts" hidden="hidden">
@@ -35,19 +36,14 @@
                     </div>
                 </nav>
             </div>
+            <div class="row">
+                <div class="header__add-button">
+                    <button  class="button--transparent" type="button"> Add new post</button>
+                </div>
+            </div>
             <div class="header__title">
                 <h2>
                 </h2>
-            </div>
-            <div class="bottom-line"> </div>
-            <div class="row">
-                <div class="header__add-button">
-                    <button class="button--transparent" type="button"> Add new post</button>
-                </div>
-            </div>
-            <div class="header__search">
-                <input type="search" placeholder="Search by author"> <a href="#">
-                    <img src="img/a-icon-search-2.svg" alt="search" /></a>
             </div>
         </div>
     </header>
@@ -55,7 +51,9 @@
         <div class="header__form-wrapper">
             <div class="header__post-form">
                 <div class="header__post-form-close">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    <svg >
+                        <use href="img/sprite.svg#close-button"></use>
+                    </svg>
                 </div>
                     <form>
                     <span class="post-form_title"> Add new post</span>
@@ -94,25 +92,28 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="footer__soc-icons">
-                    <a href="#"> <svg class="soc-icon">
-                            <use href="img/sprite.svg#facebook"></use>
-                        </svg></a>
-                    <a href="#"> <svg class="soc-icon">
-                            <use href="img/sprite.svg#instagram"></use>
-                        </svg></a>
-                    <a href="#"> <svg class="soc-icon">
-                            <use href="img/sprite.svg#dribble"></use>
-                        </svg></a>
+                <div class="footer__wrapper">
+                    <div class="footer__soc-icons">
+                        <a href="#"> <svg class="soc-icon">
+                                <use href="img/sprite.svg#facebook"></use>
+                            </svg></a>
+                        <a href="#"> <svg class="soc-icon">
+                                <use href="img/sprite.svg#instagram"></use>
+                            </svg></a>
+                        <a href="#"> <svg class="soc-icon">
+                                <use href="img/sprite.svg#dribble"></use>
+                            </svg></a>
+                    </div>
+                    <div class="footer__title">BlogWorld</div>
+                    <div class="footer__copyright"> &copy;2019 All Rights Reserved.</div>
+                    <div class="footer__to-top"> <a href="#header"> <span class="circle"></span></a> </div>
                 </div>
-                <div class="footer__title">BlogWorld</div>
-                <div class="footer__copyright"> &copy;2019 All Rights Reserved.</div>
-                <div class="footer__to-top"> <a href="#header"> <span class="circle"></span></a> </div>
             </div>
         </div>
     </footer>
     <script src="mock-data.json"></script>
-    <script src="js/blog.js"></script>
+    <script src="js/fetchData.js"></script>
+    <script src="js/post.js"></script>
 </body>
 
 </html>

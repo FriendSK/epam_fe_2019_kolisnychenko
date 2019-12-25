@@ -161,10 +161,14 @@ body {
     background-color: $white;
 
     &-close {
-      position: absolute;
-      top: 25px;
-      right: 25px;
-      cursor: pointer;
+      & svg {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+      }
     }
 
     & form {
@@ -655,6 +659,7 @@ body {
     max-width: 360px;
     display: flex;
     justify-content: space-between;
+    position: relative;
 
     &--left {
       display: inline-block;
@@ -668,6 +673,24 @@ body {
       background-position: center;
       background-repeat: no-repeat;
       transform: rotate(90deg);
+
+      &:hover {
+        cursor: pointer;
+        box-shadow: 0 0 10px 0 $medium-gray;
+      }
+    }
+
+    &--center {
+      @extend .portfolio__slider-arrows--left;
+
+      background-image: url("../img/a-icon-time.svg");
+      transform: rotate(180deg);
+      transform: translateX(-50%);
+      position: absolute;
+      top: 125%;
+      left: 50%;
+      height: 25px;
+      width: 25px;
 
       &:hover {
         cursor: pointer;
@@ -690,7 +713,7 @@ body {
   &__button {
     display: flex;
     justify-content: center;
-    margin-top: 39px;
+    margin-top: 49px;
 
     & button {
       height: 45px;
@@ -705,6 +728,7 @@ body {
   background-image: url("../img/Bg_testimonial.png");
   height: 529px;
   max-width: 1440px;
+  position: relative;
   margin: 60px auto 0;
 
   &__title {
@@ -723,42 +747,65 @@ body {
     width: 130px;
   }
 
+  &__arrow-left {
+    @extend .portfolio__slider-arrows--left;
+
+    position: absolute;
+    top: 45%;
+    left: -10%;
+    margin-right: 30px;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 0 10px 0 $medium-gray;
+    }
+  }
+
+  &__arrow-right {
+    margin-left: 28px;
+    position: absolute;
+    top: 45%;
+    right: -10%;
+
+    @extend .portfolio__slider-arrows--right;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 0 10px 0 $medium-gray;
+    }
+  }
+
   &__wrapper {
     display: flex;
     justify-content: center;
+    margin-top: 40px;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    max-height: 265px;
+
+    @include make-xs-column(10);
+    @include make-md-column(7);
+    @include make-lg-column(6);
+  }
+
+  &__slider {
+    display: inline-flex;
+    max-height: 265px;
+    transition: 0.5s;
+  }
+
+  &__slide {
+    display: inline-flex;
+    margin-right: 20px;
   }
 
   &__block {
-    margin-top: 40px;
-
-    @include make-xs-column(12);
-    @include make-md-column(8);
-
+    overflow: hidden;
     display: inline-flex;
     justify-content: center;
-    align-items: center;
-
-    &--arrow-left {
-      @extend .portfolio__slider-arrows--left;
-
-      margin-right: 30px;
-
-      &:hover {
-        cursor: pointer;
-        box-shadow: 0 0 10px 0 $medium-gray;
-      }
-    }
-
-    &--arrow-right {
-      margin-left: 28px;
-
-      @extend .portfolio__slider-arrows--right;
-
-      &:hover {
-        cursor: pointer;
-        box-shadow: 0 0 10px 0 $medium-gray;
-      }
-    }
 
     &--left {
       overflow: hidden;

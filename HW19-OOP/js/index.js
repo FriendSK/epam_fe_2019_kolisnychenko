@@ -5,12 +5,11 @@ let postsQuantity;
 function hasNumbersAndRequiredLength(value) {
   if (
     value.charCodeAt(0) === value.charAt(0).toUpperCase().charCodeAt(0) &&
-        value.length > 2 &&
-        value.length < 20
+    value.length > 2 &&
+    value.length < 20
   ) {
     return true;
   }
-
   return false;
 }
 
@@ -27,12 +26,6 @@ function validateTitle(value) {
 
   return false;
 }
-
-const xhr = new XMLHttpRequest();
-xhr.open('GET', 'mock-data.json', false);
-xhr.send();
-const response = xhr.responseText;
-const mockData = JSON.parse(response);
 
 function renderTitleAndDescr(section) {
   return `<div class='${section.name}__title'>
@@ -56,60 +49,6 @@ function renderTitleAndDescr(section) {
   addBtn.onclick = function () {
     formWrapper.style.display = 'block';
   };
-
-  const sendFormData = (data) => {
-    const URL = 'http://127.0.0.1:3000/api/create-article';
-
-    fetch(URL, {
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      mode: 'cors',
-      body: JSON.stringify(data),
-    })
-      .then((response) => {
-        if (response.ok) {
-          localStorage.setItem('id', data.id);
-          window.location.href = './post.html';
-          return;
-        }
-      })
-      .catch((error) => {
-        alert(`error while fetching ${error}`);
-      });
-  };
-
-  function onSubmit(e) {
-    e.preventDefault();
-
-    const titleField = doc.querySelector('.post-form__title input');
-    const title = e.target.title.value;
-
-    if (!validateTitle(title)) {
-      titleField.className = 'error';
-      return;
-    }
-
-    const options = {
-      year: 'numeric',
-      day: 'numeric',
-      weekday: 'short',
-      timezone: 'UTC',
-    };
-
-    const dateUTC = new Date();
-
-    const typeOfPost = doc.querySelector('input[name="typeOfPost"]:checked').id;
-    const userImg = e.target.img.value;
-    const author = e.target.author.value;
-    const descr = e.target.description.value;
-    const quote = e.target.quote.value;
-    const date = dateUTC.toLocaleString('en-US', options);
-    const id = postsQuantity++;
-
-    sendFormData({typeOfPost, userImg, title, author, descr, quote, date, id});
-  }
 
   const form = doc.querySelector('.header__post-form form');
   form.addEventListener('submit', onSubmit);
@@ -208,35 +147,34 @@ function renderTitleAndDescr(section) {
   }
 })();
 
-(function () {
-  const portfolioSection = doc.createElement('section');
-  portfolioSection.className = 'portfolio';
-  portfolioSection.setAttribute('id', 'portfolio');
-  main.appendChild(portfolioSection);
+const portfolioSection = doc.createElement('section');
+portfolioSection.className = 'portfolio';
+portfolioSection.setAttribute('id', 'portfolio');
+main.appendChild(portfolioSection);
 
-  const container = doc.createElement('div');
-  container.className = 'container';
-  container.innerHTML = renderTitleAndDescr(mockData.portfolio);
-  portfolioSection.appendChild(container);
+const container = doc.createElement('div');
+container.className = 'container';
+container.innerHTML = renderTitleAndDescr(mockData.portfolio);
+portfolioSection.appendChild(container);
 
-  const row = doc.createElement('div');
-  row.className = 'row';
-  container.appendChild(row);
-  const sliderContainer = doc.createElement('div');
-  sliderContainer.className = 'portfolio__container';
-  const sliderWrapper = doc.createElement('div');
-  sliderWrapper.className = 'portfolio__wrapper';
-  const slider = doc.createElement('div');
-  slider.className = 'portfolio__slider';
-  row.appendChild(sliderContainer);
-  sliderContainer.appendChild(sliderWrapper);
-  sliderWrapper.appendChild(slider);
-  slider.innerHTML = renderPortfolio(mockData.portfolio);
+const row = doc.createElement('div');
+row.className = 'row';
+container.appendChild(row);
+const sliderContainer = doc.createElement('div');
+sliderContainer.className = 'portfolio__container';
+const sliderWrapper = doc.createElement('div');
+sliderWrapper.className = 'portfolio__wrapper';
+const slider = doc.createElement('div');
+slider.className = 'portfolio__slider';
+row.appendChild(sliderContainer);
+sliderContainer.appendChild(sliderWrapper);
+sliderWrapper.appendChild(slider);
+slider.innerHTML = renderPortfolio(mockData.portfolio);
 
-  function renderPortfolio(portfolio) {
-    let resHTML = '';
-    portfolio.slider.forEach((el) => {
-      resHTML += ` <div class='portfolio__image'>
+function renderPortfolio(portfolio) {
+  let resHTML = '';
+  portfolio.slider.forEach((el) => {
+    resHTML += ` <div class='portfolio__image'>
                             <a> <img src='${el.img}' />
                             <span class='image-title'>${el.title}</span>
                             <span class='image-descr'>${el.descr}</span>
@@ -248,79 +186,95 @@ function renderTitleAndDescr(section) {
                             <use href='img/sprite.svg#magnifying-glass'></use>
                             </svg></span></a>
                         </div>`;
-    });
-    return resHTML;
-  }
+  });
+  return resHTML;
+}
 
-  const row2 = doc.createElement('div');
-  row2.className = 'row';
-  row.appendChild(row2);
-  const arrowsWrapper = doc.createElement('div');
-  arrowsWrapper.className = 'portfolio__slider-arrows';
-  row2.appendChild(arrowsWrapper);
-  arrowsWrapper.innerHTML = `<span  class='portfolio__slider-arrows--left'></span>
-                                <span class='portfolio__slider-arrows--right'></span>`;
+const row2 = doc.createElement('div');
+row2.className = 'row';
+row.appendChild(row2);
+const arrowsWrapper = doc.createElement('div');
+arrowsWrapper.className = 'portfolio__slider-arrows';
+row2.appendChild(arrowsWrapper);
+arrowsWrapper.innerHTML = `<span  class='portfolio__slider-arrows--left'></span>
+                           <span  class='portfolio__slider-arrows--center'></span>
+                           <span class='portfolio__slider-arrows--right'></span>`;
 
-  const row3 = doc.createElement('div');
-  row3.className = 'row';
-  container.appendChild(row3);
-  row3.innerHTML = `<div class='portfolio__button'>
+const row3 = doc.createElement('div');
+row3.className = 'row';
+container.appendChild(row3);
+row3.innerHTML = `<div class='portfolio__button'>
                         <button type='button'>See all works</button>
                      </div>`;
 
-  const leftArrow = doc.querySelector('.portfolio__slider-arrows--left');
-  const rightArrow = doc.querySelector('.portfolio__slider-arrows--right');
-  const slidesContainer = doc.querySelector('.portfolio__container');
-  const slidesBox = doc.querySelector('.portfolio__slider');
-  const slides = doc.querySelectorAll('.portfolio__image');
+function Slider(row, slidesContainer, slidesBox, slides, leftArrow, rightArrow) {
+  this.row = row;
+  this.slidesContainer = slidesContainer;
+  this.slidesBox = slidesBox;
+  this.slides = slides;
+  this.leftArrow = leftArrow;
+  this.rightArrow = rightArrow;
+  this.timerId;
+  this.toRight = true;
   let index;
 
-  leftArrow.addEventListener('click', moveSlidesToLeft);
-  rightArrow.addEventListener('click', moveSlidesToRight);
-  slidesBox.addEventListener('transitionend', changeSlides);
-
-  function changeSlides() {
+  const changeSlides = function () {
     if (index === -1) {
-      slidesBox.appendChild(slidesBox.firstElementChild);
+      this.slidesBox.appendChild(this.slidesBox.firstElementChild);
     } else if (index === 1) {
-      slidesBox.prepend(slidesBox.lastElementChild);
+      this.slidesBox.prepend(this.slidesBox.lastElementChild);
     }
 
-    slidesBox.style.transition = 'none';
-    slidesBox.style.transform = 'translateX(0)';
+    this.slidesBox.style.transition = 'none';
+    this.slidesBox.style.transform = 'translateX(0)';
     setTimeout(() => {
-      slidesBox.style.transition = 'all .5s';
+      this.slidesBox.style.transition = 'all .5s';
     });
-  }
+  }.bind(this);
 
-  const size = slidesBox.clientWidth;
+  const size = this.slidesBox.clientWidth;
 
-  function moveSlidesToLeft() {
+  this._moveSlidesToLeft = function () {
     index = 1;
-    slidesBox.style.transform = `translateX(${size / slides.length}px)`;
-  }
+    this.slidesBox.style.transform = `translateX(${size / this.slides.length}px)`;
+  }.bind(this);
 
-  function moveSlidesToRight() {
+  this._moveSlidesToRight = function () {
     index = -1;
-    slidesBox.style.transform = `translateX(${-size / slides.length}px)`;
-  }
+    this.slidesBox.style.transform = `translateX(${-size / this.slides.length}px)`;
+  }.bind(this);
 
-  let timerId;
-  timerId = setInterval(() => {
-    moveSlidesToRight();
-  }, 2500);
+  this.leftArrow.addEventListener('click', this._moveSlidesToLeft);
+  this.rightArrow.addEventListener('click', this._moveSlidesToRight);
+  this.slidesBox.addEventListener('transitionend', changeSlides);
 
-  row.onmouseleave = () => {
-    timerId = setInterval(() => {
-      moveSlidesToRight();
+  const infinifiSwipe = () => {
+    const func = this.toRight ? this._moveSlidesToRight : this._moveSlidesToLeft;
+    this.timerId = setInterval(() => {
+      func();
     }, 2500);
+
+    const mouseLeave = () => {
+      const func = this.toRight ? this._moveSlidesToRight : this._moveSlidesToLeft;
+      this.timerId = setInterval(() => {
+        func();
+      }, 2500);
+    };
+
+    this.row.addEventListener('mouseleave', mouseLeave);
+
+    const mouseEnter = () => {
+      clearInterval(this.timerId);
+    };
+
+    this.row.addEventListener('mouseenter', mouseEnter);
   };
 
-  row.onmouseenter = () => {
-    clearInterval(timerId);
+  this.startInfinitiSwiping = () => {
+    infinifiSwipe();
   };
 
-  const swipe = function (el) {
+  const swipe = (container) => {
     let direction = 'none';
     let swipeType = 'none';
     let startX = 0;
@@ -328,22 +282,22 @@ function renderTitleAndDescr(section) {
     let dist = 0;
     const minDist = 100;
 
-    const checkStart = function (e) {
+    const checkStart = (e) => {
       startX = e.pageX;
-      e.preventDefault;
+
+      const checkMove = (e) => {
+        distX = e.pageX - startX;
+        direction = distX < 0 ? 'right' : 'left';
+        e.preventDefault();
+      };
+      container.addEventListener('mousemove', checkMove);
+      checkMove(e);
     };
 
-    const checkMove = function (e) {
-      distX = e.pageX - startX;
-      direction = distX < 0 ? 'right' : 'left';
-      e.preventDefault;
-    };
-
-    const checkEnd = function (e) {
+    const checkEnd = (e) => {
       if (Math.abs(distX) >= minDist) {
         swipeType = direction;
       }
-
       dist = Math.abs(distX);
 
       if (swipeType !== 'none' && dist >= minDist) {
@@ -356,54 +310,101 @@ function renderTitleAndDescr(section) {
             dist,
           },
         });
-        el.dispatchEvent(swipeEvent);
+        container.dispatchEvent(swipeEvent);
       }
       e.preventDefault();
     };
-
-    el.addEventListener('mousedown', checkStart);
-    el.addEventListener('mousemove', checkMove);
-    el.addEventListener('mouseup', checkEnd);
+    container.addEventListener('mousedown', checkStart);
+    container.addEventListener('mouseup', checkEnd);
   };
 
-  swipe(slidesContainer);
+  this.initSwiper = () => {
+    swipe(this.row);
+  };
 
-  slidesContainer.addEventListener('swipe', (e) => {
+  const swipeSlide = (e) => {
     if (e.detail.dir === 'left') {
-      moveSlidesToLeft();
+      this._moveSlidesToLeft();
     } else if (e.detail.dir === 'right') {
-      moveSlidesToRight();
-    } else { return; }
-  });
-})();
+      this._moveSlidesToRight();
+    } else {
+      return;
+    }
+  };
 
-(function () {
-  const testimonialsSection = doc.createElement('section');
-  testimonialsSection.className = 'testimonials';
-  testimonialsSection.setAttribute('id', 'pages');
-  main.appendChild(testimonialsSection);
+  this.row.addEventListener('swipe', swipeSlide);
 
-  const container = doc.createElement('div');
-  container.className = 'container';
-  container.innerHTML = renderTitleAndDescr(mockData.testimonials);
-  testimonialsSection.appendChild(container);
+  this.removeEventListeners = () => {
+    this.leftArrow.removeEventListener('click', this._moveSlidesToLeft);
+    this.rightArrow.removeEventListener('click', this._moveSlidesToRight);
+    this.slidesBox.removeEventListener('transitionend', changeSlides);
+  };
+}
 
-  const row = doc.createElement('div');
-  row.className = 'row';
-  container.appendChild(row);
+const slidesContainer = doc.querySelector('.portfolio__container');
+const slidesBox = doc.querySelector('.portfolio__slider');
+const slides = doc.querySelectorAll('.portfolio__image');
+const leftArrow = doc.querySelector('.portfolio__slider-arrows--left');
+const rightArrow = doc.querySelector('.portfolio__slider-arrows--right');
 
-  const testimonialsWrapper = doc.createElement('div');
-  testimonialsWrapper.className = 'testimonials__wrapper';
-  row.appendChild(testimonialsWrapper);
-  const testimonialsBlock = doc.createElement('div');
-  testimonialsBlock.className = 'testimonials__block';
-  testimonialsWrapper.appendChild(testimonialsBlock);
-  testimonialsBlock.innerHTML = renderSliderContent(mockData.testimonials);
+function Slider1() {
+  Slider.apply(this, arguments);
 
-  function renderSliderContent(testimonials) {
-    let resHTML = '';
-    testimonials.slider.forEach((el) => {
-      resHTML += `<a href='#' class='testimonials__block--arrow-left'></a>
+  this.changeSwipeDirection = () => {
+    this.toRight = !this.toRight;
+  };
+
+  const changeSlideDirectionBtn = doc.querySelector('.portfolio__slider-arrows--center');
+  changeSlideDirectionBtn.addEventListener('click', this.changeSwipeDirection);
+
+  const removeEventListeners = this.removeEventListeners;
+  this.removeEventListeners = () => {
+    removeEventListeners.call(this);
+    changeSlideDirectionBtn.removeEventListener('click', this.changeSwipeDirection);
+  };
+}
+
+const slider1 = new Slider1(row, slidesContainer, slidesBox, slides, leftArrow, rightArrow);
+
+slider1.startInfinitiSwiping();
+slider1.initSwiper();
+
+const testimonialsSection = doc.createElement('section');
+testimonialsSection.className = 'testimonials';
+testimonialsSection.setAttribute('id', 'pages');
+main.appendChild(testimonialsSection);
+
+const container2 = doc.createElement('div');
+container2.className = 'container';
+container2.innerHTML = renderTitleAndDescr(mockData.testimonials);
+testimonialsSection.appendChild(container2);
+
+const row4 = doc.createElement('div');
+row4.className = 'row';
+container2.appendChild(row4);
+
+const testimonialsWrapper = doc.createElement('div');
+testimonialsWrapper.className = 'testimonials__wrapper';
+row4.appendChild(testimonialsWrapper);
+const testimonialsBlock = doc.createElement('div');
+testimonialsBlock.className = 'testimonials__block';
+const testimonialsContainer = doc.createElement('div');
+testimonialsContainer.className = 'testimonials__container';
+const arrows = `<a class='testimonials__arrow-left'></a>
+                    <a class='testimonials__arrow-right'></a>`;
+testimonialsContainer.insertAdjacentHTML('beforeend', arrows);
+testimonialsWrapper.appendChild(testimonialsContainer);
+const testimonialsSlider = doc.createElement('div');
+testimonialsSlider.className = 'testimonials__slider';
+testimonialsContainer.appendChild(testimonialsBlock);
+testimonialsBlock.appendChild(testimonialsSlider);
+testimonialsSlider.innerHTML = renderSliderContent(mockData.testimonials);
+
+function renderSliderContent(testimonials) {
+  let resHTML = '';
+  testimonials.slider.forEach((el) => {
+    resHTML += `
+                    <div class='testimonials__slide'>
                     <div class='testimonials__block--left'>
                     <p class='quote'> <span>“</span> ${el.descr}</p>
                     <p class='name'>${el.name} </p>
@@ -411,11 +412,48 @@ function renderTitleAndDescr(section) {
                     </div>
                     <div class='testimonials__block--right'>
                     <img src='${el.img}' alt='user' /> </div>
-                 <a href='#' class='testimonials__block--arrow-right'></a>`;
-    });
-    return resHTML;
-  }
-})();
+                    </div>
+                 `;
+  });
+  return resHTML;
+}
+
+const slidesContainer2 = doc.querySelector('.testimonials__wrapper');
+const slidesBox2 = doc.querySelector('.testimonials__slider');
+const slides2 = doc.querySelectorAll('.testimonials__slide');
+const leftArrow2 = doc.querySelector('.testimonials__arrow-left');
+const rightArrow2 = doc.querySelector('.testimonials__arrow-right');
+
+function Slider2() {
+  Slider.apply(this, arguments);
+
+  this.changeSlidesByKeyboard = () => {
+    doc.addEventListener('keydown', changeSlides);
+  };
+
+  const changeSlides = (e) => {
+    clearInterval(this.timerId);
+    if (e.key === 'ArrowLeft') {
+      this._moveSlidesToLeft();
+    } else if (e.key === 'ArrowRight') {
+      this._moveSlidesToRight();
+    } else {
+      return;
+    }
+    this.startInfinitiSwiping();
+  };
+
+  const removeEventListeners = this.removeEventListeners;
+  this.removeEventListeners = () => {
+    removeEventListeners.call(this);
+    doc.removeEventListener('keydown', changeSlides);
+  };
+}
+
+const slider2 = new Slider2(row4, slidesContainer2, slidesBox2, slides2, leftArrow2, rightArrow2);
+slider2.startInfinitiSwiping();
+slider2.initSwiper();
+slider2.changeSlidesByKeyboard();
 
 (function () {
   const contactsSection = doc.createElement('section');
@@ -539,32 +577,5 @@ function renderTitleAndDescr(section) {
   }
 })();
 
-const fetchArticles = () => {
-  const URL = 'http://127.0.0.1:3000/api/list';
-
-  fetch(URL, {
-    method: 'get',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-    .then(async (response) => {
-      const parsedResponse = await response.json();
-
-      if (response.ok) {
-        return parsedResponse;
-      }
-
-      throw new Error(parsedResponse.message);
-    })
-
-    .then((parsedResponse) => {
-      postsQuantity = parsedResponse.length;
-    })
-    .catch((error) => {
-      alert(error);
-      window.location.href = './index.html';
-    });
-};
-
-fetchArticles();
+window.addEventListener('beforeunload', slider1.removeEventListeners);
+window.addEventListener('beforeunload', slider2.removeEventListeners);

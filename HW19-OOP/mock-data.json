@@ -101,6 +101,18 @@
                 "descr": "We move at a fast pace. I’m always working on something. I am excited about it!",
                 "name": "Martin Oda",
                 "prof": "Product designer"
+            },
+            {
+                "img": "img/ferry.jpg",
+                "descr": " He is well known for producing many pioneering trance tracks during the 1990s–2000s",
+                "name": "Ferry Corsten",
+                "prof": "Dj, producer"
+            },
+            {
+                "img": "img/armin.jpg",
+                "descr": "He has hosted A State of Trance, a weekly radio show, which is broadcast to  40 million listeners",
+                "name": "Armin Van Buuren",
+                "prof": "Dj, producer"
             }
         ]
     },
