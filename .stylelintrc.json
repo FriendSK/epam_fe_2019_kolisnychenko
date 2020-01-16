@@ -1,5 +1,6 @@
 {
   "extends": "stylelint-config-standard",
+  "ignoreFiles": ["HW22-jQuery/*/*.css", "HW22-jQuery/*/*.map", "HW22-jQuery/fonts/*.*", "HW22-jQuery/server/*.*"],
   "rules": {
     "at-rule-no-unknown": [ true, {
       "ignoreAtRules": ["extend", "at-root", "debug", "warn", "error", "if", "else", "for", "each", "while", "mixin", "include", "content", "return", "function"]
