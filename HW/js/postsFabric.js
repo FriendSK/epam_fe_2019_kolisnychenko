@@ -1,3 +1,4 @@
+import {validateRange} from './validation';
 export default class Posts {
   create(type, container) {
     let post;
@@ -13,7 +14,6 @@ export default class Posts {
     return post;
   }
 }
-
 class Post {
   constructor(container) {
     this.container = container;

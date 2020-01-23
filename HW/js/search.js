@@ -1,7 +1,6 @@
-import { fetchSearchArticles } from './fetchData';
-import { fetchSingleArticle } from './fetchData';
-import { fetchPostsQuantity } from './fetchData';
-import { fetchArticles } from './fetchData';
+import {renderContent} from './blog';
+
+let postsQuantity;
 export default class Search {
   constructor() {
     this.searchForm = document.getElementById('searchForm');
@@ -71,3 +70,90 @@ export default class Search {
     this.resetBtn.style.display = 'none';
   }
 }
+
+const fetchArticles = () => {
+  const URL = 'http://127.0.0.1:3000/api/list';
+
+  fetch(URL, {
+    method: 'get',
+  })
+    .then(async (response) => {
+      const parsedResponse = await response.json();
+
+      if (response.ok) {
+        return parsedResponse;
+      }
+
+      throw new Error(parsedResponse.message);
+    })
+
+    .then((parsedResponse) => {
+      postsQuantity = parsedResponse.length;
+      renderContent(parsedResponse);
+    })
+    .catch((error) => {
+      throw new Error(error);
+    });
+};
+
+const fetchSingleArticle = async (dataId) => {
+  const id = localStorage.getItem('filter-id');
+
+  const URL = `http://127.0.0.1:3000/api/list/${id}`;
+
+  await fetch(URL, {
+    method: 'get',
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error(response.statusText);
+    })
+    .then((article) => renderFilterPost(article, dataId))
+    .catch((error) => {
+      throw new Error(error);
+    });
+};
+
+const fetchSearchArticles = async () => {
+  const URL = 'http://127.0.0.1:3000/api/list';
+
+  await fetch(URL, {
+    method: 'get',
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error(response.statusText);
+    })
+    .then((articles) => search.showSearchResult(articles))
+    .catch((error) => {
+      throw new Error(error);
+    });
+};
+
+const fetchPostsQuantity = () => {
+  const URL = 'http://127.0.0.1:3000/api/list';
+
+  fetch(URL, {
+    method: 'get',
+  })
+    .then(async (response) => {
+      const parsedResponse = await response.json();
+
+      if (response.ok) {
+        return parsedResponse;
+      }
+
+      throw new Error(parsedResponse.message);
+    })
+
+    .then((parsedResponse) => {
+      postsQuantity = parsedResponse.length;
+    })
+    .catch((error) => {
+      throw new Error(error);
+    });
+};

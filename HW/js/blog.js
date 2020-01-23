@@ -1,8 +1,7 @@
 import Posts from './postsFabric';
 import Search from './search';
-import * as $ from 'jquery';
-import { deletePost } from './plugin';
-import { onSubmit } from './fetchData';
+import {deletePost} from './plugin';
+import {onSubmit} from './fetchData';
 import '../scss/main2.scss';
 
 const doc = document;
@@ -101,8 +100,8 @@ function removeEventListeners() {
 }
 
 $(window).on('unload', () => {
-    $('body').off('click', '**');
-    $('main').off('click', '.modal-wrapper', jQuery().closeModal);
-    $('main').off('click', '.modal-close', jQuery().closeModal);
-    $('main').off('keydown', 'main', jQuery().closeModal);
-  });
+  $('body').off('click', '**');
+  $('main').off('click', '.modal-wrapper', jQuery().closeModal);
+  $('main').off('click', '.modal-close', jQuery().closeModal);
+  $('main').off('keydown', 'main', jQuery().closeModal);
+});

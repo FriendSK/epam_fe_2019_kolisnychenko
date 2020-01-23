@@ -139,7 +139,7 @@ export function Slider1() {
     this.toRight = !this.toRight;
   };
 
-  const changeSlideDirectionBtn = documentument.querySelector('.portfolio__slider-arrows--center');
+  const changeSlideDirectionBtn = document.querySelector('.portfolio__slider-arrows--center');
   changeSlideDirectionBtn.addEventListener('click', this.changeSwipeDirection);
 
   const removeEventListeners = this.removeEventListeners;

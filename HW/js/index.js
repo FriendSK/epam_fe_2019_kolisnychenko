@@ -1,6 +1,6 @@
-import { onSubmit } from './fetchData';
-import { Slider1, Slider2 } from './slider';
-import { showSubscribeWindow } from './plugin';
+import {onSubmit} from './fetchData';
+import {Slider1, Slider2} from './slider';
+import {showSubscribeWindow} from './plugin';
 import mockData from '../mock-data';
 import '../scss/main.scss';
 

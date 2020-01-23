@@ -1,5 +1,3 @@
-import * as $ from 'jquery';
-
 export function createModalWindow () {
   $.fn.modal = function (options) {
     const settings = $.extend({
@@ -24,13 +22,13 @@ export function createModalWindow () {
         }
       });
 
-      const wrapper = $('<div />', {
+      const wrapper = $('<div />',{
         class: settings.wrapper,
       }).on('click', () => {
         $(this).closeModal(modal, wrapper);
       });
 
-      const okBtn = $('<button />', {
+      const okBtn = $('<button />',{
         class: settings.btn,
         text: 'OK',
       });
@@ -42,14 +40,14 @@ export function createModalWindow () {
         });
       }
 
-      const closeBtn = $('<div />', {
+      const closeBtn = $('<div />',{
         html: settings.svg,
         class: settings.close,
       }).on('click', () => {
         $(this).closeModal(modal, wrapper);
       });
 
-      const modal = $('<div />', {
+      const modal = $('<div />',{
         text: settings.text,
         class: `${settings.modal} ${settings.type}`,
       }).append(closeBtn).append(okBtn).append(cancelBtn);
@@ -67,26 +65,26 @@ export function createModalWindow () {
     setTimeout(() => modal.remove(), 1000);
     wrapper.remove();
   };
-};
+}
 
 export function deletePost() {
   $().modal();
 }
 
 export function showSubscribeWindow() {
-    setTimeout(showModal, 10000);
+  setTimeout(showModal, 10000);
 
   function showModal() {
     if ($('.modal-wrapper').length > 0) {
-        $('.modal-wrapper').remove();
-        $('.modal-window').remove();
-      }
+      $('.modal-wrapper').remove();
+      $('.modal-window').remove();
+    }
 
-      $().modal({
-        text: 'Subscribe to this blog and be the first to know about updates',
-        buttons: '1',
-        type: 'info',
-      });
+    $().modal({
+      text: 'Subscribe to this blog and be the first to know about updates',
+      buttons: '1',
+      type: 'info',
+    });
   }
 }
 

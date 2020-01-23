@@ -1,12 +1,12 @@
-import { validateRange } from './validation';
-import { onSubmit, fetchPostsQuantity, fetchArticle } from './fetchData';
+import {validateRange} from './validation';
+import {onSubmit} from './fetchData';
 import mockData from '../mock-data';
-import { createModalWindow } from './plugin';
+import {createModalWindow} from './plugin';
 import '../scss/main3.scss';
 
 const doc = document;
 const main = doc.querySelector('main');
-export let postsQuantity;
+let postsQuantity;
 
 createModalWindow();
 
@@ -343,6 +343,57 @@ function renderCategories(categories) {
   bottomBtn.innerText = 'More comments';
   reviewsWrapper.appendChild(bottomBtn);
 })();
+
+const fetchPostsQuantity = () => {
+  const URL = 'http://127.0.0.1:3000/api/list';
+
+  fetch(URL, {
+    method: 'get',
+  })
+    .then(async (response) => {
+      const parsedResponse = await response.json();
+
+      if (response.ok) {
+        return parsedResponse;
+      }
+
+      throw new Error(parsedResponse.message);
+    })
+
+    .then((parsedResponse) => {
+      postsQuantity = parsedResponse.length;
+    })
+    .catch((error) => {
+      throw new Error(error);
+    });
+};
+
+const fetchArticle = () => {
+  let id = localStorage.getItem('id');
+  if (!id)
+  {id = 0;}
+
+  const URL = `http://127.0.0.1:3000/api/list/${id}`;
+
+  fetch(URL, {
+    method: 'get',
+  })
+    .then(async (response) => {
+      const parsedResponse = await response.json();
+
+      if (response.ok) {
+        return parsedResponse;
+      }
+      throw new Error(parsedResponse.message);
+    })
+    .then((parsedResponse) => {
+      renderTitle(parsedResponse);
+      renderContent(parsedResponse);
+    })
+    .catch((error) => {
+      throw new Error(error);
+    });
+};
 
 fetchPostsQuantity();
 fetchArticle();
