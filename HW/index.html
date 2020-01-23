@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HW9_final</title>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="row">
+                <div class="header__name">
+                    <h4>BlogWorld</h4>
+                </div>
+                <nav>
+                    <div class="header__menu">
+                        <ul>
+                            <li> <label for="home"><input type="radio" name="menu" id="home" hidden="hidden"> <a
+                                        href="#home"><span>Home</span></a></label></li>
+                            <li> <label for="portf"> <input type="radio" name="menu" id="portf" hidden="hidden"><a
+                                        href="#portfolio"><span>Portfolio</span></a></label></li>
+                            <li> <label for="blg"> <input type="radio" name="menu" id="blg" hidden="hidden"><a
+                                        href="blog.html"><span> Blog</span></a></label></li>
+                            <li> <label for="page"> <input type="radio" name="menu" id="page" hidden="hidden"><a
+                                        href="post.html"><span>Pages</span> </a></label></li>
+                            <li><label for="abt"> <input type="radio" name="menu" id="abt" hidden="hidden"> <a
+                                        href="#about"><span> About</span></a></label></li>
+                            <li> <label for="contacts"> <input type="radio" name="menu" id="contacts" hidden="hidden">
+                                    <a href="#contact"><span>Contact</span></a></label></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="header__title">
+                    <h1>
+                    </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="header__description">
+                    <p>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="header__buttons">
+                    <button class="button--black" type="button">Explore</button>
+                    <button class="button--transparent" type="button">Learn more</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="header__add-button">
+                    <button class="button--transparent" type="button"> Add new post</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="header__form-wrapper">
+            <div class="header__post-form">
+                <div class="header__post-form-close">
+                    <svg>
+                        <use href="img/sprite.svg#close-button"></use>
+                    </svg>
+                </div>
+                <form>
+                    <span class="post-form_title"> Add new post</span>
+                    <div class="post-form__type">
+                        <span>Type of post:</span>
+                        <input type="radio" name="typeOfPost" id="text" checked="checked"> <label
+                            for="text">Text</label>
+                        <input type="radio" name="typeOfPost" id="video"> <label for="video">Video</label>
+                        <input type="radio" name="typeOfPost" id="audio"> <label for="audio">Audio</label>
+                        <input type="radio" name="typeOfPost" id="Etc"> <label for="audio">Etc</label>
+                    </div>
+                    <div class="post-form__img">
+                        <label for="img"><span> Image:</span></label>
+                        <input type="url" id="img">
+                    </div>
+                    <div class="post-form__title">
+                        <label for="title"><span>Title:</span></label>
+                        <input type="text" id="title">
+                    </div>
+                    <div class="post-form__author">
+                        <label for="author"><span>Author:</span></label>
+                        <input type="text" id="author">
+                    </div>
+                    <div class="post-form__description">
+                        <label for="description"><span>Description:</span></label>
+                        <textarea id="description"></textarea>
+                    </div>
+                    <div class="post-form__quote">
+                        <label for="quote"><span>Quote:</span></label>
+                        <textarea id="quote"></textarea>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer__wrapper">
+                    <div class="footer__soc-icons">
+                        <a href="#"> <svg class="soc-icon">
+                                <use href="img/sprite.svg#facebook"></use>
+                            </svg></a>
+                        <a href="#"> <svg class="soc-icon">
+                                <use href="img/sprite.svg#instagram"></use>
+                            </svg></a>
+                        <a href="#"> <svg class="soc-icon">
+                                <use href="img/sprite.svg#dribble"></use>
+                            </svg></a>
+                    </div>
+                    <div class="footer__title">BlogWorld</div>
+                    <div class="footer__copyright"> &copy;2019 All Rights Reserved.</div>
+                    <div class="footer__to-top"> <a href="#header"> <span class="circle"></span></a> </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- <script src="mock-data.json"></script>
+    <script src="js/fetchData.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/index.js"></script> -->
+<!-- 
+    <script  defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNKbHhUgiXK1bZ4ZObenPDY_k0YKPv3OY&callback=initMap">
+    </script> -->
+</body>
+
+</html>
