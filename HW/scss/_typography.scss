@@ -1,0 +1,74 @@
+@font-face {
+  font-family: "Hind Siliguri";
+  src:
+    local("Hind Siliguri SemiBold"),
+    local("HindSiliguri-SemiBold"),
+    url("../fonts/HindSiliguri-SemiBold.eot") format("embedded-opentype"),
+    url("../fonts/HindSiliguri-SemiBold.woff2") format("woff2"),
+    url("../fonts/HindSiliguri-SemiBold.woff") format("woff"),
+    url("../fonts/HindSiliguri-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Hind Siliguri";
+  src:
+    local("Hind Siliguri Light"),
+    local("HindSiliguri-Light"),
+    url("../fonts/HindSiliguri-Light.eot") format("embedded-opentype"),
+    url("../fonts/HindSiliguri-Light.woff2") format("woff2"),
+    url("../fonts/HindSiliguri-Light.woff") format("woff"),
+    url("../fonts/HindSiliguri-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Hind Siliguri";
+  src:
+    local("Hind Siliguri Regular"),
+    local("HindSiliguri-Regular"),
+    url("../fonts/HindSiliguri-Regular.eot") format("embedded-opentype"),
+    url("../fonts/HindSiliguri-Regular.woff2") format("woff2"),
+    url("../fonts/HindSiliguri-Regular.woff") format("woff"),
+    url("../fonts/HindSiliguri-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Hind Siliguri";
+  src:
+    local("Hind Siliguri Medium"),
+    local("HindSiliguri-Medium"),
+    url("../fonts/HindSiliguri-Medium.eot") format("embedded-opentype"),
+    url("../fonts/HindSiliguri-Medium.woff2") format("woff2"),
+    url("../fonts/HindSiliguri-Medium.woff") format("woff"),
+    url("../fonts/HindSiliguri-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Hind Siliguri";
+  src:
+    local("Hind Siliguri Bold"),
+    local("HindSiliguri-Bold"),
+    url("../fonts/HindSiliguri-Bold.eot") format("embedded-opentype"),
+    url("../fonts/HindSiliguri-Bold.woff2") format("woff2"),
+    url("../fonts/HindSiliguri-Bold.woff") format("woff"),
+    url("../fonts/HindSiliguri-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lucida Grande";
+  src:
+    url("../fonts/878812403fc38d24102f0458bf6e4744.eot") format("embedded-opentype"),
+    url("../fonts/878812403fc38d24102f0458bf6e4744.woff2") format("woff2"),
+    url("../fonts/878812403fc38d24102f0458bf6e4744.woff") format("woff"),
+    url("../fonts/878812403fc38d24102f0458bf6e4744.ttf") format("truetype"),
+    url("../fonts/878812403fc38d24102f0458bf6e4744.svg#Lucida_Grande") format("svg");
+}
