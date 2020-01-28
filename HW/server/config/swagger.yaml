@@ -1,6 +1,6 @@
 openapi: 3.0.0
 # Added by API Auto Mocking Plugin
-servers:
+servers: 
   - description: SwaggerHub API Auto Mocking
     url: ''
 info:
@@ -79,42 +79,6 @@ paths:
               $ref: '#/components/schemas/Article'
         description: Article to add
   /api/articles{id}:
-    delete:
-      tags:
-        - Articles
-      summary: delete article by ID
-      operationId: deleteArticleByID
-      description: delete article
-      responses:
-        '201':
-          description: item deleted
-        '400':
-          description: 'invalid input, object invalid'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Article'
-        description: Article to delete
-/api/articles:
-    delete:
-      tags:
-        - Articles
-      summary: delete all articles
-      operationId: deleteArticles
-      description: delete articles
-      responses:
-        '201':
-          description: items deleted
-        '400':
-          description: 'invalid input, object invalid'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Article'
-        description: Articles to delete
-/api/articles{id}:
     put:
       tags:
         - Articles
@@ -132,6 +96,42 @@ paths:
             schema:
               $ref: '#/components/schemas/Article'
         description: Article to update
+  /api/articles{id}:
+    delete:
+      tags:
+        - Articles
+      summary: delete article by ID
+      operationId: deleteArticleByID
+      description: delete article
+      responses:
+        '201':
+          description: item deleted
+        '400':
+          description: 'invalid input, object invalid'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Article'
+        description: Article to delete
+  /api/articles:
+    delete:
+      tags:
+        - Articles
+      summary: delete all articles
+      operationId: deleteArticles
+      description: delete articles
+      responses:
+        '201':
+          description: items deleted
+        '400':
+          description: 'invalid input, object invalid'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Article'
+        description: Articles to delete
 components:
   schemas:
     Article:
