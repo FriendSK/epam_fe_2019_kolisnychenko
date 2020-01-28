@@ -19,13 +19,13 @@ fs.readFile("./config/articles.json", "utf8", function(err, data) {
 router.route('/articles')
   .get((req, res) => {
     log.info('==Get all list articles==');
-    res.end(res.json(list));
+    res.json(list);
   })
 router.route('/article')
   .post((req, res) => {
     log.info('==Save article==');
     list.push(req.body);
-    res.end(res.json(list));
+    res.json(list);
   })
 router.route('/articles/:id')
   .get((req, res) => {
@@ -33,10 +33,11 @@ router.route('/articles/:id')
     const articleById = list.find(article => +article.id === +req.params.id);
     if (!articleById) {
         res.sendStatus(404).end();
+    } else {
+      res.json(articleById);
     }
-    res.end(res.json(articleById));
   })
-router.route('/articles/:id')
+router.route('/article/:id')
   .put((req, res) => {
     log.info('==Edit article by id==');
     const index = list.findIndex(article => +article.id === +req.params.id);
@@ -45,15 +46,15 @@ router.route('/articles/:id')
     const  updatedArticle = {...articleById , ...req.body};
         list[index] = updatedArticle;
     }
-    res.end(res.json(list));
+    res.json(list);
   })
-router.route('/articles/:id')
+router.route('/list/:id')
   .delete((req, res) => {
     log.info('==Delete article by id==');
     list = list.filter(article => +article.id !== +req.params.id);
-    res.end(res.json(list));
+    res.sendStatus(201).end();
   })
-router.route('/articles')
+router.route('/list')
   .delete((req, res) => {
     log.info('==Delete all articles==');
     list.splice(0, list.length);
