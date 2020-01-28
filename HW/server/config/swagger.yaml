@@ -60,7 +60,7 @@ paths:
                   $ref: '#/components/schemas/Article'
         '400':
           description: bad input parameter
-  /api/articles:
+  /api/article:
     post:
       tags:
         - Articles
@@ -115,7 +115,7 @@ paths:
               $ref: '#/components/schemas/Article'
         description: Articles to delete
 /api/articles{id}:
-    patch:
+    put:
       tags:
         - Articles
       summary: update article by ID

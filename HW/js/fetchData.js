@@ -3,7 +3,7 @@ import {validateTitle} from './validation';
 let postsQuantity;
 
 const sendFormData = (data) => {
-  const URL = 'http://127.0.0.1:3000/api/articles';
+  const URL = 'http://127.0.0.1:3000/api/article';
 
   fetch(URL, {
     method: 'post',

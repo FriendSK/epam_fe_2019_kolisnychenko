@@ -1,5 +1,5 @@
 import Posts from './postsFabric';
-import {Search, fetchArticles} from './search';
+import {Search} from './search';
 import {onSubmit} from './fetchData';
 import {createModalWindow} from './plugin';
 import '../scss/main2.scss';
