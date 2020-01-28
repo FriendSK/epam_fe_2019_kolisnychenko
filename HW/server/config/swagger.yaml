@@ -1,6 +1,6 @@
 openapi: 3.0.0
 # Added by API Auto Mocking Plugin
-servers: 
+servers: Express
   - description: SwaggerHub API Auto Mocking
     url: ''
 info:

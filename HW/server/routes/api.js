@@ -32,7 +32,7 @@ router.route('/articles/:id')
     log.info('==Get article by id==');
     const articleById = list.find(article => +article.id === +req.params.id);
     if (!articleById) {
-        res.sendStatus(404);
+        res.sendStatus(404).end();
     }
     res.end(res.json(articleById));
   })
@@ -57,7 +57,7 @@ router.route('/articles')
   .delete((req, res) => {
     log.info('==Delete all articles==');
     list.splice(0, list.length);
-    res.sendStatus(201);
+    res.sendStatus(201).end();
   });
 
 module.exports = router;
