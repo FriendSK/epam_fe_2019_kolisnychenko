@@ -16,13 +16,11 @@ fs.readFile("./config/articles.json", "utf8", function(err, data) {
   }
 });
 
-router.route('/articles')
-  .get((req, res) => {
+router.route('/articles', (req, res) => {
     log.info('==Get all list articles==');
     res.json(list);
   })
-router.route('/article')
-  .post((req, res) => {
+router.route('/article', (req, res) => {
     log.info('==Save article==');
     list.push(req.body);
     res.json(list);
@@ -32,7 +30,7 @@ router.route('/articles/:id')
     log.info('==Get article by id==');
     const articleById = list.find(article => +article.id === +req.params.id);
     if (!articleById) {
-        res.sendStatus(404).end();
+        res.sendStatus(404);
     } else {
       res.json(articleById);
     }
@@ -52,13 +50,13 @@ router.route('/list/:id')
   .delete((req, res) => {
     log.info('==Delete article by id==');
     list = list.filter(article => +article.id !== +req.params.id);
-    res.sendStatus(201).end();
+    res.sendStatus(204);
   })
 router.route('/list')
   .delete((req, res) => {
     log.info('==Delete all articles==');
     list.splice(0, list.length);
-    res.sendStatus(201).end();
+    res.sendStatus(201)
   });
 
 module.exports = router;
