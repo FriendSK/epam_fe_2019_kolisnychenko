@@ -26,7 +26,7 @@ export function createModalWindow() {
     function createModal() {
       let cancelBtn;
 
-      main.on('keydown', (e) => {
+      main.one('keydown', (e) => {
         if (e.keyCode === 27) {
           $(this).closeModal(modal, wrapper);
         }
@@ -34,7 +34,7 @@ export function createModalWindow() {
 
       const wrapper = $('<div />', {
         class: settings.wrapper,
-      }).on('click', () => {
+      }).one('click', () => {
         $(this).closeModal(modal, wrapper);
       });
 
@@ -42,6 +42,8 @@ export function createModalWindow() {
         class: settings.okBtn,
         text: 'OK',
         dataset: settings.attr1,
+      }).one('click', () => {
+        $(this).closeModal(modal, wrapper);
       });
 
       if (settings.buttons === '2') {
@@ -54,7 +56,7 @@ export function createModalWindow() {
       const closeBtn = $('<div />', {
         html: settings.svg,
         class: settings.close,
-      }).on('click', () => {
+      }).one('click', () => {
         $(this).closeModal(modal, wrapper);
       });
 

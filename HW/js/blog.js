@@ -1,6 +1,6 @@
 import Posts from './postsFabric';
 import {Search} from './search';
-import {onSubmit} from './fetchData';
+import {onSubmit, fetchArticles} from './fetchData';
 import {createModalWindow} from './plugin';
 import '../scss/main2.scss';
 
@@ -16,12 +16,18 @@ closeForm.addEventListener('click', hideForm);
 
 function hideForm() {
   formWrapper.style.display = 'none';
+  $('#text').attr('disabled', false);
+  $('#img').attr('disabled', false);
+  $('#title').attr('disabled', false);
+  $('#author').attr('disabled', false);
+  $('#quote').attr('disabled', false);
 }
 
 addBtn.addEventListener('click', showForm);
 
 function showForm() {
   formWrapper.style.display = 'block';
+  $('#description').text('');
 }
 
 const form = doc.querySelector('.header__post-form form');
@@ -52,15 +58,17 @@ container2.appendChild(divBtn);
 export const renderContent = (posts) => {
   renderPosts(posts);
   const buttons = doc.querySelectorAll('.user-info__btn');
+  const buttons2 = doc.querySelectorAll('.user-info__edit-btn');
   posts.forEach((el, i) => {
-    buttons[i].dataset.id = `${el.id}`;
+    buttons[i].dataset.id = `${el._id}`;
+    buttons2[i].dataset.id = `${el._id}`;
   });
 };
 
 container.addEventListener('click', goToPostPage);
 
 function goToPostPage(e) {
-  if (e.target.dataset.id) {
+  if (e.target.dataset.id && e.target.className === 'user-info__btn') {
     localStorage.setItem('id', e.target.dataset.id);
     window.location.href = './post.html';
   }
@@ -80,7 +88,9 @@ export function renderFilterPost(blogPost, id) {
   post.deletePosts();
   post.render(blogPost);
   const button = doc.querySelector('.user-info__btn');
-  button.dataset.id = `${id}`;
+  const button2 = doc.querySelector('.user-info__edit-btn');
+  button.dataset._id = `${id}`;
+  button2.dataset._id = `${id}`;
 }
 
 const search = new Search();
@@ -115,6 +125,8 @@ function deletePostModal() {
   function closeModal() {
     jQuery('.modal-window').remove();
     jQuery('.modal-wrapper').remove();
+    jQuery('.ok-btn').off('click', deletePost);
+    jQuery('.cancel-btn').off('click', closeModal);
   }
 
   function deletePost() {
@@ -122,6 +134,7 @@ function deletePostModal() {
     deleteArticle(id);
     jQuery('.modal-window').remove();
     jQuery('.modal-wrapper').remove();
+    fetchArticles();
   }
 }
 
@@ -140,17 +153,45 @@ const deleteArticle = (id) => {
 
       throw new Error(parsedResponse.message);
     })
-
-    .then((parsedResponse) => {
-      postsQuantity = parsedResponse.length;
-      renderContent(parsedResponse);
-    })
     .catch((error) => {
       throw new Error(error);
     });
 };
 
+function editPost(e) {
+  const fetchSingleArticle = async (dataId) => {
+    const URL = `http://127.0.0.1:3000/api/articles/${dataId}`;
+
+    await fetch(URL, {
+      method: 'get',
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error(response.statusText);
+      })
+      .then((article) => {
+        localStorage.setItem('id', article.id);
+        descrField.text(article.descr);
+      })
+      .catch((error) => {
+        throw new Error(error);
+      });
+  };
+
+  fetchSingleArticle(e.target.dataset.id);
+  showForm();
+  $('#text').attr('disabled', true);
+  $('#img').attr('disabled', true);
+  $('#title').attr('disabled', true);
+  $('#author').attr('disabled', true);
+  const descrField = $('#description').text('');
+  $('#quote').attr('disabled', true);
+}
+
 jQuery('body').on('click', '.user-info__del-btn', deletePostModal);
+jQuery('body').on('click', '.user-info__edit-btn', editPost);
 window.addEventListener('beforeunload', removeEventListeners);
 
 function removeEventListeners() {
@@ -167,6 +208,5 @@ jQuery(window).on('unload', () => {
   jQuery('main').off('click', '.modal-wrapper', jQuery().closeModal);
   jQuery('main').off('click', '.modal-close', jQuery().closeModal);
   jQuery('main').off('keydown', 'main', jQuery().closeModal);
-  jQuery('.ok-btn').off('click', deletePost);
-  jQuery('.cancel-btn').off('click', jQuery().closeModal());
+//   jQuery('.cancel-btn').off('click', jQuery().closeModal());
 });

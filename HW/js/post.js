@@ -344,7 +344,7 @@ function renderCategories(categories) {
 })();
 
 const fetchArticle = () => {
-  let id = Number(localStorage.getItem('id'));
+  let id = localStorage.getItem('id');
   !id ? id = 0 : id;
 
   const URL = `http://127.0.0.1:3000/api/articles/${id}`;
