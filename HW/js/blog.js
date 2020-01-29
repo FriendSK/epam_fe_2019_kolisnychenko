@@ -126,7 +126,7 @@ function deletePostModal() {
 }
 
 const deleteArticle = (id) => {
-  const URL = `http://127.0.0.1:3000/api/articles/${id}`;
+  const URL = `http://127.0.0.1:3000/api/list/${id}`;
 
   fetch(URL, {
     method: 'delete',
