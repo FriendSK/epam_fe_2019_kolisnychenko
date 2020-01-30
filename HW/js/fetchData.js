@@ -66,22 +66,16 @@ export function onSubmit(e) {
   }
 }
 
-const updateArticle = (id, data) => {
+const updateArticle = async (id, data) => {
   const URL = `http://127.0.0.1:3000/api/article/${id}`;
 
-  fetch(URL, {
+  await fetch(URL, {
     method: 'put',
-    body: JSON.stringify(data),
+    headers: {
+        'Content-Type': 'application/json',
+      },
+    body: JSON.stringify({descr: data}),
   })
-    .then(async (response) => {
-      const parsedResponse = await response.json();
-
-      if (response.ok) {
-        return parsedResponse;
-      }
-
-      throw new Error(parsedResponse.message);
-    })
     .then(() => {
       window.location.href = './blog.html';
     })

@@ -1,6 +1,6 @@
 import Posts from './postsFabric';
 import {Search} from './search';
-import {onSubmit, fetchArticles} from './fetchData';
+import {onSubmit} from './fetchData';
 import {createModalWindow} from './plugin';
 import '../scss/main2.scss';
 
@@ -133,7 +133,7 @@ function deletePostModal() {
     deleteArticle(id);
     jQuery('.modal-window').remove();
     jQuery('.modal-wrapper').remove();
-    fetchArticles();
+    window.location.href = './blog.html';
   }
 }
 
@@ -143,15 +143,6 @@ const deleteArticle = async (id) => {
   await fetch(URL, {
     method: 'delete',
   })
-    .then((response) => {
-      const parsedResponse = response.json();
-
-      if (response.ok) {
-        return parsedResponse;
-      }
-
-      throw new Error(parsedResponse.message);
-    })
     .catch((error) => {
       throw new Error(error);
     });

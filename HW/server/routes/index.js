@@ -1,18 +1,16 @@
 const log = require(INCPATH + '/log')(module);
 const express = require('express');
 const router = express.Router();
-const fs = require('fs');
 const ObjectId = require('mongoose').Types.ObjectId;
-const db = require(INCPATH + '/mongoose');
 const articleModel = require(INCPATH + '/model').ArticleModel;
 
 router.get('/articles', async (req, res) => {
   log.info('==Get all articles==');
-  articleModel.find((err, articles) => {
+  await articleModel.find((err, articles) => {
     if (err) {
       log.err('Error find articles');
     }
-    log.info('Articles has found');
+    log.info('Articles have been found');
     res.json(articles);
   });
 });
@@ -38,19 +36,14 @@ router.get('/articles/:id', async (req, res) => {
 router.put('/article/:id', async (req, res) => {
   log.info('==Edit article by id==');
   const id = new ObjectId(req.params.id);
-  await articleModel.findOneAndUpdate({_id: id}, {descr: req.body});
+  await articleModel.findOneAndUpdate({_id: id}, {descr: req.body.descr});
   res.sendStatus(202);
 });
-router.delete('/list/:id', (req, res) => {
+router.delete('/list/:id', async (req, res) => {
   log.info('==Delete article by id==');
   const id = new ObjectId(req.params.id);
-  articleModel.deleteOne({_id: id});
+  await articleModel.deleteOne({_id: id});
   res.sendStatus(204);
-});
-router.delete('/list', (req, res) => {
-  log.info('==Delete all articles==');
-  list.splice(0, list.length);
-  res.sendStatus(201);
 });
 
 module.exports = router;

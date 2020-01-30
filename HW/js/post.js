@@ -348,8 +348,8 @@ function renderCategories(categories) {
 const fetchArticle = () => {
   let id = localStorage.getItem('id');
 
-  if(!id) {
-      id = '5e31e4c5a9cc8912c872bbbd';
+  if (!id) {
+    id = '5e31e4c5a9cc8912c872bbbd';
   }
 
   const URL = `http://127.0.0.1:3000/api/articles/${id}`;

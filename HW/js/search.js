@@ -20,11 +20,11 @@ export class Search {
     for (let i = 0; i < articles.length; i++) {
       if (articles[i].author.toLowerCase().search(inputValue.toLowerCase()) > -1) {
         this.searchOutput.style.display = 'block';
-        this.searchOutput.innerHTML += `<div class="header__search-info" data-id=${articles[i].id}> <img src='${articles[i].userImg}' alt='user'/>
+        this.searchOutput.innerHTML += `<div class="header__search-info" data-id=${articles[i]._id}> <img src='${articles[i].userImg}' alt='user'/>
                      <h4>${articles[i].author}</h4> </div>`;
       } else if (articles[i].title.toLowerCase().search(inputValue.toLowerCase()) > -1) {
         this.searchOutput.style.display = 'block';
-        this.searchOutput.innerHTML += `<div class="header__search-info" data-id=${articles[i].id}>
+        this.searchOutput.innerHTML += `<div class="header__search-info" data-id=${articles[i]._id}>
                         <h4>${articles[i].title}</h4> </div>`;
       }
     }
@@ -55,7 +55,6 @@ export class Search {
     const id = localStorage.getItem('filter-id');
     if (id) {
       this.resetBtn.style.display = 'block';
-      fetchPostsQuantity();
       fetchSingleArticle();
     } else {
       fetchArticles();
@@ -81,7 +80,6 @@ export const fetchArticles = () => {
       if (response.ok) {
         return parsedResponse;
       }
-
       throw new Error(parsedResponse.message);
     })
 
