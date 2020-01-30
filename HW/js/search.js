@@ -1,7 +1,4 @@
 import {renderContent, fetchSearchArticles, renderFilterPost} from './blog';
-
-let postsQuantity;
-
 export class Search {
   constructor() {
     this.searchForm = document.getElementById('searchForm');
@@ -89,7 +86,6 @@ export const fetchArticles = () => {
     })
 
     .then((parsedResponse) => {
-      postsQuantity = parsedResponse.length;
       renderContent(parsedResponse);
     })
     .catch((error) => {
@@ -97,45 +93,21 @@ export const fetchArticles = () => {
     });
 };
 
-const fetchSingleArticle = async (dataId) => {
+const fetchSingleArticle = (dataId) => {
   const id = localStorage.getItem('filter-id');
 
   const URL = `http://127.0.0.1:3000/api/articles/${id}`;
-
-  await fetch(URL, {
-    method: 'get',
-  })
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      }
-      throw new Error(response.statusText);
-    })
-    .then((article) => renderFilterPost(article, dataId))
-    .catch((error) => {
-      throw new Error(error);
-    });
-};
-
-export const fetchPostsQuantity = () => {
-  const URL = 'http://127.0.0.1:3000/api/articles';
 
   fetch(URL, {
     method: 'get',
   })
     .then(async (response) => {
-      const parsedResponse = await response.json();
-
       if (response.ok) {
-        return parsedResponse;
+        return await response.json();
       }
-
-      throw new Error(parsedResponse.message);
+      throw new Error(response.statusText);
     })
-
-    .then((parsedResponse) => {
-      postsQuantity = parsedResponse.length;
-    })
+    .then((article) => renderFilterPost(article, dataId))
     .catch((error) => {
       throw new Error(error);
     });

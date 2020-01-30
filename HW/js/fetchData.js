@@ -1,7 +1,5 @@
 import {validateTitle} from './validation';
 
-let postsQuantity;
-
 const sendFormData = (data) => {
   const URL = 'http://127.0.0.1:3000/api/article';
 
@@ -56,7 +54,6 @@ export function onSubmit(e) {
     const descr = e.target.description.value;
     const quote = e.target.quote.value;
     const date = dateUTC.toLocaleString('en-US', options);
-    const id = postsQuantity++;
     sendFormData({
       typeOfPost,
       userImg,
@@ -65,7 +62,6 @@ export function onSubmit(e) {
       descr,
       quote,
       date,
-      id,
     });
   }
 }
@@ -93,29 +89,3 @@ const updateArticle = (id, data) => {
       throw new Error(error);
     });
 };
-
-const fetchPostsQuantity = () => {
-  const URL = 'http://127.0.0.1:3000/api/articles';
-
-  fetch(URL, {
-    method: 'get',
-  })
-    .then(async (response) => {
-      const parsedResponse = await response.json();
-
-      if (response.ok) {
-        return parsedResponse;
-      }
-
-      throw new Error(parsedResponse.message);
-    })
-
-    .then((parsedResponse) => {
-      postsQuantity = parsedResponse.length;
-    })
-    .catch((error) => {
-      throw new Error(error);
-    });
-};
-
-fetchPostsQuantity();

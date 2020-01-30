@@ -17,7 +17,6 @@ const Article = new Schema({
   img:  {type: String, default: ''},
   quote: {type: String, default: ''},
   typeOfPost: {type: String, default: ''},
-  id: {type: String, default: ''},
 });
 
 module.exports.ArticleModel = mongoose.model('Articles', Article);

@@ -6,19 +6,6 @@ const ObjectId = require('mongoose').Types.ObjectId;
 const db = require(INCPATH + '/mongoose');
 const articleModel = require(INCPATH + '/model').ArticleModel;
 
-let list;
-fs.readFile('./config/articles.json', 'utf8', (err, data) => {
-  if (err) {
-    return log.err(err);
-  }
-
-  try {
-    list = JSON.parse(data);
-  } catch (err) {
-    log.err(err);
-  }
-});
-
 router.get('/articles', async (req, res) => {
   log.info('==Get all articles==');
   articleModel.find((err, articles) => {
@@ -52,7 +39,7 @@ router.put('/article/:id', async (req, res) => {
   log.info('==Edit article by id==');
   const id = new ObjectId(req.params.id);
   await articleModel.findOneAndUpdate({_id: id}, {descr: req.body});
-  res.json(list);
+  res.sendStatus(202);
 });
 router.delete('/list/:id', (req, res) => {
   log.info('==Delete article by id==');

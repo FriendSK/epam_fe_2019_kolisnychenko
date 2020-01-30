@@ -94,7 +94,6 @@ class VideoPost extends Post {
                               </div>
                           </div>
                         </div>`;
-    this.deletePosts();
     this.renderPost(resHTML);
   }
 }

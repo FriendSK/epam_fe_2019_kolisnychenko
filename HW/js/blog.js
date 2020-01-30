@@ -5,7 +5,6 @@ import {createModalWindow} from './plugin';
 import '../scss/main2.scss';
 
 const doc = document;
-let postsQuantity;
 const main = doc.querySelector('main');
 
 const addBtn = doc.querySelector('.header__add-button button');
@@ -96,15 +95,15 @@ export function renderFilterPost(blogPost, id) {
 const search = new Search();
 search.showPreSelectedFilter();
 
-export const fetchSearchArticles = async () => {
+export const fetchSearchArticles = () => {
   const URL = 'http://127.0.0.1:3000/api/articles';
 
-  await fetch(URL, {
+  fetch(URL, {
     method: 'get',
   })
-    .then((response) => {
+    .then(async (response) => {
       if (response.ok) {
-        return response.json();
+        return await response.json();
       }
       throw new Error(response.statusText);
     })
@@ -138,14 +137,14 @@ function deletePostModal() {
   }
 }
 
-const deleteArticle = (id) => {
+const deleteArticle = async (id) => {
   const URL = `http://127.0.0.1:3000/api/list/${id}`;
 
-  fetch(URL, {
+  await fetch(URL, {
     method: 'delete',
   })
-    .then(async (response) => {
-      const parsedResponse = await response.json();
+    .then((response) => {
+      const parsedResponse = response.json();
 
       if (response.ok) {
         return parsedResponse;
@@ -159,21 +158,22 @@ const deleteArticle = (id) => {
 };
 
 function editPost(e) {
-  const fetchSingleArticle = async (dataId) => {
+  const fetchSingleArticle = (dataId) => {
+
     const URL = `http://127.0.0.1:3000/api/articles/${dataId}`;
 
-    await fetch(URL, {
+    fetch(URL, {
       method: 'get',
     })
-      .then((response) => {
+      .then(async (response) => {
         if (response.ok) {
-          return response.json();
+          return await response.json();
         }
         throw new Error(response.statusText);
       })
       .then((article) => {
-        localStorage.setItem('id', article.id);
-        descrField.text(article.descr);
+        localStorage.setItem('id', article[0]._id);
+        descrField.text(article[0].descr);
       })
       .catch((error) => {
         throw new Error(error);
@@ -208,5 +208,4 @@ jQuery(window).on('unload', () => {
   jQuery('main').off('click', '.modal-wrapper', jQuery().closeModal);
   jQuery('main').off('click', '.modal-close', jQuery().closeModal);
   jQuery('main').off('keydown', 'main', jQuery().closeModal);
-//   jQuery('.cancel-btn').off('click', jQuery().closeModal());
 });

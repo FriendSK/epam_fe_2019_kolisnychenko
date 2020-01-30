@@ -10,6 +10,7 @@ const main = doc.querySelector('main');
 createModalWindow();
 
 function renderTitle(post) {
+  post = post[0];
   const headerTitle = doc.querySelector('.header__title h2');
   headerTitle.innerHTML = `${post.title}`;
 }
@@ -69,6 +70,7 @@ postsWrapper.className = 'posts__wrapper';
 row.appendChild(postsWrapper);
 
 const renderContent = (post) => {
+  post = post[0];
   postsWrapper.innerHTML = renderPost(post);
 };
 
@@ -345,7 +347,10 @@ function renderCategories(categories) {
 
 const fetchArticle = () => {
   let id = localStorage.getItem('id');
-  !id ? id = 0 : id;
+
+  if(!id) {
+      id = '5e31e4c5a9cc8912c872bbbd';
+  }
 
   const URL = `http://127.0.0.1:3000/api/articles/${id}`;
 
