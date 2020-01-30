@@ -183,7 +183,10 @@ class TextPost extends Post {
                                         <p>${el.descr}</p>
                                         <button type='button' class='user-info__btn'>Read more</button>
                                         <button type='button' class='user-info__del-btn'>Delete post</button>
+<<<<<<< HEAD
                                         <button type='button' class='user-info__edit-btn'>Edit post</button>
+=======
+>>>>>>> 034f284344dfea54d3d60a7e56d866303e307789
                                     </div>
                                 </div>
                             </div>`;
@@ -225,7 +228,10 @@ class EtcPost extends Post {
                                           <p>${el.descr}</p>
                                           <button type='button' class='user-info__btn'>Read more</button>
                                           <button type='button' class='user-info__del-btn'>Delete post</button>
+<<<<<<< HEAD
                                           <button type='button' class='user-info__edit-btn'>Edit post</button>
+=======
+>>>>>>> 034f284344dfea54d3d60a7e56d866303e307789
                                       </div>
                                   </div>
                               </div>`;
