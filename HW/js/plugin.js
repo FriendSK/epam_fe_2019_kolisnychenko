@@ -26,11 +26,7 @@ export function createModalWindow() {
     function createModal() {
       let cancelBtn;
 
-<<<<<<< HEAD
       main.one('keydown', (e) => {
-=======
-      main.on('keydown', (e) => {
->>>>>>> 034f284344dfea54d3d60a7e56d866303e307789
         if (e.keyCode === 27) {
           $(this).closeModal(modal, wrapper);
         }
@@ -38,11 +34,7 @@ export function createModalWindow() {
 
       const wrapper = $('<div />', {
         class: settings.wrapper,
-<<<<<<< HEAD
       }).one('click', () => {
-=======
-      }).on('click', () => {
->>>>>>> 034f284344dfea54d3d60a7e56d866303e307789
         $(this).closeModal(modal, wrapper);
       });
 
@@ -50,11 +42,8 @@ export function createModalWindow() {
         class: settings.okBtn,
         text: 'OK',
         dataset: settings.attr1,
-<<<<<<< HEAD
       }).one('click', () => {
         $(this).closeModal(modal, wrapper);
-=======
->>>>>>> 034f284344dfea54d3d60a7e56d866303e307789
       });
 
       if (settings.buttons === '2') {
@@ -67,11 +56,7 @@ export function createModalWindow() {
       const closeBtn = $('<div />', {
         html: settings.svg,
         class: settings.close,
-<<<<<<< HEAD
       }).one('click', () => {
-=======
-      }).on('click', () => {
->>>>>>> 034f284344dfea54d3d60a7e56d866303e307789
         $(this).closeModal(modal, wrapper);
       });
 

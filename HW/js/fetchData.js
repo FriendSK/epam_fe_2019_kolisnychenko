@@ -72,8 +72,8 @@ const updateArticle = async (id, data) => {
   await fetch(URL, {
     method: 'put',
     headers: {
-        'Content-Type': 'application/json',
-      },
+      'Content-Type': 'application/json',
+    },
     body: JSON.stringify({descr: data}),
   })
     .then(() => {

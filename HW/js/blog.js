@@ -5,10 +5,6 @@ import {createModalWindow} from './plugin';
 import '../scss/main2.scss';
 
 const doc = document;
-<<<<<<< HEAD
-=======
-let postsQuantity;
->>>>>>> 034f284344dfea54d3d60a7e56d866303e307789
 const main = doc.querySelector('main');
 
 const addBtn = doc.querySelector('.header__add-button button');
@@ -19,24 +15,18 @@ closeForm.addEventListener('click', hideForm);
 
 function hideForm() {
   formWrapper.style.display = 'none';
-<<<<<<< HEAD
   $('#text').attr('disabled', false);
   $('#img').attr('disabled', false);
   $('#title').attr('disabled', false);
   $('#author').attr('disabled', false);
   $('#quote').attr('disabled', false);
-=======
->>>>>>> 034f284344dfea54d3d60a7e56d866303e307789
 }
 
 addBtn.addEventListener('click', showForm);
 
 function showForm() {
   formWrapper.style.display = 'block';
-<<<<<<< HEAD
   $('#description').text('');
-=======
->>>>>>> 034f284344dfea54d3d60a7e56d866303e307789
 }
 
 const form = doc.querySelector('.header__post-form form');
@@ -66,27 +56,23 @@ container2.appendChild(divBtn);
 
 export const renderContent = (posts) => {
   renderPosts(posts);
+  if (posts.length === 0) {
+    const h2 = doc.createElement('h2');
+    h2.innerText = 'There are no articles here, you can add new by clicking the button above.';
+    container.appendChild(h2);
+  }
   const buttons = doc.querySelectorAll('.user-info__btn');
-<<<<<<< HEAD
   const buttons2 = doc.querySelectorAll('.user-info__edit-btn');
   posts.forEach((el, i) => {
     buttons[i].dataset.id = `${el._id}`;
     buttons2[i].dataset.id = `${el._id}`;
-=======
-  posts.forEach((el, i) => {
-    buttons[i].dataset.id = `${el.id}`;
->>>>>>> 034f284344dfea54d3d60a7e56d866303e307789
   });
 };
 
 container.addEventListener('click', goToPostPage);
 
 function goToPostPage(e) {
-<<<<<<< HEAD
   if (e.target.dataset.id && e.target.className === 'user-info__btn') {
-=======
-  if (e.target.dataset.id) {
->>>>>>> 034f284344dfea54d3d60a7e56d866303e307789
     localStorage.setItem('id', e.target.dataset.id);
     window.location.href = './post.html';
   }
@@ -169,7 +155,6 @@ const deleteArticle = async (id) => {
 
 function editPost(e) {
   const fetchSingleArticle = (dataId) => {
-
     const URL = `http://127.0.0.1:3000/api/articles/${dataId}`;
 
     fetch(URL, {

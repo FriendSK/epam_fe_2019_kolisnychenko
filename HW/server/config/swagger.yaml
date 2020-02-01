@@ -86,7 +86,7 @@ paths:
       operationId: updateArticleByID
       description: update article
       responses:
-        '201':
+        '204':
           description: item updated
         '400':
           description: 'invalid input, object invalid'
