@@ -57,7 +57,7 @@ class Menu {
 class TopMenu extends Menu {
   showTopPosts(articles, e) {
     const posts = document.querySelectorAll('.menu__posts');
-    const index = articles.findIndex((article) => article.author === e.target.dataset.name);
+    const index = articles.findIndex((article) => article.author === e.target.dataset.name || e.target.parentElement.dataset.name);
     const menuItem = document.createElement('span');
     menuItem.className = 'menu__posts';
     menuItem.innerHTML = `${articles[index].title}`;
@@ -75,6 +75,14 @@ class AsideMenu extends Menu {
     menuItem.className = 'menu__posts';
     menuItem.innerHTML = `${articles[index].title}`;
     document.querySelectorAll('.aside-menu .menu__author')[index].appendChild(menuItem);
+    const posts = document.querySelectorAll('.menu__posts');
+    posts.forEach((item) => item.addEventListener('click',  (e) => mediator.publish('clickOnArticle', articles[index])));
+  }
+
+  swowPost (article) {
+    const container = document.querySelector('.post__content');
+    container.innerHTML = '';
+    container.innerHTML = ` <h2>${article.descr}</h2>`;
   }
 }
 
@@ -87,6 +95,7 @@ const createMenu = (articles) => {
   menuItems.forEach((item) => item.addEventListener('click', (e) => mediator.publish('clickOnAuthor', articles, e)));
   mediator.subscribe('clickOnAuthor', topMenu.showTopPosts);
   mediator.subscribe('clickOnAuthor', asideMenu.showAsidePosts);
+  mediator.subscribe('clickOnArticle', asideMenu.swowPost);
 }
 
 createMenu(articles);
