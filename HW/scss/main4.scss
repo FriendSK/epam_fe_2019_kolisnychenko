@@ -86,85 +86,84 @@ body {
 
 .wrapper {
   margin-top: 50px;
-  width: 75%;
-  float: left;
+  @include make-md-column(10);
 
-  & .left-menu__authors {
-    height: 50px;
+}
 
-    & ul {
-      display: flex;
-      justify-content: space-around;
-      width: 100%;
+.top-menu {
 
-      & li {
-        display: inline-block;
-        border: 1px solid $dark-gray;
-        padding: 5px;
-        width: fit-content;
-        height: 30px;
-        text-align: center;
+  & .menu__authors {
+    display: flex;
+    justify-content: space-between;
+  }
 
-        &:hover {
-            cursor: pointer;
-            background-color: $medium-white;
-        }
-      }
+  & .menu__author {
+    position: relative;
+    border: 1px solid $dark-gray;
+    padding: 5px 10px;
+    height: fit-content;
+    width: 175px;
+    text-align: center;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $medium-white;
     }
   }
 
-  .left-menu_articles {
-    height: 50px;
-  }
-
-  & .post {
-    width: 100%;
-    height: 350px;
+  & .menu__posts {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 175px;
     border: 1px solid $dark-gray;
 
-    & .post__content {
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
     }
   }
+}
+
+.top-menu__articles {
+  height: 80px;
+}
+
+.post {
+  width: 100%;
+  height: 350px;
+  border: 1px solid $dark-gray;
 }
 
 aside {
-  width: 25%;
-  float: right;
+  @include make-md-column(2);
 
-  .right-menu__authors {
-    margin: 100px 0 40px 40px;
+    & .menu__authors {
+        width: 175px;
+        margin-top: 130px;
 
-    & ul {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-
-      &  li {
-        margin-top: 30px;
+      & .menu__author {
+        margin-bottom: 30px;
         border: 1px solid $dark-gray;
-        padding: 5px;
-        width: fit-content;
-        height: 30px;
+        padding: 5px 10px;
         text-align: center;
 
         &:hover {
-            cursor: pointer;
-            background-color: $medium-white;
+          cursor: pointer;
+          background-color: $medium-white;
         }
-      }
 
-      .right-menu__article {
-          display: none;
-          
-        & li {
-            border: 0;
-            margin-top: 10px;
+        & .menu__posts {
+            display: block;
+
+            &:hover {
+              text-decoration: underline;
+            }
         }
       }
     }
   }
-}
+
 
 .footer {
   max-width: 1440px;
