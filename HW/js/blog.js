@@ -89,9 +89,9 @@ export function renderPosts(blogPosts) {
 
 export function renderFilterPost(blogPost, id) {
   const posts = new Posts();
-  const post = posts.create(blogPost.typeOfPost, container);
+  const post = posts.create(blogPost[0].typeOfPost, container);
   post.deletePosts();
-  post.render(blogPost);
+  post.render(blogPost[0]);
   const button = doc.querySelector('.user-info__btn');
   const button2 = doc.querySelector('.user-info__edit-btn');
   button.dataset._id = `${id}`;
