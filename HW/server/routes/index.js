@@ -72,4 +72,20 @@ router.delete('/list/:id', async (req, res) => {
   }
 });
 
+router.get('/latest', async (req, res) => {
+  log.info('==Get latest article==');
+  try {
+    const article = [];
+    const articles = await articleModel.find();
+    article.push(articles[articles.length - 1]);
+    if (!articles) {
+      res.sendStatus(404);
+    } else {
+      res.json(article);
+    }
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
+
 module.exports = router;

@@ -346,15 +346,13 @@ function renderCategories(categories) {
 })();
 
 const fetchArticle = () => {
-  let id = localStorage.getItem('id');
+  const id = localStorage.getItem('id');
+  const rout1 = `articles/${id}`;
+  const rout2 = 'latest';
 
-  if (!id) {
-    id = '5e31e4c5a9cc8912c872bbbd';
-  }
+  const URL =`http://127.0.0.1:3000/api/${id ? rout1 : rout2}`;
 
-  const URL = `http://127.0.0.1:3000/api/articles/${id}`;
-
-  fetch(URL, {
+  fetch((URL), {
     method: 'get',
   })
     .then(async (response) => {
@@ -368,6 +366,7 @@ const fetchArticle = () => {
     .then((parsedResponse) => {
       renderTitle(parsedResponse);
       renderContent(parsedResponse);
+      localStorage.removeItem('id');
     })
     .catch((error) => {
       throw new Error(error);
