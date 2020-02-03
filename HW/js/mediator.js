@@ -2,7 +2,7 @@ import '../scss/main4.scss';
 import articles from './articles';
 
 const mediator = (function () {
-  const subscribers = {};
+  let subscribers = {};
 
   return {
     subscribe: (event, callback) => {
@@ -25,7 +25,7 @@ const mediator = (function () {
       }
     },
 
-    publish: function (event, data, e) {
+    publish: (event, data, e) => {
       if (subscribers[event]) {
         subscribers[event].forEach((callback) => {
           callback(data, e);
@@ -46,43 +46,74 @@ class Menu {
     articles.map((article) => {
       const menuItem = document.createElement('li');
       menuItem.className = 'menu__author';
-      menuItem.dataset.name = (`${article.author}`)
+      menuItem.dataset.name = (`${article.author}`);
       menuItem.innerHTML = `${article.author}`;
       ul.appendChild(menuItem);
     });
     document.querySelector(this.side).appendChild(ul);
-  };
+  }
 }
 
 class TopMenu extends Menu {
   showTopPosts(articles, e) {
-    const posts = document.querySelectorAll('.menu__posts');
-    const index = articles.findIndex((article) => article.author === e.target.dataset.name || e.target.parentElement.dataset.name);
-    const menuItem = document.createElement('span');
-    menuItem.className = 'menu__posts';
-    menuItem.innerHTML = `${articles[index].title}`;
-    document.querySelectorAll('.top-menu .menu__author')[index].appendChild(menuItem);
-    posts.forEach((elem) => {
-      elem.remove();
-    });
+    if (e.target.tagName === 'LI') {
+      const posts = document.querySelectorAll('.menu__posts');
+      const index = articles.findIndex((article) => article.author === e.target.dataset.name || e.target.parentElement.dataset.name);
+      const menuItem = document.createElement('span');
+      menuItem.className = 'menu__posts';
+      menuItem.innerHTML = `${articles[index].title}`;
+      document.querySelectorAll('.top-menu .menu__author')[index].appendChild(menuItem);
+      posts.forEach((elem) => {
+        elem.remove();
+      });
+    }
   }
 }
 
 class AsideMenu extends Menu {
   showAsidePosts(articles, e) {
-    const index = articles.findIndex((article) => article.author === e.target.dataset.name);
-    const menuItem = document.createElement('span');
-    menuItem.className = 'menu__posts';
-    menuItem.innerHTML = `${articles[index].title}`;
-    document.querySelectorAll('.aside-menu .menu__author')[index].appendChild(menuItem);
-    const posts = document.querySelectorAll('.menu__posts');
-    posts.forEach((item) => item.addEventListener('click',  (e) => mediator.publish('clickOnArticle', articles[index])));
+    if (e.target.tagName === 'LI') {
+      const index = articles.findIndex((article) => article.author === e.target.dataset.name);
+      const menuItem = document.createElement('span');
+      menuItem.className = 'menu__posts';
+      menuItem.innerHTML = `${articles[index].title}`;
+      document.querySelectorAll('.aside-menu .menu__author')[index].appendChild(menuItem);
+      const posts = document.querySelectorAll('.menu__posts');
+      posts.forEach((item) => item.addEventListener('click', () => mediator.publish('clickOnArticle', articles[index])));
+    }
   }
 
-  swowPost (article) {
+  swowPostDescr(article) {
     const container = document.querySelector('.post__content');
     container.innerHTML = '';
     container.innerHTML = ` <h2>${article.descr}</h2>`;
+  }
+
+  swowActiveMenu(e) {
+    const menuItems = document.querySelectorAll('.menu__author');
+    const menuPosts = document.querySelectorAll('.menu__posts');
+    const name = e.target.dataset.name;
+    const items = [...menuItems];
+    const posts = [...menuPosts];
+
+    items.forEach((item) => {
+      if (item.classList.contains('menu-active')) {
+        item.classList.remove('menu-active');
+      }
+      if (item.dataset.name === name) {
+        item.classList.add('menu-active');
+      }
+    });
+
+    posts.forEach((item) => {
+      item.classList.remove('menu-active');
+      if (e.target.tagName === 'SPAN') {
+        if (item.classList.contains('menu-active')) {
+          item.classList.remove('menu-active');
+        }
+        item.classList.add('menu-active');
+      }
+    });
   }
 }
 
@@ -93,9 +124,11 @@ const createMenu = (articles) => {
   asideMenu.render();
   const menuItems = document.querySelectorAll('.menu__author');
   menuItems.forEach((item) => item.addEventListener('click', (e) => mediator.publish('clickOnAuthor', articles, e)));
+  menuItems.forEach((item) => item.addEventListener('click', (e) => mediator.publish('activeClick', e)));
   mediator.subscribe('clickOnAuthor', topMenu.showTopPosts);
   mediator.subscribe('clickOnAuthor', asideMenu.showAsidePosts);
-  mediator.subscribe('clickOnArticle', asideMenu.swowPost);
-}
+  mediator.subscribe('clickOnArticle', asideMenu.swowPostDescr);
+  mediator.subscribe('activeClick', asideMenu.swowActiveMenu);
+};
 
 createMenu(articles);

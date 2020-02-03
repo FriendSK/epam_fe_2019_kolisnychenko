@@ -95,19 +95,23 @@ body {
   & .menu__authors {
     display: flex;
     justify-content: space-between;
-  }
 
-  & .menu__author {
-    position: relative;
-    border: 1px solid $dark-gray;
-    padding: 5px 10px;
-    height: fit-content;
-    width: 175px;
-    text-align: center;
+    & .menu__author {
+      position: relative;
+      border: 1px solid $dark-gray;
+      padding: 5px 10px;
+      height: fit-content;
+      width: 175px;
+      text-align: center;
 
-    &:hover {
-      cursor: pointer;
-      background-color: $medium-white;
+      &:hover {
+        cursor: pointer;
+        background-color: $medium-white;
+      }
+    }
+
+    & .menu-active {
+      border: 2px solid $pink;
     }
   }
 
@@ -135,42 +139,45 @@ body {
   border: 1px solid $dark-gray;
 
   & .post__content {
-      padding: 20px;
-      height: 100%;
-      display: flex;
-      align-items: center;
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
   }
 }
 
 aside {
   @include make-md-column(2);
 
-    & .menu__authors {
-        width: 175px;
-        margin-top: 130px;
+  & .menu__authors {
+    width: 175px;
+    margin-top: 130px;
 
-      & .menu__author {
-        margin-bottom: 30px;
-        border: 1px solid $dark-gray;
-        padding: 5px 10px;
-        text-align: center;
+    & .menu__author {
+      margin-bottom: 30px;
+      border: 1px solid $dark-gray;
+      padding: 5px 10px;
+      text-align: center;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $medium-white;
+      }
+
+      & .menu__posts {
+        display: block;
 
         &:hover {
-          cursor: pointer;
-          background-color: $medium-white;
-        }
-
-        & .menu__posts {
-            display: block;
-
-            &:hover {
-              text-decoration: underline;
-            }
+          text-decoration: underline;
         }
       }
     }
-  }
 
+    & .menu-active {
+      border: 2px solid $pink;
+    }
+  }
+}
 
 .footer {
   max-width: 1440px;
