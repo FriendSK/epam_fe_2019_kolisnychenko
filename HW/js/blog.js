@@ -56,6 +56,7 @@ container2.appendChild(divBtn);
 
 export const renderContent = (posts) => {
   renderPosts(posts);
+
   if (posts.length === 0) {
     const h2 = doc.createElement('h2');
     h2.innerText = 'There are no articles here, you can add new by clicking the button above.';

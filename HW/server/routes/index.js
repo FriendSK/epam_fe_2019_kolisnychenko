@@ -6,12 +6,15 @@ const articleModel = require(INCPATH + '/model').ArticleModel;
 router.get('/articles', async (req, res) => {
   log.info('==Get all articles==');
   try {
-    await articleModel.find((articles) => {
+    const result = await articleModel.find();
+    if (!result) {
+      res.sendStatus(404);
+    } else {
       log.info('Articles have been found');
-      res.json(articles);
-    });
+      res.json(result);
+    }
   } catch (err) {
-    log.err('Error find articles');
+    log.info('Error find articles');
     res.status(500).send(err.message);
   }
 });
@@ -44,17 +47,26 @@ router.get('/articles/:id', async (req, res) => {
 router.put('/article/:id', async (req, res) => {
   log.info('==Edit article by id==');
   try {
-    await articleModel.findOneAndUpdate({_id: req.params.id}, {descr: req.body.descr});
-    res.sendStatus(204);
+    const result = await articleModel.findOneAndUpdate({_id: req.params.id}, {descr: req.body.descr});
+    if (!result) {
+      res.sendStatus(404);
+    } else {
+      res.sendStatus(204);
+    }
   } catch (err) {
     res.status(500).send(err.message);
   }
 });
+
 router.delete('/list/:id', async (req, res) => {
   log.info('==Delete article by id==');
   try {
-    await articleModel.deleteOne({_id: req.params.id});
-    res.sendStatus(204);
+    const result = await articleModel.deleteOne({_id: req.params.id});
+    if (!result) {
+      res.sendStatus(404);
+    } else {
+      res.sendStatus(204);
+    }
   } catch (err) {
     res.status(500).send(err.message);
   }
