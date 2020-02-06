@@ -7,7 +7,7 @@ router.get('/articles', async (req, res) => {
   log.info('==Get all articles==');
   try {
     const result = await articleModel.find();
-    if (!result) {
+    if (!result.length) {
       res.sendStatus(404);
     } else {
       log.info('Articles have been found');
