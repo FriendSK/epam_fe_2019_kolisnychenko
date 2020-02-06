@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('../libs/mongoose');
 const Schema = mongoose.Schema;
 
 const Article = new Schema({
@@ -11,7 +11,7 @@ const Article = new Schema({
     default: '',
   },
   date: {
-    type: Date,
+    type: String,
     default: new Date(),
   },
   read: {

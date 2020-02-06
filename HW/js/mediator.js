@@ -89,7 +89,7 @@ class AsideMenu extends Menu {
     container.innerHTML = ` <h2>${article.descr}</h2>`;
   }
 
-  swowActiveMenu(e) {
+  showActiveMenu(e) {
     const menuItems = document.querySelectorAll('.menu__author');
     const menuPosts = document.querySelectorAll('.menu__posts');
     const name = e.target.dataset.name;
@@ -128,7 +128,7 @@ const createMenu = (articles) => {
   mediator.subscribe('clickOnAuthor', topMenu.showTopPosts);
   mediator.subscribe('clickOnAuthor', asideMenu.showAsidePosts);
   mediator.subscribe('clickOnArticle', asideMenu.swowPostDescr);
-  mediator.subscribe('activeClick', asideMenu.swowActiveMenu);
+  mediator.subscribe('activeClick', asideMenu.showActiveMenu);
 };
 
 createMenu(articles);
