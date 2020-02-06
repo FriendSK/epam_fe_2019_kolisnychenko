@@ -7,7 +7,7 @@ router.get('/articles', async (req, res) => {
   log.info('==Get all articles==');
   try {
     const result = await articleModel.find();
-    if (!result) {
+    if (!result.length) {
       res.sendStatus(404);
     } else {
       log.info('Articles have been found');
@@ -34,7 +34,7 @@ router.get('/articles/:id', async (req, res) => {
   log.info('==Get article by id==');
   try {
     const articleById = await articleModel.find({_id: req.params.id});
-    if (!articleById.length) {
+    if (!articleById) {
       res.sendStatus(404);
     } else {
       res.json(articleById);
