@@ -10,6 +10,7 @@ const main = doc.querySelector('main');
 createModalWindow();
 
 function renderTitle(post) {
+  post = post[0];
   const headerTitle = doc.querySelector('.header__title h2');
   headerTitle.innerHTML = `${post.title}`;
 }
@@ -69,6 +70,7 @@ postsWrapper.className = 'posts__wrapper';
 row.appendChild(postsWrapper);
 
 const renderContent = (post) => {
+  post = post[0];
   postsWrapper.innerHTML = renderPost(post);
 };
 
@@ -344,12 +346,13 @@ function renderCategories(categories) {
 })();
 
 const fetchArticle = () => {
-  let id = Number(localStorage.getItem('id'));
-  !id ? id = 0 : id;
+  const id = localStorage.getItem('id');
+  const rout1 = `articles/${id}`;
+  const rout2 = 'latest';
 
-  const URL = `http://127.0.0.1:3000/api/articles/${id}`;
+  const URL =`http://127.0.0.1:3000/api/${id ? rout1 : rout2}`;
 
-  fetch(URL, {
+  fetch((URL), {
     method: 'get',
   })
     .then(async (response) => {
@@ -363,6 +366,7 @@ const fetchArticle = () => {
     .then((parsedResponse) => {
       renderTitle(parsedResponse);
       renderContent(parsedResponse);
+      localStorage.removeItem('id');
     })
     .catch((error) => {
       throw new Error(error);

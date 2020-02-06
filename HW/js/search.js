@@ -1,7 +1,4 @@
 import {renderContent, fetchSearchArticles, renderFilterPost} from './blog';
-
-let postsQuantity;
-
 export class Search {
   constructor() {
     this.searchForm = document.getElementById('searchForm');
@@ -23,11 +20,11 @@ export class Search {
     for (let i = 0; i < articles.length; i++) {
       if (articles[i].author.toLowerCase().search(inputValue.toLowerCase()) > -1) {
         this.searchOutput.style.display = 'block';
-        this.searchOutput.innerHTML += `<div class="header__search-info" data-id=${articles[i].id}> <img src='${articles[i].userImg}' alt='user'/>
+        this.searchOutput.innerHTML += `<div class="header__search-info" data-id=${articles[i]._id}> <img src='${articles[i].userImg}' alt='user'/>
                      <h4>${articles[i].author}</h4> </div>`;
       } else if (articles[i].title.toLowerCase().search(inputValue.toLowerCase()) > -1) {
         this.searchOutput.style.display = 'block';
-        this.searchOutput.innerHTML += `<div class="header__search-info" data-id=${articles[i].id}>
+        this.searchOutput.innerHTML += `<div class="header__search-info" data-id=${articles[i]._id}>
                         <h4>${articles[i].title}</h4> </div>`;
       }
     }
@@ -58,7 +55,6 @@ export class Search {
     const id = localStorage.getItem('filter-id');
     if (id) {
       this.resetBtn.style.display = 'block';
-      fetchPostsQuantity();
       fetchSingleArticle();
     } else {
       fetchArticles();
@@ -84,12 +80,10 @@ export const fetchArticles = () => {
       if (response.ok) {
         return parsedResponse;
       }
-
       throw new Error(parsedResponse.message);
     })
 
     .then((parsedResponse) => {
-      postsQuantity = parsedResponse.length;
       renderContent(parsedResponse);
     })
     .catch((error) => {
@@ -97,45 +91,21 @@ export const fetchArticles = () => {
     });
 };
 
-const fetchSingleArticle = async (dataId) => {
+const fetchSingleArticle = (dataId) => {
   const id = localStorage.getItem('filter-id');
 
   const URL = `http://127.0.0.1:3000/api/articles/${id}`;
-
-  await fetch(URL, {
-    method: 'get',
-  })
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      }
-      throw new Error(response.statusText);
-    })
-    .then((article) => renderFilterPost(article, dataId))
-    .catch((error) => {
-      throw new Error(error);
-    });
-};
-
-export const fetchPostsQuantity = () => {
-  const URL = 'http://127.0.0.1:3000/api/articles';
 
   fetch(URL, {
     method: 'get',
   })
     .then(async (response) => {
-      const parsedResponse = await response.json();
-
       if (response.ok) {
-        return parsedResponse;
+        return await response.json();
       }
-
-      throw new Error(parsedResponse.message);
+      throw new Error(response.statusText);
     })
-
-    .then((parsedResponse) => {
-      postsQuantity = parsedResponse.length;
-    })
+    .then((article) => renderFilterPost(article, dataId))
     .catch((error) => {
       throw new Error(error);
     });

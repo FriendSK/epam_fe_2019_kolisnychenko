@@ -5,7 +5,6 @@ import {createModalWindow} from './plugin';
 import '../scss/main2.scss';
 
 const doc = document;
-let postsQuantity;
 const main = doc.querySelector('main');
 
 const addBtn = doc.querySelector('.header__add-button button');
@@ -16,12 +15,18 @@ closeForm.addEventListener('click', hideForm);
 
 function hideForm() {
   formWrapper.style.display = 'none';
+  $('#text').attr('disabled', false);
+  $('#img').attr('disabled', false);
+  $('#title').attr('disabled', false);
+  $('#author').attr('disabled', false);
+  $('#quote').attr('disabled', false);
 }
 
 addBtn.addEventListener('click', showForm);
 
 function showForm() {
   formWrapper.style.display = 'block';
+  $('#description').text('');
 }
 
 const form = doc.querySelector('.header__post-form form');
@@ -51,16 +56,24 @@ container2.appendChild(divBtn);
 
 export const renderContent = (posts) => {
   renderPosts(posts);
+
+  if (posts.length === 0) {
+    const h2 = doc.createElement('h2');
+    h2.innerText = 'There are no articles here, you can add new by clicking the button above.';
+    container.appendChild(h2);
+  }
   const buttons = doc.querySelectorAll('.user-info__btn');
+  const buttons2 = doc.querySelectorAll('.user-info__edit-btn');
   posts.forEach((el, i) => {
-    buttons[i].dataset.id = `${el.id}`;
+    buttons[i].dataset.id = `${el._id}`;
+    buttons2[i].dataset.id = `${el._id}`;
   });
 };
 
 container.addEventListener('click', goToPostPage);
 
 function goToPostPage(e) {
-  if (e.target.dataset.id) {
+  if (e.target.dataset.id && e.target.className === 'user-info__btn') {
     localStorage.setItem('id', e.target.dataset.id);
     window.location.href = './post.html';
   }
@@ -76,25 +89,27 @@ export function renderPosts(blogPosts) {
 
 export function renderFilterPost(blogPost, id) {
   const posts = new Posts();
-  const post = posts.create(blogPost.typeOfPost, container);
+  const post = posts.create(blogPost[0].typeOfPost, container);
   post.deletePosts();
-  post.render(blogPost);
+  post.render(blogPost[0]);
   const button = doc.querySelector('.user-info__btn');
-  button.dataset.id = `${id}`;
+  const button2 = doc.querySelector('.user-info__edit-btn');
+  button.dataset._id = `${id}`;
+  button2.dataset._id = `${id}`;
 }
 
 const search = new Search();
 search.showPreSelectedFilter();
 
-export const fetchSearchArticles = async () => {
+export const fetchSearchArticles = () => {
   const URL = 'http://127.0.0.1:3000/api/articles';
 
-  await fetch(URL, {
+  fetch(URL, {
     method: 'get',
   })
-    .then((response) => {
+    .then(async (response) => {
       if (response.ok) {
-        return response.json();
+        return await response.json();
       }
       throw new Error(response.statusText);
     })
@@ -115,6 +130,8 @@ function deletePostModal() {
   function closeModal() {
     jQuery('.modal-window').remove();
     jQuery('.modal-wrapper').remove();
+    jQuery('.ok-btn').off('click', deletePost);
+    jQuery('.cancel-btn').off('click', closeModal);
   }
 
   function deletePost() {
@@ -122,35 +139,55 @@ function deletePostModal() {
     deleteArticle(id);
     jQuery('.modal-window').remove();
     jQuery('.modal-wrapper').remove();
+    window.location.href = './blog.html';
   }
 }
 
-const deleteArticle = (id) => {
+const deleteArticle = async (id) => {
   const URL = `http://127.0.0.1:3000/api/list/${id}`;
 
-  fetch(URL, {
+  await fetch(URL, {
     method: 'delete',
   })
-    .then(async (response) => {
-      const parsedResponse = await response.json();
-
-      if (response.ok) {
-        return parsedResponse;
-      }
-
-      throw new Error(parsedResponse.message);
-    })
-
-    .then((parsedResponse) => {
-      postsQuantity = parsedResponse.length;
-      renderContent(parsedResponse);
-    })
     .catch((error) => {
       throw new Error(error);
     });
 };
 
+function editPost(e) {
+  const fetchSingleArticle = (dataId) => {
+    const URL = `http://127.0.0.1:3000/api/articles/${dataId}`;
+
+    fetch(URL, {
+      method: 'get',
+    })
+      .then(async (response) => {
+        if (response.ok) {
+          return await response.json();
+        }
+        throw new Error(response.statusText);
+      })
+      .then((article) => {
+        localStorage.setItem('id', article[0]._id);
+        descrField.text(article[0].descr);
+      })
+      .catch((error) => {
+        throw new Error(error);
+      });
+  };
+
+  fetchSingleArticle(e.target.dataset.id);
+  showForm();
+  $('#text').attr('disabled', true);
+  $('#img').attr('disabled', true);
+  $('#title').attr('disabled', true);
+  $('#author').attr('disabled', true);
+  const descrField = $('#description').text('');
+  $('#quote').attr('disabled', true);
+}
+
 jQuery('body').on('click', '.user-info__del-btn', deletePostModal);
+jQuery('body').on('click', '.user-info__edit-btn', editPost);
 window.addEventListener('beforeunload', removeEventListeners);
 
 function removeEventListeners() {
@@ -167,6 +204,4 @@ jQuery(window).on('unload', () => {
   jQuery('main').off('click', '.modal-wrapper', jQuery().closeModal);
   jQuery('main').off('click', '.modal-close', jQuery().closeModal);
   jQuery('main').off('keydown', 'main', jQuery().closeModal);
-  jQuery('.ok-btn').off('click', deletePost);
-  jQuery('.cancel-btn').off('click', jQuery().closeModal());
 });

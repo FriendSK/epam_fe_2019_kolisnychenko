@@ -90,10 +90,10 @@ class VideoPost extends Post {
                                   <p>${el.descr}</p>
                                   <button type='button' class='user-info__btn'>Read more</button>
                                   <button type='button' class='user-info__del-btn'>Delete post</button>
+                                  <button type='button' class='user-info__edit-btn'>Edit post</button>
                               </div>
                           </div>
                         </div>`;
-    this.deletePosts();
     this.renderPost(resHTML);
   }
 }
@@ -137,6 +137,7 @@ class AudioPost extends Post {
                                       <p>${el.descr}</p>
                                       <button type='button' class='user-info__btn'>Read more</button>
                                       <button type='button' class='user-info__del-btn'>Delete post</button>
+                                      <button type='button' class='user-info__edit-btn'>Edit post</button>
                                   </div>
                               </div>
                           </div>`;
@@ -182,6 +183,7 @@ class TextPost extends Post {
                                         <p>${el.descr}</p>
                                         <button type='button' class='user-info__btn'>Read more</button>
                                         <button type='button' class='user-info__del-btn'>Delete post</button>
+                                        <button type='button' class='user-info__edit-btn'>Edit post</button>
                                     </div>
                                 </div>
                             </div>`;
@@ -223,6 +225,7 @@ class EtcPost extends Post {
                                           <p>${el.descr}</p>
                                           <button type='button' class='user-info__btn'>Read more</button>
                                           <button type='button' class='user-info__del-btn'>Delete post</button>
+                                          <button type='button' class='user-info__edit-btn'>Edit post</button>
                                       </div>
                                   </div>
                               </div>`;
