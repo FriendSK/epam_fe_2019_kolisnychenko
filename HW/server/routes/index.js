@@ -78,7 +78,7 @@ router.get('/latest', async (req, res) => {
     const article = [];
     const articles = await articleModel.find();
     article.push(articles[articles.length - 1]);
-    if (!articles) {
+    if (!articles.length) {
       res.sendStatus(404);
     } else {
       res.json(article);
