@@ -8,7 +8,7 @@ const db = mongoose.connection;
 db.on('error', (err) => {
   log.error('connection error:', err.message);
 });
-db.once('open', callback = () => {
+db.once('open', () => {
   log.info('Connected to DB!');
 });
 

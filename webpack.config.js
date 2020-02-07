@@ -30,6 +30,7 @@ module.exports = {
     index: ['@babel/polyfill', './js/index.js'],
     blog: ['@babel/polyfill', './js/blog.js'],
     post: ['@babel/polyfill', './js/post.js'],
+    mediator: ['@babel/polyfill', './js/mediator.js'],
   },
   output: {
     filename: filename('js'),
@@ -71,6 +72,15 @@ module.exports = {
       chunks: ['post'],
       filename: 'post.html',
       template: './post.html',
+      minify: {
+        collapseWhitespace: isProd,
+      },
+    }),
+    new HTMLWebpackPlugin({
+      inject: true,
+      chunks: ['mediator'],
+      filename: 'mediator.html',
+      template: './mediator.html',
       minify: {
         collapseWhitespace: isProd,
       },
