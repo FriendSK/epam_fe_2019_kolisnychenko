@@ -34,7 +34,7 @@ router.get('/articles/:id', async (req, res) => {
   log.info('==Get article by id==');
   try {
     const articleById = await articleModel.find({_id: req.params.id});
-    if (!articleById) {
+    if (articleById.length === 0) {
       res.sendStatus(404);
     } else {
       res.json(articleById);

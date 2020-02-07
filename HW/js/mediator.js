@@ -1,5 +1,4 @@
 import '../scss/main4.scss';
-import articles from './articles';
 
 const mediator = (function () {
   let subscribers = {};
@@ -43,7 +42,7 @@ class Menu {
   render() {
     const ul = document.createElement('ul');
     ul.className = 'menu__authors';
-    articles.map((article) => {
+    this.articles.map((article) => {
       const menuItem = document.createElement('li');
       menuItem.className = 'menu__author';
       menuItem.dataset.name = (`${article.author}`);
@@ -117,18 +116,45 @@ class AsideMenu extends Menu {
   }
 }
 
-const createMenu = (articles) => {
-  const topMenu = new TopMenu(articles, '.top-menu');
-  topMenu.render();
-  const asideMenu = new AsideMenu(articles, '.aside-menu');
-  asideMenu.render();
-  const menuItems = document.querySelectorAll('.menu__author');
-  menuItems.forEach((item) => item.addEventListener('click', (e) => mediator.publish('clickOnAuthor', articles, e)));
-  menuItems.forEach((item) => item.addEventListener('click', (e) => mediator.publish('activeClick', e)));
-  mediator.subscribe('clickOnAuthor', topMenu.showTopPosts);
-  mediator.subscribe('clickOnAuthor', asideMenu.showAsidePosts);
-  mediator.subscribe('clickOnArticle', asideMenu.swowPostDescr);
-  mediator.subscribe('activeClick', asideMenu.showActiveMenu);
+const initMenu = () => {
+  const fetchArticles = () => {
+    const URL = 'http://127.0.0.1:3000/api/articles';
+
+    fetch(URL, {
+        method: 'get',
+      })
+    .then(async (response) => {
+        const parsedResponse = await response.json();
+
+        if (response.ok) {
+          return parsedResponse;
+        }
+        throw new Error(parsedResponse.message);
+      })
+
+      .then((parsedResponse) => {
+        createMenu(parsedResponse);
+      })
+      .catch((error) => {
+        throw new Error(error);
+      });
+  };
+
+  fetchArticles();
+
+  const createMenu = (articles) => {
+    const topMenu = new TopMenu(articles, '.top-menu');
+    topMenu.render();
+    const asideMenu = new AsideMenu(articles, '.aside-menu');
+    asideMenu.render();
+    const menuItems = document.querySelectorAll('.menu__author');
+    menuItems.forEach((item) => item.addEventListener('click', (e) => mediator.publish('clickOnAuthor', articles, e)));
+    menuItems.forEach((item) => item.addEventListener('click', (e) => mediator.publish('activeClick', e)));
+    mediator.subscribe('clickOnAuthor', topMenu.showTopPosts);
+    mediator.subscribe('clickOnAuthor', asideMenu.showAsidePosts);
+    mediator.subscribe('clickOnArticle', asideMenu.swowPostDescr);
+    mediator.subscribe('activeClick', asideMenu.showActiveMenu);
+  };
 };
 
-createMenu(articles);
+initMenu();
