@@ -121,9 +121,9 @@ const initMenu = () => {
     const URL = 'http://127.0.0.1:3000/api/articles';
 
     fetch(URL, {
-        method: 'get',
-      })
-    .then(async (response) => {
+      method: 'get',
+    })
+      .then(async (response) => {
         const parsedResponse = await response.json();
 
         if (response.ok) {
