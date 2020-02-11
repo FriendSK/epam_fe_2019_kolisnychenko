@@ -3,8 +3,10 @@ describe('order()', () => {
   let pizza;
 
   beforeEach(() => {
+    const params = ['bacon', 'pepperoni', 'olives', 'corn'];
+    const size = 'large';
     order = new Order();
-    pizza = new Pizza(['bacon', 'pepperoni', 'olives', 'corn'], 'small');
+    pizza = new Pizza(params, size);
   });
 
   it('should initialize pizzas', () => {
@@ -13,7 +15,7 @@ describe('order()', () => {
 
   it('should be unique order', () => {
     const order2 = new Order();
-    expect(order).toEqual(order2);
+    expect(order).not.toBe(order2);
   });
 
   it('has common operations', () => {
@@ -46,23 +48,34 @@ describe('order()', () => {
   });
 
   describe('addPizza()', () => {
-    it('should add pizza to order', () => {
+    it('should call push method', () => {
       spyOn(order.pizzas, 'push');
       order.addPizza(pizza);
       expect(order.pizzas.push).toHaveBeenCalled();
     });
+
+    it('should add pizza to order', () => {
+        order.addPizza(pizza);
+        expect(order.pizzas).toEqual([pizza]);
+      });
   });
 
   describe('removePizza()', () => {
-    it('should find index of pizza in pizzas', () => {
+    it('should call indexOf method', () => {
       spyOn(order.pizzas, 'indexOf');
       order.removePizza(pizza);
       expect(order.pizzas.indexOf).toHaveBeenCalled();
     });
-    it('should remove pizza from order', () => {
+
+    it('should call splice method', () => {
       spyOn(order.pizzas, 'splice');
       order.removePizza(pizza);
       expect(order.pizzas.splice).toHaveBeenCalled();
     });
+
+    it('should remove pizza from order', () => {
+        order.removePizza(pizza);
+        expect(order.pizzas).toEqual([]);
+      });
   });
 });

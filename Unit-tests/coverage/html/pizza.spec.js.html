@@ -22,9 +22,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">88.57% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>34/34</span>
+                <span class='fraction'>31/35</span>
             </div>
         
             
@@ -36,16 +36,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>14/14</span>
+                <span class='fraction'>12/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">90.63% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>31/31</span>
+                <span class='fraction'>29/32</span>
             </div>
         
             
@@ -108,16 +108,13 @@
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -157,65 +154,62 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">describe('pizza()', () =&gt; {
-&nbsp;
   let pizza;
-  let order;
 &nbsp;
   beforeEach(() =&gt; {
-    order = new Order();
-    pizza = new Pizza(['bacon', 'pepperoni', 'olives', 'corn'], 'large');
-  })
+    const params = ['bacon', 'pepperoni', 'olives', 'corn'];
+    const size = 'large';
+    pizza = new Pizza(params, size);
+  });
 &nbsp;
   it('should initialize pizza', () =&gt; {
     expect(pizza.toppings).toEqual(['bacon', 'pepperoni', 'olives', 'corn']);
     expect(pizza.size).toEqual('large');
-  })
+  });
 &nbsp;
   describe('get pizzaPrice()', () =&gt; {
     it('should get price of pizza', () =&gt; {
       spyOnProperty(pizza, 'pizzaPrice', 'get').and.callThrough();
       expect(pizza.pizzaPrice).toBe(4.2);
-    })
+    });
 &nbsp;
     it('should handle if there is no pizzas size', () =&gt; {
-        incorrectPizza = new Pizza(['bacon'], 'extra');
-        spyOnProperty(incorrectPizza, 'pizzaPrice', 'get').and.callThrough();
-        expect(()=&gt; incorrectPizza.pizzaPrice).toThrowError(`Size can't find`);
-    })
+      incorrectPizza = new Pizza(['bacon'], 'extra');
+      spyOnProperty(incorrectPizza, 'pizzaPrice', 'get').and.callThrough();
+      expect(() =&gt; incorrectPizza.pizzaPrice).toThrowError(`Size can't find`);
+    });
   });
 &nbsp;
   describe('get toppingsPrice()', () =&gt; {
     it('should get price of toppings', () =&gt; {
       spyOnProperty(pizza, 'toppingsPrice', 'get').and.callThrough();
       expect(pizza.toppingsPrice).toBe(2.1);
-    })
+    });
 &nbsp;
-    it('should calculate toppings prise', () =&gt; {
-        spyOn(pizza.toppings, 'reduce');
-        pizza.toppingsPrice;
-        expect(pizza.toppings.reduce).toHaveBeenCalled();
-    })
+    it('should call reduce method', () =&gt; {
+      spyOn(pizza.toppings, 'reduce');
+      pizza.toppingsPrice;
+      expect(pizza.toppings.reduce).toHaveBeenCalled();
+    });
 &nbsp;
     it('should handle if there is no topping', () =&gt; {
-        incorrectPizza = new Pizza(['cheese'], 'small');
-        spyOnProperty(incorrectPizza, 'toppingsPrice', 'get').and.callThrough();
-        expect(()=&gt; incorrectPizza.toppingsPrice).toThrowError(`Topping cheese can't find`);
-    })
+      incorrectPizza = new Pizza(['cheese'], 'small');
+      spyOnProperty(incorrectPizza, 'toppingsPrice', 'get').and.callThrough();
+      expect(() =&gt; incorrectPizza.toppingsPrice).toThrowError(`Topping cheese can't find`);
+    });
 &nbsp;
-    it('should handle if there is no toppings', () =&gt; {
-        incorrectPizza = new Pizza('', 'small');
-        spyOnProperty(incorrectPizza, 'toppingsPrice', 'get').and.callThrough();
-        expect(()=&gt; incorrectPizza.toppingsPrice).toThrow();
-    })
-&nbsp;
+    xit('should handle if there is no toppings', <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >      incorrectPizza = new Pizza('', 'small');</span>
+<span class="cstat-no" title="statement not covered" >      spyOnProperty(incorrectPizza, 'toppingsPrice', 'get').and.callThrough();</span>
+<span class="cstat-no" title="statement not covered" >      expect(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >incorrectPizza.toppingsPrice)</span>.toThrow();</span>
+    });
   });
 });
 &nbsp;</pre></td></tr></table></pre>
@@ -225,7 +219,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sun Feb 09 2020 19:09:45 GMT+0200 (Восточная Европа, стандартное время)
+                at Tue Feb 11 2020 17:36:19 GMT+0200 (Восточная Европа, стандартное время)
             </div>
         </div>
         <script src="prettify.js"></script>
