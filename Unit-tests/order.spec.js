@@ -27,7 +27,7 @@ describe('order()', () => {
     it('should get total price of pizzas', () => {
       order.addPizza(pizza);
       spyOnProperty(order, 'totalPrice', 'get').and.callThrough();
-      expect(order.totalPrice).toBe(2.1);
+      expect(order.totalPrice).toBe(4.2);
     });
 
     it('should handles if there is no pizzas price', () => {
@@ -48,10 +48,18 @@ describe('order()', () => {
   });
 
   describe('addPizza()', () => {
-    it('should call push method', () => {
-      spyOn(order.pizzas, 'push');
+    it('should check addPizza method', () => {
+      spyOn(order, 'addPizza');
       order.addPizza(pizza);
-      expect(order.pizzas.push).toHaveBeenCalled();
+      order.addPizza(pizza);
+      expect(order.addPizza).toHaveBeenCalledTimes(2);
+    });
+
+    it('should call addPizza with right arguments', () => {
+        spyOn(order, 'addPizza');
+        order.addPizza(pizza);
+        order.addPizza(pizza);
+        expect(order.addPizza).toHaveBeenCalledWith(pizza);
     });
 
     it('should add pizza to order', () => {
@@ -61,16 +69,18 @@ describe('order()', () => {
   });
 
   describe('removePizza()', () => {
-    it('should call indexOf method', () => {
-      spyOn(order.pizzas, 'indexOf');
+    it('should call removePizza method', () => {
+      spyOn(order, 'removePizza');
       order.removePizza(pizza);
-      expect(order.pizzas.indexOf).toHaveBeenCalled();
+      order.removePizza(pizza);
+      expect(order.removePizza).toHaveBeenCalledTimes(2);
     });
 
-    it('should call splice method', () => {
-      spyOn(order.pizzas, 'splice');
-      order.removePizza(pizza);
-      expect(order.pizzas.splice).toHaveBeenCalled();
+    it('should call removePizza with right arguments', () => {
+        spyOn(order, 'removePizza');
+        order.addPizza(pizza);
+        order.removePizza(pizza);
+        expect(order.removePizza).toHaveBeenCalledWith(pizza);
     });
 
     it('should remove pizza from order', () => {

@@ -1,14 +1,15 @@
 describe('pizza()', () => {
   let pizza;
+  let params;
 
   beforeEach(() => {
-    const params = ['bacon', 'pepperoni', 'olives', 'corn'];
+    params = ['bacon', 'pepperoni', 'olives', 'corn'];
     const size = 'large';
     pizza = new Pizza(params, size);
   });
 
   it('should initialize pizza', () => {
-    expect(pizza.toppings).toEqual(['bacon', 'pepperoni', 'olives', 'corn']);
+    expect(pizza.toppings).toEqual(params);
     expect(pizza.size).toEqual('large');
   });
 
@@ -31,22 +32,16 @@ describe('pizza()', () => {
       expect(pizza.toppingsPrice).toBe(2.1);
     });
 
-    it('should call reduce method', () => {
-      spyOn(pizza.toppings, 'reduce');
-      pizza.toppingsPrice;
-      expect(pizza.toppings.reduce).toHaveBeenCalled();
-    });
-
     it('should handle if there is no topping', () => {
       incorrectPizza = new Pizza(['cheese'], 'small');
       spyOnProperty(incorrectPizza, 'toppingsPrice', 'get').and.callThrough();
       expect(() => incorrectPizza.toppingsPrice).toThrowError(`Topping cheese can't find`);
     });
 
-    xit('should handle if there is no toppings', () => {
+    it('should handle if there is no toppings', () => {
       incorrectPizza = new Pizza('', 'small');
       spyOnProperty(incorrectPizza, 'toppingsPrice', 'get').and.callThrough();
-      expect(() => incorrectPizza.toppingsPrice).toThrow();
+      expect(() => incorrectPizza.toppingsPrice).toThrowError(`Toppings can't find`);
     });
   });
 });

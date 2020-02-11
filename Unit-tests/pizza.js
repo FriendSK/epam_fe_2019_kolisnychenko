@@ -24,11 +24,11 @@ class Pizza {
   }
 
   get toppingsPrice() {
-    return this.toppings.reduce((acc, i) => {
-      if (!toppings) {
+    if (!this.toppings) {
         throw Error(`Toppings can't find`);
       }
-
+      
+    return this.toppings.reduce((acc, i) => {
       if (!toppings[i]) {
         throw Error(`Topping ${i} can't find`);
       }
