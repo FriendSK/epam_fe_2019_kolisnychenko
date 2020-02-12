@@ -3,3 +3,4 @@ src/**/styles/
 .idea/
 server/node_modules
 node_modules
+Unit-tests/coverage
