@@ -1,9 +1,0 @@
-{
-  "extends": "stylelint-config-standard",
-  "ignoreFiles": ["HW/*/*.css", "HW/*/*.scss", "HW/*/*.map", "HW/fonts/*.*", "HW/server/*.*"],
-  "rules": {
-    "at-rule-no-unknown": [ true, {
-      "ignoreAtRules": ["extend", "at-root", "debug", "warn", "error", "if", "else", "for", "each", "while", "mixin", "include", "content", "return", "function"]
-    }]
-  }
-}
