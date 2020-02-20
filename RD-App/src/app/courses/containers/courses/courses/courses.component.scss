@@ -1,0 +1,93 @@
+@import '../../../../../styles/main';
+
+.wrapper {
+  max-width: 1180px;
+  margin: 50px auto 0;
+}
+
+app-add-button {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+.course {
+
+  mat-card {
+    margin-top: 10px;
+    background-color: $bodyBG2;
+    color: $textColorDark;
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+
+    & mat-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    & mat-card-title {
+      text-transform: uppercase;
+      padding: 5px 10px;
+    }
+
+    & mat-card-content {
+      padding: 0 50px 0 10px;
+      font-size: 16px;
+    }
+
+    & mat-card-actions {
+      width: 100%;
+      display: inline-flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 0;
+    }
+  }
+
+  & .course__content {
+    width: 80%;
+  }
+
+  & .course__date {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    margin: 0 55px 12px 0;
+
+    & mat-icon {
+      margin-right: 5px;
+    }
+
+    & span {
+      font-size: 12px;
+      margin-right: 20px;
+      color: lighten($color: $textColorDark, $amount: 30%);
+    }
+  }
+
+  & .course__buttons {
+    width: 20%;
+  }
+}
+
+  .load-more {
+      margin-top: 15px;
+
+    & button {
+        background-color: $bodyBG2;
+        padding: 5px;
+        width: 100%;
+
+      & h2 {
+        text-transform: uppercase;
+        color: lighten($color: $textColorDark, $amount: 30%);
+        text-align: center;
+        font-size: 16px;
+        margin-bottom: 0;
+      }
+    }
+  }

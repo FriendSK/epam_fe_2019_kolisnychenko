@@ -1,0 +1,21 @@
+@import "../../../../../styles/main.scss";
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+
+  & a {
+    color: $textColor;
+    text-decoration: none;
+    margin-right: .8rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .active {
+    text-decoration: underline;
+  }
+}

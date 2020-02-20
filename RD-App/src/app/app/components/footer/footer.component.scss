@@ -1,0 +1,26 @@
+@import "../../../../styles/main";
+
+.center {
+  margin: 0 auto;
+}
+
+.footer {
+  min-height: 60px;
+  background: $footerBG;
+  color: $textColor;
+  padding: 17px 0 10px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+
+  &__content {
+    max-width: 1180px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & a {
+      text-decoration: none;
+    }
+  }
+}

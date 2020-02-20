@@ -1,0 +1,41 @@
+@import "../../../../styles/main";
+
+.center {
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  min-height: 60px;
+  min-width: 320px;
+  user-select: none;
+  height: 60px;
+  width: 100%;
+  background-color: $headerBG;
+
+  &__content {
+    width: 1180px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__menu-logo {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      font-size: 20px;
+      background: $headerLogoBG;
+      padding: 0 18px;
+    }
+
+    &__nav-menu {
+      display: flex;
+      align-items: center;
+
+      & app-nav-menu {
+        margin-right: 3rem;
+      }
+    }
+  }
+}
