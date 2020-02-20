@@ -8,6 +8,7 @@ import { CoursesComponent } from './containers/courses/courses/courses.component
 import { CoursesRoutingModule } from '../courses/courses.routing-module';
 import { MaterialModule } from './../app/components/material/material.module';
 import { CourseComponent } from './containers/course/course/course.component';
+import { CourseFormComponent } from './components/course-form/course-form.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CourseComponent } from './containers/course/course/course.component';
       DelButtonComponent,
       EditButtonComponent,
       SearchComponent,
-      CourseComponent
+      CourseComponent,
+      CourseFormComponent
     ],
   imports: [
     CommonModule,
