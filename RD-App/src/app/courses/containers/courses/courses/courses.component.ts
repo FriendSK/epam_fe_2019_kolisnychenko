@@ -11,7 +11,7 @@ import { Course } from '../../../../app/core/models/course.model';
 })
 export class CoursesComponent implements OnInit {
 
-    courses: Course[];
+  public courses: Course[];
 
   constructor(private coursesService: CoursesService) { }
 
@@ -23,7 +23,7 @@ export class CoursesComponent implements OnInit {
 
   onHandleDelete(id: number): void {
       this.coursesService.deleteCourse(id).pipe(
-          switchMap(()=> this.coursesService.getCourses()),
+          switchMap(() => this.coursesService.getCourses()),
           tap( data => this.courses = data)
       ).subscribe();
   }
