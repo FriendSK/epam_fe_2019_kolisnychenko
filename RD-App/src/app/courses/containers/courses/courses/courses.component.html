@@ -1,36 +1,7 @@
 <div class="wrapper">
-
     <app-search></app-search>
     <app-add-button></app-add-button>
-
-    <div class="course">
-        <mat-card>
-            <div class="course__content">
-                <mat-card-header>
-                    <mat-card-title>
-                        Lorem ipsum dolor sit
-                    </mat-card-title>
-                    <div class="course__date">
-                        <mat-icon>access_time</mat-icon>
-                        <span class="course__time">23h 37min</span>
-                        <mat-icon>date_range</mat-icon>
-                        <span class="course__day">28 Sep, 2017</span>
-                    </div>
-                </mat-card-header>
-                <mat-card-content>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi inventore veniam blanditiis beatae
-                    dolor, repellat harum soluta consequuntur cum architecto temporibus est illo voluptatum? Odit!
-                </mat-card-content>
-            </div>
-            <div class="course__buttons">
-                <mat-card-actions>
-                    <app-edit-button></app-edit-button>
-                    <app-del-button></app-del-button>
-                </mat-card-actions>
-            </div>
-        </mat-card>
-    </div>
-
+    <app-course-item *ngFor="let course of courses" [item]="course" (deleted)="onHandleDelete()"></app-course-item>
     <div class="load-more">
         <button mat-raised-button>
             <h2>Load more</h2>
