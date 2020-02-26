@@ -1,7 +1,7 @@
 <div class="wrapper">
     <app-search></app-search>
     <app-add-button></app-add-button>
-    <app-course-item *ngFor="let course of courses" [item]="course" (deleted)="onHandleDelete()"></app-course-item>
+    <app-course-item *ngFor="let course of courses" [item]="course" (deleted)="onHandleDelete($event)"></app-course-item>
     <div class="load-more">
         <button mat-raised-button>
             <h2>Load more</h2>

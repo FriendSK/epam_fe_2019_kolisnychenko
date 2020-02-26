@@ -1,19 +1,19 @@
 {
-    "courses": [
-        {
-            "title": "Title1",
-            "descr": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi inventore veniam blanditiis beatae dolor, repellat harum soluta consequuntur cum architecto temporibus est illo voluptatum? Odit!",
-            "id": 1
-        },
-        {
-            "title": "Title2",
-            "descr": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi inventore veniam blanditiis beatae dolor, repellat harum soluta consequuntur cum architecto temporibus est illo voluptatum? Odit!",
-            "id": 2
-        },
-        {
-            "title": "Title3",
-            "descr": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi inventore veniam blanditiis beatae  dolor, repellat harum soluta consequuntur cum architecto temporibus est illo voluptatum? Odit!",
-            "id": 3
-        }
-    ]
+  "courses": [
+    {
+      "title": "Title1",
+      "descr": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi inventore veniam blanditiis beatae dolor, repellat harum soluta consequuntur cum architecto temporibus est illo voluptatum? Odit!",
+      "id": 1
+    },
+    {
+      "title": "Title2",
+      "descr": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi inventore veniam blanditiis beatae dolor, repellat harum soluta consequuntur cum architecto temporibus est illo voluptatum? Odit!",
+      "id": 2
+    },
+    {
+      "title": "Title3",
+      "descr": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi inventore veniam blanditiis beatae  dolor, repellat harum soluta consequuntur cum architecto temporibus est illo voluptatum? Odit!",
+      "id": 4
+    }
+  ]
 }

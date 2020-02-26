@@ -4,19 +4,21 @@ import { CourseItemComponent } from "../shared/course-item/course-item.component
 import { DelButtonComponent } from '../shared/del-button/del-button.component';
 import { EditButtonComponent } from '../shared/edit-button/edit-button.component';
 import { MaterialModule } from './../app/components/material/material.module';
+import { TimeConvertPipe } from './pipes/time-convert.pipe';
 
 @NgModule({
     declarations: [
         CourseItemComponent,
         DelButtonComponent,
         EditButtonComponent,
+        TimeConvertPipe,
     ],
     imports: [
         CommonModule,
         MaterialModule
     ],
     exports: [
-        CourseItemComponent,
+        CourseItemComponent
     ],
     schemas: [
         CUSTOM_ELEMENTS_SCHEMA
