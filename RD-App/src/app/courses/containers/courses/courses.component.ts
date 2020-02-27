@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { tap, switchMap } from 'rxjs/operators';
-import { CoursesService } from '../../../services/courses.service';
-import { Course } from '../../../../app/core/models/course.model';
+import { CoursesService } from '../../services/courses.service';
+import { Course } from '../../../app/core/models/course.model';
+import { LoadingService } from '../../services/loading.service';
 
 @Component({
   selector: 'app-courses',
@@ -13,7 +14,8 @@ export class CoursesComponent implements OnInit {
 
   public courses: Course[];
 
-  constructor(private coursesService: CoursesService) { }
+  constructor(private coursesService: CoursesService,
+              public loadingService: LoadingService ) { }
 
   ngOnInit(): void {
       this.coursesService.getCourses().pipe(

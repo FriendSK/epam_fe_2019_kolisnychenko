@@ -1,4 +1,4 @@
 <nav>
    <a routerLinkActive="active"
-       *ngFor="let menu of menus" routerLink={{menu.path}}>{{menu.name}}</a>
+       *ngFor="let menu of menus" [routerLink]="menu.path">{{menu.name}}</a>
 </nav>

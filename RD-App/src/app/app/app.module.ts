@@ -7,8 +7,9 @@ import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { NavMenuComponent } from "./components/header/nav-menu/nav-menu.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MaterialModule } from "../app/components/material/material.module";
-import { HttpClientModule } from "@angular/common/http";
+import { MaterialModule } from "../shared/material/material.module";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { LoadingInterceptorService } from '../courses/services/loading.interceptor.service'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,11 @@ import { HttpClientModule } from "@angular/common/http";
     MaterialModule,
     HttpClientModule
   ],
-  providers: [],
+    providers: [{
+        provide: HTTP_INTERCEPTORS,
+        useClass: LoadingInterceptorService,
+        multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

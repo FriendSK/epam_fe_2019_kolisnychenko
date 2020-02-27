@@ -1,27 +1,32 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AddButtonComponent } from '../courses/components/buttons/add-button/add-button.component';
 import { SearchComponent } from './components/search/search.component';
-import { CoursesComponent } from './containers/courses/courses/courses.component';
+import { CoursesComponent } from './containers/courses/courses.component';
 import { CoursesRoutingModule } from '../courses/courses.routing-module';
-import { MaterialModule } from './../app/components/material/material.module';
-import { CourseComponent } from './containers/course/course/course.component';
+import { MaterialModule } from './../shared/material/material.module';
+import { CourseComponent } from './containers/course/course.component';
 import { CourseFormComponent } from './components/course-form/course-form.component';
 import { SharedModule } from './../shared/shared.module';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
-  declarations: [
-      CoursesComponent,
-      AddButtonComponent,
-      SearchComponent,
-      CourseComponent,
-      CourseFormComponent,
+    declarations: [
+        CoursesComponent,
+        AddButtonComponent,
+        SearchComponent,
+        CourseComponent,
+        CourseFormComponent,
+        HighlightDirective
     ],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    CoursesRoutingModule,
-    SharedModule
-  ],
+    imports: [
+        CommonModule,
+        MaterialModule,
+        CoursesRoutingModule,
+        SharedModule,
+    ],
+    schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
+    ]
 })
 export class CoursesModule { }

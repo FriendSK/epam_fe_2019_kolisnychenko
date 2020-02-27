@@ -1,9 +1,9 @@
 @import '../../../styles/main';
 
 .course {
+    margin-top: 10px;
 
   mat-card {
-    margin-top: 10px;
     background-color: $bodyBG2;
     color: $textColorDark;
     display: flex;
@@ -60,3 +60,7 @@
     width: 20%;
   }
 }
+
+.newCourse {
+    border: 2px solid $border;
+  }

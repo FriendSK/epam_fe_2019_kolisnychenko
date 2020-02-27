@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Course } from '../../app/core/models/course.model';
 import { CRUD } from 'src/app/app/core/models/crud.model';
+import { Observable } from 'rxjs/internal/Observable';
 
 const BASE_URL = 'http://localhost:3000';
 
