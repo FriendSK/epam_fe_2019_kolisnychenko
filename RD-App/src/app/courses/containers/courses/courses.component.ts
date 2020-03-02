@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { tap, switchMap } from 'rxjs/operators';
 import { CoursesService } from '../../services/courses.service';
-import { Course } from '../../../app/core/models/course.model';
+import { Course } from '../../../core/models/course.model';
 import { LoadingService } from '../../services/loading.service';
 
 @Component({

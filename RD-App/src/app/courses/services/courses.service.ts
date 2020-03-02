@@ -1,6 +1,6 @@
-import { Course } from '../../app/core/models/course.model';
+import { Course } from '../../core/models/course.model';
 import { CoursesApiService } from '../../core/services/courses.api-service';
-import { CRUD } from 'src/app/app/core/models/crud.model';
+import { CRUD } from '../../core/models/crud.model';
 import { Observable } from 'rxjs/internal/Observable';
 import { Injectable } from '@angular/core';
 
