@@ -11,6 +11,10 @@ const routes: Routes = [
     {
         path: 'add',
         component: CourseComponent
+    },
+    {
+        path: ':id',
+        component: CourseComponent
     }
 ];
 

@@ -9,14 +9,19 @@ import { EventEmitter } from "@angular/core";
 export class CourseItemComponent implements OnInit {
 
   @Input() item: any;
-  @Output() deleted: EventEmitter<number> = new EventEmitter();
+  @Output() delete: EventEmitter<number> = new EventEmitter();
+  @Output() edit: EventEmitter<number> = new EventEmitter();
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
   }
 
   onHandleDelete(): void {
-    this.deleted.emit(this.item.id)
+    this.delete.emit(this.item.id)
+  }
+
+  onHandleEdit(): void {
+    this.edit.emit(this.item.id)
   }
 }

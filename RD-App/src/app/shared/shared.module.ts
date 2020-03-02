@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { CourseItemComponent } from "../shared/course-item/course-item.component";
 import { DelButtonComponent } from '../shared/del-button/del-button.component';
 import { EditButtonComponent } from '../shared/edit-button/edit-button.component';
 import { MaterialModule } from './../shared/material/material.module';
@@ -9,7 +8,6 @@ import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
     declarations: [
-        CourseItemComponent,
         DelButtonComponent,
         EditButtonComponent,
         DurationConvertPipe,
@@ -20,8 +18,10 @@ import { LoaderComponent } from './loader/loader.component';
         MaterialModule
     ],
     exports: [
-        CourseItemComponent,
-        LoaderComponent
+        LoaderComponent,
+        DelButtonComponent,
+        EditButtonComponent,
+        DurationConvertPipe
     ]
 })
 export class SharedModule { }

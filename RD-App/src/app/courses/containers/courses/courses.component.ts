@@ -15,18 +15,22 @@ export class CoursesComponent implements OnInit {
   public courses: Course[];
 
   constructor(private coursesService: CoursesService,
-              public loadingService: LoadingService ) { }
+              public loadingService: LoadingService) { }
 
   ngOnInit(): void {
-      this.coursesService.getCourses().pipe(
-          tap( data => this.courses = data)
-      ).subscribe();
+    this.coursesService.getCourses().pipe(
+      tap(data => this.courses = data)
+    ).subscribe();
   }
 
   onHandleDelete(id: number): void {
-      this.coursesService.deleteCourse(id).pipe(
-          switchMap(() => this.coursesService.getCourses()),
-          tap( data => this.courses = data)
-      ).subscribe();
+    this.coursesService.deleteCourseById(id).pipe(
+      switchMap(() => this.coursesService.getCourses()),
+      tap(data => this.courses = data)
+    ).subscribe();
+  }
+
+  onHandleEdit(id: number): void {
+    this.coursesService.navigateById(id);
   }
 }

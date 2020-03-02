@@ -11,49 +11,56 @@
             <div class="title-form-field pull-right"><span>* required</span></div>
             <mat-form-field>
                 <mat-label>Title:</mat-label>
-                <input formControlName="title" matInput placeholder="Some title...">
+                <input matInput formControlName="title" placeholder="Some title...">
+                <mat-hint *ngIf="isTitleRangeInvalid">Length has to be up to 50 characters long</mat-hint>
             </mat-form-field>
 
             <div class="description-form-field pull-right"><span>* required</span></div>
             <mat-form-field>
                 <mat-label>Description:</mat-label>
-                <textarea formControlName="description" matInput placeholder="Description..."></textarea>
+                <textarea matInput formControlName="descr" placeholder="Description..."></textarea>
+                <mat-hint *ngIf="isDescrRangeInvalid">Length has to be up to 50 characters long</mat-hint>
             </mat-form-field>
 
             <div class="duration-form-field"><span>* required</span>
                 <mat-form-field>
                     <mat-label>Duration:</mat-label>
-                    <input formControlName="duration" type="number" matInput placeholder="0">
+                    <input type="number" formControlName="duration" matInput placeholder="0">
+                    <mat-hint *ngIf="isDurationRangeInvalid">Out of range</mat-hint>
                 </mat-form-field>
             </div>
 
             <div class="date-form-field"><span>* required</span>
                 <mat-form-field>
                     <mat-label>Date:</mat-label>
-                    <input formControlName="date" type="text" matInput placeholder="20.02.20">
+                    <input type="text" formControlName="date" matInput placeholder="20.02.20">
+                    <mat-hint></mat-hint>
                 </mat-form-field>
             </div>
 
             <mat-form-field>
                 <mat-label>Authors:</mat-label>
-                <div  class="options-form-field pull-right"><span>* required</span></div>
+                <div class="options-form-field pull-right"><span>* required</span></div>
                 <mat-select formControlName="authors">
                     <mat-option value="Author1">Author1</mat-option>
                     <mat-option value="Author2">Author2</mat-option>
                     <mat-option value="Author3">Author3</mat-option>
                 </mat-select>
+                <mat-error></mat-error>
             </mat-form-field>
 
         </mat-card-content>
 
         <mat-card-actions>
-            <button mat-raised-button [routerLink]="['../']">
+            <button type="button" mat-raised-button [routerLink]="['../']">
                 <span>Cancel</span>
             </button>
-            <button mat-raised-button>
+            <button mat-raised-button *ngIf="!existed" (click)="onAdd()" type="submit" [disabled]="courseForm.invalid">
                 <span>Save</span>
             </button>
+            <button mat-raised-button *ngIf="existed" (click)="onEdit()" type="submit" [disabled]="courseForm.invalid">
+              <span>Save changes</span>
+          </button>
         </mat-card-actions>
     </mat-card>
-
 </form>

@@ -61,6 +61,11 @@ mat-card {
       &:hover {
         background-color: lighten($color: $bodyBG3, $amount: 20%);
       }
+
+      &:disabled {
+         cursor: not-allowed;
+         background-color: lighten($color: $bodyBG3, $amount: 20%);
+      }
     }
   }
 }

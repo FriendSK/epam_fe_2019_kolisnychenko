@@ -10,6 +10,7 @@ import { CourseFormComponent } from './components/course-form/course-form.compon
 import { SharedModule } from './../shared/shared.module';
 import { HighlightDirective } from './directives/highlight.directive';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CourseItemComponent } from './../courses/containers/courses/course-item/course-item.component';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         SearchComponent,
         CourseComponent,
         CourseFormComponent,
-        HighlightDirective
+        HighlightDirective,
+        CourseItemComponent
     ],
     imports: [
         CommonModule,

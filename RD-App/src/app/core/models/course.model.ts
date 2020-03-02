@@ -3,6 +3,6 @@ export interface Course {
     descr: string,
     id: number,
     duration: number,
-    creationDate: string,
+    date: string,
     authors: string
 }

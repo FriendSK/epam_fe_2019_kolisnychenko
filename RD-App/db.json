@@ -5,28 +5,32 @@
       "descr": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi inventore veniam blanditiis beatae dolor, repellat harum soluta consequuntur cum architecto temporibus est illo voluptatum? Odit!",
       "id": 1,
       "duration": 100,
-      "creationDate": "25 Feb 2020"
+      "date": "25 Feb 2020",
+      "authors": "Author2"
     },
     {
       "title": "Title2",
       "descr": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi inventore veniam blanditiis beatae dolor, repellat harum soluta consequuntur cum architecto temporibus est illo voluptatum? Odit!",
       "id": 2,
       "duration": 110,
-      "creationDate": "20 Feb 2020"
+      "date": "20 Feb 2020",
+      "authors": "Author1"
     },
     {
       "title": "Title3",
       "descr": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi inventore veniam blanditiis beatae  dolor, repellat harum soluta consequuntur cum architecto temporibus est illo voluptatum? Odit!",
       "id": 3,
       "duration": 120,
-      "creationDate": "7 Dec 2019"
+      "date": "7 Dec 2019",
+      "authors": "Author3"
     },
     {
       "title": "Title4",
       "descr": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi inventore veniam blanditiis beatae  dolor, repellat harum soluta consequuntur cum architecto temporibus est illo voluptatum? Odit!",
-      "id": 4,
+      "date": "25 Feb 2019",
       "duration": 40,
-      "creationDate": "25 Feb 2019"
+      "authors": "Author3",
+      "id": 4
     }
   ]
 }

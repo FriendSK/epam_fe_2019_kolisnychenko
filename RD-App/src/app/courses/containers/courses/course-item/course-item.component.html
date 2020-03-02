@@ -9,7 +9,7 @@
                     <mat-icon>access_time</mat-icon>
                     <span class="course__time">{{item.duration | durationConvert}}</span>
                     <mat-icon>date_range</mat-icon>
-                    <span class="course__day">{{item.creationDate}}</span>
+                    <span class="course__day">{{item.date}}</span>
                 </div>
             </mat-card-header>
             <mat-card-content>
@@ -18,7 +18,7 @@
         </div>
         <div class="course__buttons">
             <mat-card-actions>
-                <app-edit-button></app-edit-button>
+                <app-edit-button (click)="onHandleEdit()"></app-edit-button>
                 <app-del-button (click)="onHandleDelete()"></app-del-button>
             </mat-card-actions>
         </div>
