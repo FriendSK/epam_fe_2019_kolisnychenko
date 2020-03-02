@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AddButtonComponent } from '../courses/components/buttons/add-button/add-button.component';
 import { SearchComponent } from './components/search/search.component';
@@ -9,6 +9,7 @@ import { CourseComponent } from './containers/course/course.component';
 import { CourseFormComponent } from './components/course-form/course-form.component';
 import { SharedModule } from './../shared/shared.module';
 import { HighlightDirective } from './directives/highlight.directive';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -24,9 +25,8 @@ import { HighlightDirective } from './directives/highlight.directive';
         MaterialModule,
         CoursesRoutingModule,
         SharedModule,
-    ],
-    schemas: [
-        CUSTOM_ELEMENTS_SCHEMA
+        FormsModule,
+        ReactiveFormsModule
     ]
 })
 export class CoursesModule { }

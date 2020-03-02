@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output } from "@angular/core";
 import { EventEmitter } from "@angular/core";
-import { NodeWithI18n } from '@angular/compiler';
 
 @Component({
   selector: "app-course-item",
