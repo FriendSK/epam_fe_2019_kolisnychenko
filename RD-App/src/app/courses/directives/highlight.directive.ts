@@ -13,13 +13,12 @@ export class HighlightDirective implements AfterViewInit {
     }
 
     ngAfterViewInit() {
-        let creationalDate: number = new Date(this.date).getTime();
+        let date: number = new Date(this.date).getTime();
         let today: number = Date.now();
-        this.isNewCourse = (Math.floor(today - creationalDate) / (1000 * 3600 * 24)) < 14;
+        this.isNewCourse = (Math.floor(today - date) / (1000 * 3600 * 24)) < 14;
 
         if (this.isNewCourse) {
-            this.elementRef.nativeElement.children[0].classList.add('newCourse')
+            this.elementRef.nativeElement.children[0].classList.add('new-course')
         }
     }
 }
-

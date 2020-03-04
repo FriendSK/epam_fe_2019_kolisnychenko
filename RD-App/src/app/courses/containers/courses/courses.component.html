@@ -1,19 +1,19 @@
 <div class="wrapper">
-    <app-search></app-search>
-    <app-add-button></app-add-button>
-    <app-course-item  Highlight
-        [date]="course.date"
-        *ngFor="let course of courses"
-        [item]="course"
-        (delete)="onHandleDelete($event)"
-        (edit)="onHandleEdit($event)">
+  <app-search></app-search>
+  <div class="pull-right">
+    <button class="add-button" mat-raised-button [routerLink]="['./add']">
+      <mat-icon>add</mat-icon><span>Add course</span>
+    </button>
+  </div>
+  <app-course-item Highlight [date]="course.date" *ngFor="let course of courses" [item]="course"
+    (delete)="onHandleDelete($event)" (edit)="onHandleEdit($event)">
   </app-course-item>
-    <div class="loader" *ngIf="loadingService.loadingStatus">
-        <app-loader></app-loader>
-    </div>
-    <div class="load-more">
-        <button mat-raised-button>
-            <h2>Load more</h2>
-        </button>
-    </div>
+  <div class="loader" *ngIf="loadingService.loadingStatus">
+    <app-loader></app-loader>
+  </div>
+  <div class="load-more-button">
+    <button mat-raised-button>
+      <h2>Load more</h2>
+    </button>
+  </div>
 </div>

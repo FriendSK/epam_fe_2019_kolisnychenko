@@ -34,10 +34,16 @@ export class CoursesService {
   }
 
   deleteCourseById(id: number): Observable<{}> {
-    return this.coursesAPIService.deleteCourse(id);
+    return this.coursesAPIService.deleteCourseById(id);
   }
 
   getCourseById(id: number): Observable<Course> {
     return this.coursesAPIService.getCourseById(id);
   }
+
+  getCoursesByTitle(title: string): Observable<Course[]> {
+    return this.coursesAPIService.getCoursesByTitle(title);
+  }
+
+
 }

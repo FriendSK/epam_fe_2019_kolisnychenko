@@ -12,14 +12,14 @@
             <mat-form-field>
                 <mat-label>Title:</mat-label>
                 <input matInput formControlName="title" placeholder="Some title...">
-                <mat-hint *ngIf="isTitleRangeInvalid">Length has to be up to 50 characters long</mat-hint>
+                <mat-hint *ngIf="isTitleRangeInvalid">Length has to be 3 to 50 characters long</mat-hint>
             </mat-form-field>
 
             <div class="description-form-field pull-right"><span>* required</span></div>
             <mat-form-field>
                 <mat-label>Description:</mat-label>
                 <textarea matInput formControlName="descr" placeholder="Description..."></textarea>
-                <mat-hint *ngIf="isDescrRangeInvalid">Length has to be up to 50 characters long</mat-hint>
+                <mat-hint *ngIf="isDescrRangeInvalid">Length has to be 3 to 250 characters long</mat-hint>
             </mat-form-field>
 
             <div class="duration-form-field"><span>* required</span>
@@ -33,8 +33,8 @@
             <div class="date-form-field"><span>* required</span>
                 <mat-form-field>
                     <mat-label>Date:</mat-label>
-                    <input type="text" formControlName="date" matInput placeholder="20.02.20">
-                    <mat-hint></mat-hint>
+                    <input type="text" formControlName="date" matInput placeholder="MM/DD/YY">
+                    <mat-hint *ngIf="isDateFormatInvalid">Should match MM/DD/YY format</mat-hint>
                 </mat-form-field>
             </div>
 

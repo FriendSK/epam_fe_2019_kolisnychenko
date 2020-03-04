@@ -35,6 +35,11 @@ mat-card {
     & .duration-form-field,
     .date-form-field {
       width: 25%;
+      margin-bottom: 10px;
+
+      & mat-hint {
+        font-size: 12px;
+      }
 
       & span {
         float: right;

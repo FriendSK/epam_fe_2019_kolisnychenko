@@ -3,10 +3,10 @@
 .search {
   position: relative;
   margin-left: 10px;
+  width: 285px;
 
   & input[type="search"] {
     height: 45px;
-    width: 320px;
     border: 1px solid $searchBorder;
     border-radius: 5px;
     padding: 5px 0 5px 40px;
@@ -24,9 +24,35 @@
     }
   }
 
-  & > img {
+  &>img {
     position: absolute;
     top: 13px;
-    left: 1%;
+    left: 5%;
+  }
+
+  & .search__result {
+    margin-top: 10px;
+    border: 1px solid $searchBorder;
+    border-radius: 5px;
+    padding: 5px 0 5px 40px;
+    outline: none;
+
+    & ul {
+      list-style-type: none;
+
+      & li {
+        font-size: 16px;
+        margin-top: 3px;
+      }
+    }
+  }
+
+  & .search__no-results {
+    margin-top: 25px;
+    display: flex;
+
+    & p {
+      margin: auto;
+    }
   }
 }

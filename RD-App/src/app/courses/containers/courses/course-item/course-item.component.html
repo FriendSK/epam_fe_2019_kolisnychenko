@@ -18,8 +18,12 @@
         </div>
         <div class="course__buttons">
             <mat-card-actions>
-                <app-edit-button (click)="onHandleEdit()"></app-edit-button>
-                <app-del-button (click)="onHandleDelete()"></app-del-button>
+              <button mat-raised-button (click)="onHandleDelete()">
+                <mat-icon>delete</mat-icon><span>Delete</span>
+            </button>
+            <button mat-raised-button (click)="onHandleEdit()">
+              <mat-icon>edit</mat-icon><span>Edit</span>
+          </button>
             </mat-card-actions>
         </div>
     </mat-card>

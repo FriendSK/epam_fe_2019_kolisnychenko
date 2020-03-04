@@ -1,4 +1,3 @@
-import { Course } from './../models/course.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Course } from '../models/course.model';
@@ -17,7 +16,7 @@ export class CoursesApiService {
       return this.httpClient.get<Course[]>(`${BASE_URL}/courses`);
   }
 
-  deleteCourse(id: number): Observable<{}> {
+  deleteCourseById(id: number): Observable<{}> {
     return this.httpClient.delete<Course>(`${BASE_URL}/courses/${id}`);
   }
 
@@ -31,5 +30,9 @@ export class CoursesApiService {
 
   getCourseById(id: number): Observable<Course> {
     return this.httpClient.get<Course>(`${BASE_URL}/courses/${id}`);
+  }
+
+  getCoursesByTitle(title: string): Observable<Course[]> {
+    return this.httpClient.get<Course[]>(`${BASE_URL}/courses?title_like=${title}`);
   }
 }

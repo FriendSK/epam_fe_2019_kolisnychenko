@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AddButtonComponent } from '../courses/components/buttons/add-button/add-button.component';
 import { SearchComponent } from './components/search/search.component';
 import { CoursesComponent } from './containers/courses/courses.component';
 import { CoursesRoutingModule } from '../courses/courses.routing-module';
@@ -15,7 +14,6 @@ import { CourseItemComponent } from './../courses/containers/courses/course-item
 @NgModule({
     declarations: [
         CoursesComponent,
-        AddButtonComponent,
         SearchComponent,
         CourseComponent,
         CourseFormComponent,

@@ -25,26 +25,31 @@ export class CourseFormComponent implements OnInit {
   @Output() edit: EventEmitter<Course> = new EventEmitter();
 
   courseForm = this.formBilder.group({
-    title: ['', [Validators.required, Validators.maxLength(50)]],
-    descr: ['', [Validators.required, Validators.maxLength(250)]],
-    date: ['', [Validators.required]],
+    title: ['', [Validators.required, Validators.maxLength(50), Validators.minLength(3)]],
+    descr: ['', [Validators.required, Validators.maxLength(250), Validators.minLength(3)]],
     duration: ['', [Validators.required, rangeValidatorParam(1, 600)]],
+    date: ['', [Validators.required, Validators.pattern('(0[1-9]|1[0-2])\/(0[1-9]|1\\d|2\\d|3[01])\/\\d{2}')]],
     authors: ['', Validators.required]
   });
 
   get isTitleRangeInvalid(): boolean {
     const title = this.courseForm.get('title');
-    return title.errors && title.touched;
+    return title.hasError('maxlength') || title.hasError('minlength') && title.touched;
   }
 
   get isDescrRangeInvalid(): boolean {
     const descr = this.courseForm.get('descr');
-    return descr.errors && descr.touched;
+    return descr.hasError('maxlength') || descr.hasError('minlength')  && descr.touched;
   }
 
   get isDurationRangeInvalid(): boolean {
     const duration = this.courseForm.get('duration');
     return duration.hasError('range') && duration.touched;
+  }
+
+  get isDateFormatInvalid(): boolean {
+    const date = this.courseForm.get('date');
+    return date.hasError('pattern') && date.touched;
   }
 
   constructor(private formBilder: FormBuilder) { }
