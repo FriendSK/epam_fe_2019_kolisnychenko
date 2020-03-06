@@ -1,36 +1,36 @@
-import { Component, OnInit } from '@angular/core';
-import { tap, switchMap } from 'rxjs/operators';
+import { Observable } from 'rxjs/internal/Observable';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CoursesService } from '../../services/courses.service';
 import { Course } from '../../../core/models/course.model';
-import { LoadingService } from '../../services/loading.service';
+import { LoadingService } from '../../../core/services/loading.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
   styleUrls: ['./courses.component.scss'],
-  providers: [CoursesService]
+  providers: [CoursesService],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CoursesComponent implements OnInit {
 
-  public courses: Course[];
+  public courses$: Observable<Course[]>;
 
   constructor(private coursesService: CoursesService,
-              public loadingService: LoadingService) { }
+              public loadingService: LoadingService,
+              private router: Router) {
+
+    this.courses$ = this.coursesService.getCourses();
+  }
 
   ngOnInit(): void {
-    this.coursesService.getCourses().pipe(
-      tap(data => this.courses = data)
-    ).subscribe();
   }
 
-  onHandleDelete(id: number): void {
-    this.coursesService.deleteCourseById(id).pipe(
-      switchMap(() => this.coursesService.getCourses()),
-      tap(data => this.courses = data)
-    ).subscribe();
+  onHandleDelete(id: number) {
+    this.coursesService.deleteCourseById(id);
   }
 
-  onHandleEdit(id: number): void {
-    this.coursesService.navigateById(id);
+  onHandleEdit(id: number) {
+    this.router.navigate([`courses/${id}`]);
   }
 }

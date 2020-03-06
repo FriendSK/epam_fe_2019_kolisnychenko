@@ -33,8 +33,8 @@ export class CoursesService {
     return this.coursesAPIService.getCourses();
   }
 
-  deleteCourseById(id: number): Observable<{}> {
-    return this.coursesAPIService.deleteCourseById(id);
+  deleteCourseById(id: number): void {
+    this.coursesAPIService.deleteCourseById(id).subscribe();
   }
 
   getCourseById(id: number): Observable<Course> {
@@ -44,6 +44,4 @@ export class CoursesService {
   getCoursesByTitle(title: string): Observable<Course[]> {
     return this.coursesAPIService.getCoursesByTitle(title);
   }
-
-
 }

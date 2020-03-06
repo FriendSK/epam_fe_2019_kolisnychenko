@@ -5,7 +5,7 @@
       <mat-icon>add</mat-icon><span>Add course</span>
     </button>
   </div>
-  <app-course-item Highlight [date]="course.date" *ngFor="let course of courses" [item]="course"
+  <app-course-item Highlight [date]="course.date" *ngFor="let course of courses$ | async" [item]="course"
     (delete)="onHandleDelete($event)" (edit)="onHandleEdit($event)">
   </app-course-item>
   <div class="loader" *ngIf="loadingService.loadingStatus">

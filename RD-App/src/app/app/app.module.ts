@@ -9,7 +9,7 @@ import { NavMenuComponent } from "./components/header/nav-menu/nav-menu.componen
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MaterialModule } from "../shared/material/material.module";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-import { LoadingInterceptorService } from '../courses/services/loading.interceptor.service'
+import { LoadingInterceptorService } from '../core/services/loading.interceptor.service'
 
 @NgModule({
   declarations: [

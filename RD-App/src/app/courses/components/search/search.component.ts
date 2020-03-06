@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { CoursesService } from './../../services/courses.service';
 import { tap, debounceTime, distinctUntilChanged, switchMap, catchError, map } from 'rxjs/operators';
@@ -9,13 +9,15 @@ import { EMPTY } from 'rxjs';
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
-  providers: [CoursesService]
+  providers: [CoursesService],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent implements OnInit  {
 
   public isFound: boolean = false;
 
-  constructor(private coursesService: CoursesService) { }
+  constructor(private coursesService: CoursesService,
+              private cd: ChangeDetectorRef) { }
 
   courses: Course[] = [];
 
@@ -38,7 +40,7 @@ export class SearchComponent implements OnInit {
       switchMap((value: string) => this.coursesService.getCoursesByTitle(value).pipe(
         catchError(err => EMPTY))
       ),
-      tap(res => this.courses = res)
+      tap(res => { this.courses = res; this.cd.markForCheck()})
     ).subscribe();
   }
 }

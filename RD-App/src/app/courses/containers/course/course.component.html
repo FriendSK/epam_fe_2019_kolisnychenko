@@ -1,4 +1,4 @@
 <div class="wrapper">
-  <app-course-form [course]="course" (add)="onAdd($event)" (edit)="onEdit($event)">
+  <app-course-form [course]="course$ | async" (add)="onAdd($event)" (edit)="onEdit($event)">
   </app-course-form>
 </div>

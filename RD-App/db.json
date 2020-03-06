@@ -31,14 +31,6 @@
       "duration": 40,
       "authors": "Author3",
       "id": 4
-    },
-    {
-      "title": "Title5",
-      "descr": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, quia!",
-      "duration": 45,
-      "date": "04/03/20",
-      "authors": "Author3",
-      "id": 5
     }
   ]
 }

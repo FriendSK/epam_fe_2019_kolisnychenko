@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { rangeValidatorParam } from './../../../core/validators/range.validator';
 import { Course } from '../../../../app/core/models/course.model';
@@ -6,11 +6,12 @@ import { Course } from '../../../../app/core/models/course.model';
 @Component({
   selector: 'app-course-form',
   templateUrl: './course-form.component.html',
-  styleUrls: ['./course-form.component.scss']
+  styleUrls: ['./course-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseFormComponent implements OnInit {
 
-  id: number;
+  private id: number;
   existed: boolean;
 
   @Input() set course(course: Course) {
