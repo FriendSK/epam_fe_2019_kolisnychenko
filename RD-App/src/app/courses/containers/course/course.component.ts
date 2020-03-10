@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs/internal/Observable';
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Course } from '../../../../app/core/models/course.model';
 import { CoursesService } from './../../services/courses.service';
 import { ActivatedRoute } from '@angular/router';
@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class CourseComponent implements OnInit {
+export class CourseComponent {
 
   id: number;
   course$: Observable<Course>;
@@ -26,14 +26,11 @@ export class CourseComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-  }
-
   onAdd(course: Course): void {
-    this.coursesService.addCourse(course).subscribe();
+    this.coursesService.addCourse(course);
   }
 
   onEdit(course: Course): void {
-    this.coursesService.editCourse(course).subscribe();
+    this.coursesService.editCourse(course)
   }
 }

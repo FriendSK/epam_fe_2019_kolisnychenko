@@ -12,8 +12,8 @@ export class CoursesApiService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getCourses(): Observable<Course[]> {
-      return this.httpClient.get<Course[]>(`${BASE_URL}/courses`);
+  getCourses(param1: number, param2: number): Observable<Course[]> {
+    return this.httpClient.get<Course[]>(`${BASE_URL}/courses?_start=${param1}&_limit=${param2}`);
   }
 
   deleteCourseById(id: number): Observable<{}> {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Output, EventEmitter, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { rangeValidatorParam } from './../../../core/validators/range.validator';
 import { Course } from '../../../../app/core/models/course.model';
@@ -9,7 +9,7 @@ import { Course } from '../../../../app/core/models/course.model';
   styleUrls: ['./course-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CourseFormComponent implements OnInit {
+export class CourseFormComponent {
 
   private id: number;
   existed: boolean;
@@ -54,9 +54,6 @@ export class CourseFormComponent implements OnInit {
   }
 
   constructor(private formBilder: FormBuilder) { }
-
-  ngOnInit(): void {
-  }
 
   onAdd(): void {
     if (this.courseForm.valid) {

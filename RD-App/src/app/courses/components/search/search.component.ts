@@ -1,9 +1,9 @@
-import { Component, OnInit, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { CoursesService } from './../../services/courses.service';
 import { tap, debounceTime, distinctUntilChanged, switchMap, catchError, map } from 'rxjs/operators';
 import { Course } from '../../../../app/core/models/course.model';
-import { EMPTY } from 'rxjs';
+import { EMPTY, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-search',
@@ -12,7 +12,7 @@ import { EMPTY } from 'rxjs';
   providers: [CoursesService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SearchComponent implements OnInit  {
+export class SearchComponent implements OnInit, OnDestroy {
 
   public isFound: boolean = false;
 
@@ -20,12 +20,13 @@ export class SearchComponent implements OnInit  {
               private cd: ChangeDetectorRef) { }
 
   courses: Course[] = [];
+  subscription: Subscription;
 
   searchControl: FormControl = new FormControl();
 
   ngOnInit(): void {
 
-    this.searchControl.valueChanges.pipe(
+    this.subscription = this.searchControl.valueChanges.pipe(
       map(value => {
         if (value === '') {
           this.isFound = false
@@ -40,7 +41,11 @@ export class SearchComponent implements OnInit  {
       switchMap((value: string) => this.coursesService.getCoursesByTitle(value).pipe(
         catchError(err => EMPTY))
       ),
-      tap(res => { this.courses = res; this.cd.markForCheck()})
+      tap(res => { this.courses = res; this.cd.markForCheck() })
     ).subscribe();
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

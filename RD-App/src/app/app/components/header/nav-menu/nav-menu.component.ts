@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Menu } from "../../../../core/models/menu.model";
 
 @Component({
@@ -7,16 +7,10 @@ import { Menu } from "../../../../core/models/menu.model";
   styleUrls: ['./nav-menu.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NavMenuComponent implements OnInit {
+export class NavMenuComponent {
 
     public menus: Menu[] = [
         {name: 'Courses', path: 'courses'},
         {name: 'About',   path: 'about'},
     ];
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

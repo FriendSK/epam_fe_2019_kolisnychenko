@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs/internal/Observable';
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CoursesService } from '../../services/courses.service';
 import { Course } from '../../../core/models/course.model';
 import { LoadingService } from '../../../core/services/loading.service';
@@ -12,25 +12,28 @@ import { Router } from '@angular/router';
   providers: [CoursesService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CoursesComponent implements OnInit {
+export class CoursesComponent  {
 
-  public courses$: Observable<Course[]>;
+
+  private courseLimit: number = 3;
+  private courseStart: number = 0;
+  public courses$: Observable<Course[]> = this.coursesService.getCourses(this.courseStart, this.courseLimit);
 
   constructor(private coursesService: CoursesService,
               public loadingService: LoadingService,
               private router: Router) {
-
-    this.courses$ = this.coursesService.getCourses();
   }
 
-  ngOnInit(): void {
-  }
-
-  onHandleDelete(id: number) {
+  onHandleDelete(id: number): void {
     this.coursesService.deleteCourseById(id);
   }
 
-  onHandleEdit(id: number) {
+  onHandleEdit(id: number): void {
     this.router.navigate([`courses/${id}`]);
+  }
+
+  onHandleLoadMore() {
+    this.courseLimit ++;
+    this.courses$ = this.coursesService.getCourses(this.courseStart, this.courseLimit)
   }
 }

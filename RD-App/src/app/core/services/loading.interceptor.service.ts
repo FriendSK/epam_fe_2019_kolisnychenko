@@ -1,17 +1,20 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { LoadingService } from './loading.service';
-import { throwError } from 'rxjs';
+import { throwError, Subscription } from 'rxjs';
 
 
 @Injectable()
-export class LoadingInterceptorService implements HttpInterceptor {
+export class LoadingInterceptorService implements HttpInterceptor, OnDestroy {
+
+  subscription: Subscription;
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     this.loadingService.isLoading.next(true);
     return new Observable(observer => {
-      const subscription = next.handle(req).subscribe(event => {
+      this.subscription = next.handle(req).subscribe(event => {
+
         if (event instanceof HttpResponse) {
           observer.next(event);
           this.loadingService.isLoading.next(false);
@@ -23,4 +26,8 @@ export class LoadingInterceptorService implements HttpInterceptor {
     });
   }
   constructor(private loadingService: LoadingService) { }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
+  }
 }

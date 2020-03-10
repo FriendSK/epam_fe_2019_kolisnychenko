@@ -5,7 +5,7 @@
       "descr": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi inventore veniam blanditiis beatae dolor, repellat harum soluta consequuntur cum architecto temporibus est illo voluptatum? Odit!",
       "id": 1,
       "duration": 100,
-      "date": "25 Feb 2020",
+      "date": "10 Mar 2020",
       "authors": "Author2"
     },
     {
@@ -27,10 +27,26 @@
     {
       "title": "Title4",
       "descr": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi inventore veniam blanditiis beatae  dolor, repellat harum soluta consequuntur cum architecto temporibus est illo voluptatum? Odit!",
-      "date": "25 Feb 2019",
-      "duration": 40,
+      "date": "10 Mar 2019",
+      "duration": 45,
       "authors": "Author3",
       "id": 4
+    },
+    {
+      "title": "Title5",
+      "descr": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi inventore veniam blanditiis beatae  dolor, repellat harum soluta consequuntur cum architecto temporibus est illo voluptatum? Odit!",
+      "date": "05 Mar 2020",
+      "duration": 140,
+      "authors": "Author3",
+      "id": 5
+    },
+    {
+      "title": "Title6",
+      "descr": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi inventore veniam blanditiis beatae  dolor, repellat harum soluta consequuntur cum architecto temporibus est illo voluptatum? Odit!",
+      "date": "02 Mar 2020",
+      "duration": 120,
+      "authors": "Author3",
+      "id": 6
     }
   ]
 }

@@ -9,28 +9,30 @@ import { tap } from 'rxjs/operators';
 
 export class CoursesService {
 
+  private subs: [] = [];
+
   constructor(private coursesAPIService: CoursesApiService,
     private router: Router) {
   }
 
-  addCourse(course: Course): Observable<Course> {
-    return this.coursesAPIService.addCourse(course).pipe(
+  addCourse(course: Course): void {
+    this.coursesAPIService.addCourse(course).pipe(
       tap(() => this.router.navigate(['/courses']))
-    );
+    ).subscribe();
   }
 
-  editCourse(course: Course): Observable<Course> {
-    return this.coursesAPIService.editCourse(course).pipe(
+  editCourse(course: Course): void {
+    this.coursesAPIService.editCourse(course).pipe(
       tap(() => this.router.navigate(['/courses']))
-    );
+    ).subscribe();
   }
 
   navigateById(id: number): void {
     this.router.navigate([`/courses/${id}`]);
   }
 
-  getCourses(): Observable<Course[]> {
-    return this.coursesAPIService.getCourses();
+  getCourses(param1: number, param2: number): Observable<Course[]> {
+    return this.coursesAPIService.getCourses(param1, param2);
   }
 
   deleteCourseById(id: number): void {
