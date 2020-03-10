@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <app-search></app-search>
+  <app-search (searchedCourses)="onSearch($event)"></app-search>
   <div class="pull-right">
     <button class="add-button" mat-raised-button [routerLink]="['./add']">
       <mat-icon>add</mat-icon><span>Add course</span>

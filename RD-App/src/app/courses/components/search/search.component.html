@@ -1,14 +1,4 @@
 <div class="search">
   <input type="search" [formControl]="searchControl" id="searchForm" placeholder="Text for search">
   <img src="../../../../assets/img/a-icon-search.svg" alt="search" />
-  <div class="search__result" *ngIf="courses.length; else noResults">
-    <ul>
-      <li *ngFor="let course of courses">{{course.title}}</li>
-    </ul>
-  </div>
-  <ng-template #noResults>
-    <div class="search__no-results" *ngIf="isFound">
-      <p>Courses not found</p>
-    </div>
-  </ng-template>
 </div>

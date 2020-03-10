@@ -28,6 +28,10 @@ export class CoursesComponent  {
      return this.coursesService.getCourses(start, limit);
   }
 
+  onSearch(foundCourses: Observable<Course[]>): void {
+    this.courses$ = foundCourses;
+  }
+
   onHandleDelete(id: number): void {
     this.coursesService.deleteCourseById(id);
     this.courses$ = this.refreshCourses(this.courseStart, this.courseLimit);
