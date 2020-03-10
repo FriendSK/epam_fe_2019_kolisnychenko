@@ -19,6 +19,7 @@ export class CourseFormComponent {
       this.id = course.id;
       this.existed = true;
       this.courseForm.patchValue(course);
+      this.courseForm.markAllAsTouched();
     }
   }
 

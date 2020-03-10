@@ -9,7 +9,7 @@
                     <mat-icon>access_time</mat-icon>
                     <span class="course__time">{{item.duration | durationConvert}}</span>
                     <mat-icon>date_range</mat-icon>
-                    <span class="course__day">{{item.date}}</span>
+                    <span class="course__day">{{item.date | date: "MM/dd/yy"}}</span>
                 </div>
             </mat-card-header>
             <mat-card-content>
