@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Course } from '../models/course.model';
 import { Observable } from 'rxjs/internal/Observable';
@@ -12,8 +12,8 @@ export class CoursesApiService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getCourses(param1: number, param2: number): Observable<Course[]> {
-    return this.httpClient.get<Course[]>(`${BASE_URL}/courses?_start=${param1}&_limit=${param2}`);
+  getCourses(param: HttpParams): Observable<Course[]> {
+    return this.httpClient.get<Course[]>(`${BASE_URL}/courses`, { params : param});
   }
 
   deleteCourseById(id: number): Observable<{}> {

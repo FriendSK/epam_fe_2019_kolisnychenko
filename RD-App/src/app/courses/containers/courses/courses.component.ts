@@ -4,6 +4,7 @@ import { CoursesService } from '../../services/courses.service';
 import { Course } from '../../../core/models/course.model';
 import { LoadingService } from '../../../core/services/loading.service';
 import { Router } from '@angular/router';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-courses',
@@ -15,17 +16,20 @@ import { Router } from '@angular/router';
 
 export class CoursesComponent  {
 
-  private courseLimit: number = 4;
-  private courseStart: number = 0;
-  public courses$: Observable<Course[]> = this.refreshCourses(this.courseStart, this.courseLimit);
+  private courseLimit: string = '4';
+  private courseStart: string = '0';
+
+  private param = new HttpParams().set('_start', this.courseStart).set('_end', this.courseLimit);
+
+  public courses$: Observable<Course[]> = this.refreshCourses(this.param);
 
   constructor(private coursesService: CoursesService,
               public loadingService: LoadingService,
               private router: Router) {
   }
 
-  refreshCourses (start: number, limit: number): Observable<Course[]> {
-     return this.coursesService.getCourses(start, limit);
+  refreshCourses (param: HttpParams): Observable<Course[]> {
+     return this.coursesService.getCourses(param);
   }
 
   onSearch(foundCourses: Observable<Course[]>): void {
@@ -34,7 +38,7 @@ export class CoursesComponent  {
 
   onHandleDelete(id: number): void {
     this.coursesService.deleteCourseById(id);
-    this.courses$ = this.refreshCourses(this.courseStart, this.courseLimit);
+    this.courses$ = this.refreshCourses(this.param);
   }
 
   onHandleEdit(id: number): void {
@@ -42,7 +46,10 @@ export class CoursesComponent  {
   }
 
   onHandleLoadMore() {
-    this.courseLimit ++;
-    this.courses$ = this.refreshCourses(this.courseStart, this.courseLimit)
+    let parsedNumber = +this.courseLimit;
+    let incrementedNumber = ++parsedNumber;
+    this.courseLimit = incrementedNumber.toString();
+    this.param = new HttpParams().set('_start', this.courseStart).set('_end', this.courseLimit);
+    this.courses$ = this.refreshCourses(this.param);
   }
 }

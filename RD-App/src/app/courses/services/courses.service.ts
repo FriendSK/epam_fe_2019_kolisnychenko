@@ -3,7 +3,8 @@ import { Course } from '../../core/models/course.model';
 import { CoursesApiService } from '../../core/services/courses.api-service';
 import { Observable } from 'rxjs/internal/Observable';
 import { Injectable } from '@angular/core';
-import { tap, switchMap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable()
 
@@ -29,8 +30,8 @@ export class CoursesService {
     this.router.navigate([`/courses/${id}`]);
   }
 
-  getCourses(param1: number, param2: number): Observable<Course[]> {
-    return this.coursesAPIService.getCourses(param1, param2);
+  getCourses(param: HttpParams): Observable<Course[]> {
+    return this.coursesAPIService.getCourses(param);
   }
 
   deleteCourseById(id: number): void {
