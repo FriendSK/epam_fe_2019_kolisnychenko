@@ -12,20 +12,25 @@ import { Router } from '@angular/router';
   providers: [CoursesService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class CoursesComponent  {
 
-
-  private courseLimit: number = 3;
+  private courseLimit: number = 4;
   private courseStart: number = 0;
-  public courses$: Observable<Course[]> = this.coursesService.getCourses(this.courseStart, this.courseLimit);
+  public courses$: Observable<Course[]> = this.refreshCourses(this.courseStart, this.courseLimit);
 
   constructor(private coursesService: CoursesService,
               public loadingService: LoadingService,
               private router: Router) {
   }
 
+  refreshCourses (start: number, limit: number): Observable<Course[]> {
+     return this.coursesService.getCourses(start, limit);
+  }
+
   onHandleDelete(id: number): void {
     this.coursesService.deleteCourseById(id);
+    this.courses$ = this.refreshCourses(this.courseStart, this.courseLimit);
   }
 
   onHandleEdit(id: number): void {
@@ -34,6 +39,6 @@ export class CoursesComponent  {
 
   onHandleLoadMore() {
     this.courseLimit ++;
-    this.courses$ = this.coursesService.getCourses(this.courseStart, this.courseLimit)
+    this.courses$ = this.refreshCourses(this.courseStart, this.courseLimit)
   }
 }

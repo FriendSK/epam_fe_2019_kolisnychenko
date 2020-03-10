@@ -3,16 +3,14 @@ import { Course } from '../../core/models/course.model';
 import { CoursesApiService } from '../../core/services/courses.api-service';
 import { Observable } from 'rxjs/internal/Observable';
 import { Injectable } from '@angular/core';
-import { tap } from 'rxjs/operators';
+import { tap, switchMap } from 'rxjs/operators';
 
 @Injectable()
 
 export class CoursesService {
 
-  private subs: [] = [];
-
   constructor(private coursesAPIService: CoursesApiService,
-    private router: Router) {
+              private router: Router) {
   }
 
   addCourse(course: Course): void {
