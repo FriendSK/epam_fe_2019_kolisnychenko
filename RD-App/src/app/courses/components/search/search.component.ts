@@ -19,8 +19,8 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   constructor(private coursesService: CoursesService) { }
 
-  subscription: Subscription;
-  searchControl: FormControl = new FormControl();
+  private subscription: Subscription;
+  public searchControl: FormControl = new FormControl();
 
   ngOnInit(): void {
 

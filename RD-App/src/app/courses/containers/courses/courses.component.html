@@ -8,7 +8,7 @@
   <app-course-item Highlight [date]="course.date" *ngFor="let course of courses$ | async" [item]="course"
     (delete)="onHandleDelete($event)" (edit)="onHandleEdit($event)">
   </app-course-item>
-  <div class="loader" *ngIf="loadingService.loadingStatus">
+  <div class="loader" *ngIf="isLoading$ | async">
     <app-loader></app-loader>
   </div>
   <div class="load-more-button">

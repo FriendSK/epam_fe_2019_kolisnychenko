@@ -12,7 +12,7 @@ import { Course } from '../../../../app/core/models/course.model';
 export class CourseFormComponent {
 
   private id: number;
-  existed: boolean;
+  public existed: boolean;
 
   @Input() set course(course: Course) {
     if (course && course.id) {

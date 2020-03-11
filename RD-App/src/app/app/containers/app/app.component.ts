@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  title = 'RD-App';
+  public title = 'RD-App';
 }

@@ -1,22 +1,11 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subscription } from 'rxjs';
-
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoadingService {
 
-  subscription: Subscription;
-
-  public isLoading = new BehaviorSubject(false);
-  public loadingStatus: boolean;
-
-  constructor() {
-    this.subscription = this.isLoading.subscribe((status: boolean) => this.loadingStatus = status);
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
+  public loadingSubject: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  public loadingStatus: Observable<boolean> = this.loadingSubject.asObservable();
 }

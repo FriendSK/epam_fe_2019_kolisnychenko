@@ -1,8 +1,21 @@
 import { DurationConvertPipe } from './duration-convert.pipe';
 
-describe('DurationConvertPipe', () => {
+fdescribe('DurationConvertPipe', () => {
+
+  let pipe;
+
+  beforeEach(() => {
+    pipe = new DurationConvertPipe();
+  });
+
   it('create an instance', () => {
-    const pipe = new DurationConvertPipe();
     expect(pipe).toBeTruthy();
+  });
+
+  describe('transform()', () => {
+    it('should convert time format', () => {
+      const result = pipe.transform(110);
+      expect(result).toBe('1h 50min');
+    });
   });
 });

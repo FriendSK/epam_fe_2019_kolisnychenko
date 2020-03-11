@@ -7,7 +7,6 @@ import { tap } from 'rxjs/operators';
 import { HttpParams } from '@angular/common/http';
 
 @Injectable()
-
 export class CoursesService {
 
   constructor(private coursesAPIService: CoursesApiService,

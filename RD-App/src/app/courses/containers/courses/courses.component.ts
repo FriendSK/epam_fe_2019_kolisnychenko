@@ -22,6 +22,7 @@ export class CoursesComponent  {
   private param = new HttpParams().set('_start', this.courseStart).set('_end', this.courseLimit);
 
   public courses$: Observable<Course[]> = this.refreshCourses(this.param);
+  public isLoading$: Observable<boolean> = this.loadingService.loadingStatus;
 
   constructor(private coursesService: CoursesService,
               public loadingService: LoadingService,
@@ -45,7 +46,7 @@ export class CoursesComponent  {
     this.router.navigate([`courses/${id}`]);
   }
 
-  onHandleLoadMore() {
+  onHandleLoadMore(): void {
     let parsedNumber = +this.courseLimit;
     let incrementedNumber = ++parsedNumber;
     this.courseLimit = incrementedNumber.toString();

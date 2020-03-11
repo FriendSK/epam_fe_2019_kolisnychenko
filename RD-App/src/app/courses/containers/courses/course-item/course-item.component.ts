@@ -1,6 +1,5 @@
 import { Component, Input, Output, ChangeDetectionStrategy } from "@angular/core";
 import { EventEmitter } from "@angular/core";
-
 @Component({
   selector: "app-course-item",
   templateUrl: "./course-item.component.html",

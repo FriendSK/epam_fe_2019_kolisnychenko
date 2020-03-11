@@ -3,24 +3,22 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse } fr
 import { Observable } from 'rxjs/internal/Observable';
 import { LoadingService } from './loading.service';
 import { throwError, Subscription } from 'rxjs';
-
-
 @Injectable()
 export class LoadingInterceptorService implements HttpInterceptor, OnDestroy {
 
-  subscription: Subscription;
+  private subscription: Subscription;
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    this.loadingService.isLoading.next(true);
+    this.loadingService.loadingSubject.next(true);
     return new Observable(observer => {
       this.subscription = next.handle(req).subscribe(event => {
 
         if (event instanceof HttpResponse) {
           observer.next(event);
-          this.loadingService.isLoading.next(false);
+          this.loadingService.loadingSubject.next(false);
         }
       }, err => {
-        this.loadingService.isLoading.next(false);
+        this.loadingService.loadingSubject.next(false);
         throwError(err);
       })
     });

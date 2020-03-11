@@ -2,9 +2,7 @@
     <mat-card>
         <div class="course__content">
             <mat-card-header>
-                <mat-card-title>
-                    {{item.title}}
-                </mat-card-title>
+                <mat-card-title>{{item.title}}</mat-card-title>
                 <div class="course__date">
                     <mat-icon>access_time</mat-icon>
                     <span class="course__time">{{item.duration | durationConvert}}</span>
@@ -12,16 +10,14 @@
                     <span class="course__day">{{item.date | date: "MM/dd/yy"}}</span>
                 </div>
             </mat-card-header>
-            <mat-card-content>
-                {{item.descr}}
-            </mat-card-content>
+            <mat-card-content>{{item.descr}}</mat-card-content>
         </div>
         <div class="course__buttons">
             <mat-card-actions>
-              <button mat-raised-button (click)="onHandleDelete()">
+              <button class="course__del-button" mat-raised-button (click)="onHandleDelete()">
                 <mat-icon>delete</mat-icon><span>Delete</span>
             </button>
-            <button mat-raised-button (click)="onHandleEdit()">
+            <button class="course__edit-button" mat-raised-button (click)="onHandleEdit()">
               <mat-icon>edit</mat-icon><span>Edit</span>
           </button>
             </mat-card-actions>
