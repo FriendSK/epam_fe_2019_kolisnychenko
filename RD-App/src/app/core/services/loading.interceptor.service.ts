@@ -14,7 +14,6 @@ export class LoadingInterceptorService implements HttpInterceptor, OnDestroy {
     this.loadingService.isLoading.next(true);
     return new Observable(observer => {
       this.subscription = next.handle(req).subscribe(event => {
-        console.log(req);
 
         if (event instanceof HttpResponse) {
           observer.next(event);

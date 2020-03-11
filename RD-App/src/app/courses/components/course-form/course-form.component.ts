@@ -30,7 +30,7 @@ export class CourseFormComponent {
     title: ['', [Validators.required, Validators.maxLength(50), Validators.minLength(3)]],
     descr: ['', [Validators.required, Validators.maxLength(250), Validators.minLength(3)]],
     duration: ['', [Validators.required, rangeValidatorParam(1, 600)]],
-    date: ['', [Validators.required, Validators.pattern('(0[1-9]|1[0-2])\/(0[1-9]|1\\d|2\\d|3[01])\/\\d{2}')]],
+    date: ['', [Validators.required, Validators.pattern('(0[1-9]|1[0-2]|\\d)\/(0[1-9]|1\\d|2\\d|3[01])\/\\d{2}')]],
     authors: ['', Validators.required]
   });
 

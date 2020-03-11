@@ -49,7 +49,7 @@ export class CoursesComponent  {
     let parsedNumber = +this.courseLimit;
     let incrementedNumber = ++parsedNumber;
     this.courseLimit = incrementedNumber.toString();
-    this.param = new HttpParams().set('_start', this.courseStart).set('_end', this.courseLimit);
+    this.param = new HttpParams().append('_start', this.courseStart).append('_end', this.courseLimit);
     this.courses$ = this.refreshCourses(this.param);
   }
 }
