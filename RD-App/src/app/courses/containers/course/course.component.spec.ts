@@ -5,11 +5,12 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CourseComponent } from './course.component';
 import { By } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { Router } from '@angular/router';
 
 fdescribe('CourseComponent', () => {
   let component: CourseComponent;
   let fixture: ComponentFixture<CourseComponent>;
+  let spy: jasmine.Spy;
+  let coursesService: CoursesService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -25,6 +26,7 @@ fdescribe('CourseComponent', () => {
       .compileComponents();
     fixture = TestBed.createComponent(CourseComponent);
     component = fixture.componentInstance;
+    coursesService = fixture.debugElement.injector.get(CoursesService);
     fixture.detectChanges();
   }));
 
@@ -34,19 +36,19 @@ fdescribe('CourseComponent', () => {
 
   describe('onAdd()', () => {
     it('should call onAdd method', () => {
-      spyOn(component, 'onAdd');
+      spy = spyOn(coursesService, 'addCourse');
       const formEl = fixture.debugElement.query(By.css('app-course-form'));
       formEl.triggerEventHandler('add', null);
-      expect(component.onAdd).toHaveBeenCalled();
+      expect(spy.calls.any()).toBeTruthy();
     });
   });
 
   describe('onEdit()', () => {
     it('should call onEdit method', () => {
-      spyOn(component, 'onEdit');
+      spy = spyOn(coursesService, 'editCourse');
       const formEl = fixture.debugElement.query(By.css('app-course-form'));
       formEl.triggerEventHandler('edit', null);
-      expect(component.onEdit).toHaveBeenCalled();
+      expect(spy.calls.any()).toBeTruthy();
     });
   });
 });

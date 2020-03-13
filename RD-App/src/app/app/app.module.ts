@@ -8,7 +8,7 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { NavMenuComponent } from "./components/header/nav-menu/nav-menu.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MaterialModule } from "../shared/material/material.module";
-import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from "@angular/common/http";
 import { LoadingInterceptorService } from '../core/services/loading.interceptor.service'
 
 @NgModule({
@@ -23,7 +23,8 @@ import { LoadingInterceptorService } from '../core/services/loading.interceptor.
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClient
   ],
     providers: [{
         provide: HTTP_INTERCEPTORS,

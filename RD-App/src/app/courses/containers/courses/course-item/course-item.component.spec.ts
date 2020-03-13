@@ -2,6 +2,7 @@ import { DurationConvertPipe } from './../../../../shared/pipes/duration-convert
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CourseItemComponent } from './course-item.component';
 import { By } from '@angular/platform-browser';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 const courseMock = {
   title: 'Title1',
@@ -17,7 +18,8 @@ const courseMock = {
 
     beforeEach(async(() => {
       TestBed.configureTestingModule({
-        declarations: [CourseItemComponent, DurationConvertPipe]
+        declarations: [CourseItemComponent, DurationConvertPipe],
+        schemas: [CUSTOM_ELEMENTS_SCHEMA]
       })
         .compileComponents();
     }));

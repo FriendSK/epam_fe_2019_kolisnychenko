@@ -14,7 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 
 export class CourseComponent {
 
-  private id: number;
+  public id: number;
   public course$: Observable<Course>;
 
   constructor(private coursesService: CoursesService,

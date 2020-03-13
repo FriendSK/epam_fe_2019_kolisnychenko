@@ -2,7 +2,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { CoursesService } from './../../services/courses.service';
-import { tap, debounceTime, distinctUntilChanged, switchMap, catchError, map } from 'rxjs/operators';
+import { tap, debounceTime, distinctUntilChanged, switchMap, catchError } from 'rxjs/operators';
 import { Course } from '../../../../app/core/models/course.model';
 import { EMPTY, Subscription, of } from 'rxjs';
 

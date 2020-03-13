@@ -8,6 +8,16 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpParams } from '@angular/common/http';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { Course } from '../../../app/core/models/course.model';
+
+const courseMock: Course =  {
+  "title": "Title1",
+  "descr": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi inventore veniam blanditiis beatae dolor, repellat harum soluta consequuntur cum architecto temporibus est illo voluptatum? Odit!",
+  "id": 1,
+  "duration": 100,
+  "date": "10/03/20",
+  "authors": "Author2"
+}
 
 const apiMethods = [
   'addCourse',
@@ -22,6 +32,7 @@ const apiMethods = [
 fdescribe('CoursesService', () => {
   let service: CoursesService;
   let apiService: SpyObj<CoursesApiService>;
+  let spy: jasmine.Spy;
   let location: Location;
   let router: Router;
 
@@ -44,20 +55,22 @@ fdescribe('CoursesService', () => {
     location = TestBed.get(Location);
   });
 
-  it('should be created', () => {
+  it('service should be created', () => {
     expect(service).toBeTruthy();
   });
 
   describe('deleteCourseById()', () => {
     it('should delete course by id', () => {
       apiService.deleteCourseById.and.returnValue(of({}));
+      service.deleteCourseById(1);
+      expect(apiService.deleteCourseById).toHaveBeenCalled()
     });
 
-    //     it('should call course delete method', () => {
-    //     //   spyOn(service, 'deleteCourseById');
-    //       service.deleteCourseById(2);
-    //       expect(service.deleteCourseById).toHaveBeenCalled();
-    //     });
+    it('should call course delete method', () => {
+      spyOn(service, 'deleteCourseById');
+      service.deleteCourseById(2);
+      expect(service.deleteCourseById).toHaveBeenCalled();
+    });
   });
 
   describe('getCourseById()', () => {
@@ -82,15 +95,43 @@ fdescribe('CoursesService', () => {
     });
   });
 
+
+  describe('editCourse()', () => {
+    it('should edit a course ', () => {
+      apiService.editCourse.and.returnValue(of(courseMock));
+      service.editCourse(courseMock);
+      expect(apiService.editCourse).toHaveBeenCalled();
+    });
+
+    it('should call course edit method ', () => {
+      spyOn(service, 'editCourse');
+      service.editCourse(courseMock);
+      expect(service.editCourse).toHaveBeenCalled();
+    });
+  });
+
+  describe('addCourse()', () => {
+    it('should add a course ', () => {
+      apiService.addCourse.and.returnValue(of(courseMock));
+      service.addCourse(courseMock);
+      expect(apiService.addCourse).toHaveBeenCalled();
+    });
+
+    it('should call course add method ', () => {
+      spyOn(service, 'addCourse');
+      service.addCourse(courseMock);
+      expect(service.addCourse).toHaveBeenCalled();
+    });
+  });
+
   xdescribe('navigateById()', () => {
     it('should navigate by id to "/courses/:id" page ', () => {
 
       router = TestBed.get(Router);
       router.initialNavigation();
+      router.navigate(['/courses/2']);
       service.navigateById(2);
-
       expect(location.path()).toBe('/courses/2');
-
     });
   });
 });

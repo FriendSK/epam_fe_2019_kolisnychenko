@@ -1,4 +1,4 @@
-import { Component, ViewChild, DebugElement } from '@angular/core';
+import { Component, ViewChild, DebugElement, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HighlightDirective } from './highlight.directive';
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -19,7 +19,8 @@ fdescribe('HighlightDirective', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [HighlightComponent, HighlightDirective]
+      declarations: [HighlightComponent, HighlightDirective],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
       .compileComponents();
     fixture = TestBed.createComponent(HighlightComponent);

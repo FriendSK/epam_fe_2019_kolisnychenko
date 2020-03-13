@@ -1,8 +1,7 @@
 import { TestBed } from '@angular/core/testing';
-
 import { LoadingService } from './loading.service';
 
-describe('LoadingService', () => {
+fdescribe('LoadingService', () => {
   let service: LoadingService;
 
   beforeEach(() => {
@@ -10,7 +9,7 @@ describe('LoadingService', () => {
     service = TestBed.inject(LoadingService);
   });
 
-  it('should be created', () => {
+  it('service should be created', () => {
     expect(service).toBeTruthy();
   });
 });
