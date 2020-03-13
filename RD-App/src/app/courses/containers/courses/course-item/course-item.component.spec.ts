@@ -64,5 +64,4 @@ const courseMock = {
         deleteEl.triggerEventHandler('click', null);
         expect(id).toBe(courseMock.id);
     });
-
   });
